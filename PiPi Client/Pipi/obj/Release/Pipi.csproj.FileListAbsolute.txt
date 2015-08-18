@@ -1,0 +1,9 @@
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\bin\Release\Pipi.exe
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\bin\Release\Pipi.pdb
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\obj\Release\Pipi.Form1.resources
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\obj\Release\Pipi.Form2.resources
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\obj\Release\Pipi.Properties.Resources.resources
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\obj\Release\Pipi.csproj.GenerateResource.Cache
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\obj\Release\Pipi.exe
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\obj\Release\Pipi.pdb
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\obj\Release\Pipi.csprojResolveAssemblyReference.cache

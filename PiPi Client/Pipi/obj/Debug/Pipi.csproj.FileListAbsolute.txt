@@ -1,0 +1,17 @@
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\obj\Debug\Pipi.csprojResolveAssemblyReference.cache
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\obj\Debug\Pipi.Properties.Resources.resources
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\obj\Debug\Pipi.csproj.GenerateResource.Cache
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\bin\Debug\Pipi.exe
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\bin\Debug\Pipi.pdb
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\obj\Debug\Pipi.exe
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\obj\Debug\Pipi.pdb
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\obj\Debug\Pipi.Form1.resources
+C:\Users\伟\Desktop\Pipi\Pipi\obj\Debug\Pipi.exe
+C:\Users\伟\Desktop\Pipi\Pipi\obj\Debug\Pipi.pdb
+C:\Users\伟\Desktop\Pipi\Pipi\bin\Debug\Pipi.exe
+C:\Users\伟\Desktop\Pipi\Pipi\bin\Debug\Pipi.pdb
+C:\Users\伟\Desktop\Pipi\Pipi\obj\Debug\Pipi.csprojResolveAssemblyReference.cache
+C:\Users\伟\Desktop\Pipi\Pipi\obj\Debug\Pipi.Form1.resources
+C:\Users\伟\Desktop\Pipi\Pipi\obj\Debug\Pipi.Properties.Resources.resources
+C:\Users\伟\Desktop\Pipi\Pipi\obj\Debug\Pipi.csproj.GenerateResource.Cache
+d:\documents\visual studio 2013\Projects\Pipi\Pipi\obj\Debug\Pipi.Form2.resources
