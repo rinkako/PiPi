@@ -68,7 +68,7 @@ label {
 
 #head {
 	background-size: cover;
-	height: 600px;
+	height: 530px;
 	text-align: center;
 	color: white;
 	font-weight: 300;
@@ -77,9 +77,9 @@ label {
 }
 .logo {
   margin: 0 auto;
-  width: 318px;
+  width: 160px;
   position: relative;
-  top: 27px;
+  top: 10px;
   /* bottom: -50px; */
 }
 #head.secondary {
@@ -237,7 +237,7 @@ ul, .list.custom-list ul {
 .navbar-inverse {
   background: #fff;
   margin: 0 auto;
-  margin-top: 26px;
+  margin-top: 10px;
 }
 .navbar-inverse {
 	border: none;
@@ -555,7 +555,7 @@ h4.item-title.text-center {
 /* Main Contents
 /* ---------------------------------------------------------------------- */
 section.main-contents {
-  margin-bottom: 71px;
+  margin-bottom: 5px;
 }
 li.inline-text {
   padding: 10px;
