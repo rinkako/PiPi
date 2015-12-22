@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/font-awesome.min.css"> 
 	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen"> 
-	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/home_style.css">
     <link rel='stylesheet' id='camera-css'  href='assets/css/camera.css' type='text/css' media='all'> 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -33,7 +33,7 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav  mainNav">
 					<li class="active"><a href="index.html">Home</a></li>
-					<li><a href="about.html">Lost&amp;Found</a></li>
+					<li><a href="index.php/lost_found/index">Lost&amp;Found</a></li>
 					<li><a href="testimonial.html">Information</a></li>
 					<li><a href="contact.html">Contact</a></li>
 
@@ -49,7 +49,8 @@
 		<div class="container">
              <div class="heading-text">							
 							<h1 class="animated flipInY delay1">中山大学东校区多媒体管理系统</h1>
-              <button class="infos-button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;登陆&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+              <button type="button" onclick=<?php echo "'window.location.href=\"" . site_url("login") . "\"'"; ?> class="infos-button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;登陆&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+              
 						</div>
             
 			       <div class="fluid_container">                       
