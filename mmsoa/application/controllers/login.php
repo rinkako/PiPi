@@ -6,6 +6,7 @@ Class login extends CI_Controller {
 		parent::__construct();
  		$this->load->model('moa_user_model');
  		$this->load->helper(array('form', 'url'));
+ 		//$this->load->library('session');
 	}
 
 	public function index() {
@@ -14,8 +15,8 @@ Class login extends CI_Controller {
 	
 	public function loginValidation() {
 		if (isset($_POST['username']) && isset($_POST['password'])) {
-			$username = $_POST['username'];
-			$password = md5($_POST['password']);
+ 			$username = $_POST['username'];
+ 			$password = md5($_POST['password']);
 			$result = $this->moa_user_model->login_check($username, $password);
 			if ($result == false) {
 				$error = "用户名或密码错误!";

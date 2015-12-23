@@ -6,12 +6,12 @@
 	<meta name="description" content="free-educational-responsive-web-template-webEdu">
 	<meta name="author" content="webThemez.com">
 	<title>MOA -东校区多媒体管理系统-</title>
-	<link rel="favicon" href="assets/images/favicon.png">
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/font-awesome.min.css"> 
-	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen"> 
-	<link rel="stylesheet" href="assets/css/home_style.css">
-    <link rel='stylesheet' id='camera-css'  href='assets/css/camera.css' type='text/css' media='all'> 
+	<link href="<?=base_url().'assets/images/favicon.png' ?>" rel="stylesheet">
+	<link href="<?=base_url().'assets/css/bootstrap.min.css' ?>" rel="stylesheet">
+	<link href="<?=base_url().'assets/css/font-awesome.min.css' ?>" rel="stylesheet">
+	<link href="<?=base_url().'assets/css/bootstrap-theme.css' ?>" rel="stylesheet" media="screen">
+	<link href="<?=base_url().'assets/css/home_style.css' ?>" rel="stylesheet">
+	<link id='camera-css' href="<?=base_url().'assets/css/camera.css' ?>" rel="stylesheet" type='text/css' media='all'>
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 	<script src="assets/js/html5shiv.js"></script>
@@ -20,7 +20,7 @@
 </head>
 <body>
     <div class="logo">
-        <a href="index.html"><img src="assets/images/150.png" width="150" align="center"></a>
+        <a href="index.html"><img src="<?=base_url().'assets/images/150.png' ?>" width="150" align="center"></a>
     </div>
 	<!-- Fixed navbar -->
 	<div class="navbar navbar-inverse">
@@ -32,10 +32,10 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav  mainNav">
-					<li class="active"><a href="index.html">Home</a></li>
-					<li><a href="index.php/lost_found/index">Lost&amp;Found</a></li>
-					<li><a href="testimonial.html">Information</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li class="active"><a href="index.html">首页</a></li>
+					<li><a href="index.php/lost_found/index">失物招领</a></li>
+					<li><a href="testimonial.html">通知</a></li>
+					<li><a href="contact.html">联系我们</a></li>
 
 				</ul>
 			</div>
@@ -55,12 +55,12 @@
             
 			       <div class="fluid_container">                       
                 <div class="camera_wrap camera_emboss pattern_1" id="camera_wrap_4">
-                    <div data-thumb="assets/images/slides/thumbs/img1.jpg" data-src="assets/images/slides/img2.jpg">
+                    <div data-thumb="<?=base_url().'assets/images/slides/thumbs/img1.jpg' ?>" data-src="<?=base_url().'assets/images/slides/img2.jpg' ?>">
                         <h2>We develop.</h2>
                     </div> 
-                    <div data-thumb="assets/images/slides/thumbs/img2.jpg" data-src="assets/images/slides/img4.jpg">
+                    <div data-thumb="<?=base_url().'assets/images/slides/thumbs/img2.jpg' ?>" data-src="<?=base_url().'assets/images/slides/img4.jpg' ?>">
                     </div>
-                    <div data-thumb="assets/images/slides/thumbs/img3.jpg" data-src="assets/images/slides/img3.jpg">
+                    <div data-thumb="<?=base_url().'assets/images/slides/thumbs/img3.jpg' ?>" data-src="<?=base_url().'assets/images/slides/img3.jpg' ?>">
                     </div> 
                 </div><!-- #camera_wrap_3 -->
               </div><!-- .fluid_container -->
@@ -112,12 +112,12 @@
     </div>
 
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-    <script src="assets/js/modernizr-latest.js"></script> 
-    <script type='text/javascript' src='assets/js/jquery.min.js'></script>
-    <script type='text/javascript' src='assets/js/jquery.mobile.customized.min.js'></script>
-    <script type='text/javascript' src='assets/js/jquery.easing.1.3.js'></script> 
-    <script type='text/javascript' src='assets/js/camera.min.js'></script> 
-    <script src="assets/js/bootstrap.min.js"></script> 
+	<script src="<?=base_url().'assets/js/modernizr-latest.js' ?>"></script>
+	<script type='text/javascript' src="<?=base_url().'assets/js/jquery.min.js' ?>"></script>
+	<script type='text/javascript' src="<?=base_url().'assets/js/jquery.mobile.customized.min.js' ?>"></script>
+	<script type='text/javascript' src="<?=base_url().'assets/js/jquery.easing.1.3.js' ?>"></script>
+	<script type='text/javascript' src="<?=base_url().'assets/js/camera.min.js' ?>"></script>
+	<script src="<?=base_url().'assets/js/bootstrap.min.js' ?>"></script>
     
     <script>
 		jQuery(function(){

@@ -25,7 +25,7 @@ $("#fetch-btn").click(function() {
 			}
 			else {
 				// 登录成功，跳转至个人主页
-				window.location.href = 'login/showHomepage';
+				window.location.href = 'backend';
 			}
 		}
 

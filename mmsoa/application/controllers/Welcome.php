@@ -20,17 +20,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('begin');
-// 		$this->load->model('moa_log_model');
-// 		$paras['dash_wid'] = 0;
-// 		$paras['affect_wid'] = 1;
-// 		$paras['description'] = 'lallalaallal';
-// 		$paras['logtimestamp'] = date('Y-m-d H:i:s');
-// 		$this->moa_log_model->add($paras);
+		$this->load->view('view_begin');
 	}
 	
-	public function test()
-	{
-		$this->load->view('oa_index');
-	}
 }
