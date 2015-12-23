@@ -3919,11 +3919,11 @@ body.modal-open {
   color: #e6e6e6;
   font-size: 180px;
   font-weight: 800;
-  letter-spacing: -10px;
+  letter-spacing: 0px;
   margin-bottom: 0px;
 }
 .middle-box h1 {
-  font-size: 170px;
+  font-size: 125px;
 }
 .wrapper .middle-box {
   margin-top: 140px;
@@ -6404,4 +6404,9 @@ body.skin-3 {
 /* ECHARTS  */
 .echarts {
     height: 240px;
+}
+
+/* Error information */
+.window-tips {
+	color: #F30505;
 }

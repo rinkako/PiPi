@@ -197,7 +197,7 @@ class moa_user_model extends CI_Model {
 	 * @param contrib - 修改量
 	 * @return 该用户最新的总旷工次数
 	 */
-	public function update_bad($uid, $contrib = 1) {
+	public function update_absence($uid, $contrib = 1) {
 		if (isset($uid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_User SET totalAbsence = totalAbsence + ' . $contrib . ' WHERE uid = ' . $uid;
 			$sqlquery = $this->db->query($sb);
@@ -215,7 +215,7 @@ class moa_user_model extends CI_Model {
 	 * @param contrib - 修改量
 	 * @return 该用户最新的总请假次数
 	 */
-	public function update_bad($uid, $contrib = 1) {
+	public function update_leave($uid, $contrib = 1) {
 		if (isset($uid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_User SET totalLeave = totalLeave + ' . $contrib . ' WHERE uid = ' . $uid;
 			$sqlquery = $this->db->query($sb);
@@ -242,6 +242,27 @@ class moa_user_model extends CI_Model {
 		}
 		else {
 			return false;
+		}
+	}
+	
+	
+	/**
+	 * 登录验证
+	 * @param username - 用户名
+	 * @param password - 哈希后的密码
+	 * @return 登录成功与否
+	 */
+	public function login_check($username, $password) {
+		if (isset($username) and isset($password)) {
+			$sb = 'SELECT username, password FROM MOA_User WHERE username = "' . $username . '" AND password = "' . $password . '"';
+			$sqlquery = $this->db->query($sb);
+			$dataarr = $sqlquery->result();
+			if (count($dataarr) == 0) {
+				return false;
+			}
+			else {
+				return true;
+			}
 		}
 	}
 
