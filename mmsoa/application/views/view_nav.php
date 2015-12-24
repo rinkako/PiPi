@@ -27,19 +27,19 @@
                         </div>
 
                     </li>
-					<li class="active">
-                        <a href="index"><i class="fa fa-columns"></i> <span class="nav-label">个人主页</span><span class="label label-danger pull-right">2.0</span></a>
+					<li id="active-homepage">
+                        <a href="homepage"><i class="fa fa-columns"></i> <span class="nav-label">个人主页</span><span class="label label-danger pull-right">2.0</span></a>
                     </li>  
-                    <li>
-                        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">工作记录</span> <span class="fa arrow"></span></a>
+                    <li id="active-workrecord">
+                        <a href="homepage#"><i class="fa fa-th-large"></i> <span class="nav-label">工作记录</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="dailycheck">常检</a>
+                            <li id="active-dailycheck"><a href="dailycheck">常检</a>
                             </li>
-                            <li><a href="index_2.html">周检</a>
+                            <li id="active-weeklycheck"><a href="weeklycheck">周检</a>
                             </li>
-                            <li><a href="index_3.html">值班</a>
+                            <li id="active-duty"><a href="duty">值班</a>
                             </li>
-                            <li><a href="index_4.html">拍摄</a>
+                            <li id="active-filming"><a href="filming">拍摄</a>
                             </li>
                         </ul>
                     </li>
@@ -66,7 +66,7 @@
                             </li>
                         </ul>
                     </li>
-
+<!--  
                     <li>
                         <a href="index.html#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">图表</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -258,4 +258,5 @@
                             </li>
                         </ul>
                     </li>
+-->
                 </ul>

@@ -30,109 +30,7 @@
         </nav>
 
         <div id="page-wrapper" class="gray-bg sidebar-content">
-            <div class="row border-bottom">
-                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-                    <div class="navbar-header">
-                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="showHomepage#"><i class="fa fa-bars"></i> </a>
-                        <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
-                            <div class="form-group">
-                            	<div class="form-control" >
-		                            <span>上月工时  <span class="badge badge-primary">16</span></span>
-		                            <span>本月工时  <span class="badge badge-info">12</span></span>
-		                        </div>
-                            </div>
-                        </form>
-                    </div>
-                    <ul class="nav navbar-top-links navbar-right">
-                        <li>
-                            <span class="m-r-sm text-muted welcome-message"><a href="index.html" title="返回首页"><i class="fa fa-home"></i></a>欢迎进入MOA</span>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="index.html#">
-                                <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-messages">
-                                <li>
-                                    <div class="dropdown-messages-box">
-                                        <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="<?=base_url().'assets/images/a7.jpg' ?>" >
-                                        </a>
-                                        <div class="media-body">
-                                            <small class="pull-right">46小时前</small>
-                                            <strong>小四</strong> 项目已处理完结
-                                            <br>
-                                            <small class="text-muted">3天前 2014.11.8</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <div class="dropdown-messages-box">
-                                        <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="<?=base_url().'assets/images/a4.jpg' ?>" >
-                                        </a>
-                                        <div class="media-body ">
-                                            <small class="pull-right text-navy">25小时前</small>
-                                            <strong>国民岳父</strong> 这是一条测试信息
-                                            <br>
-                                            <small class="text-muted">昨天</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <div class="text-center link-block">
-                                        <a href="mailbox.html">
-                                            <i class="fa fa-envelope"></i>  <strong> 查看所有消息</strong>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="index.html#">
-                                <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-alerts">
-                                <li>
-                                    <a href="mailbox.html">
-                                        <div>
-                                            <i class="fa fa-envelope fa-fw"></i> 您有16条未读消息
-                                            <span class="pull-right text-muted small">4分钟前</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="profile.html">
-                                        <div>
-                                            <i class="fa fa-qq fa-fw"></i> 3条新回复
-                                            <span class="pull-right text-muted small">12分钟钱</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <div class="text-center link-block">
-                                        <a href="notifications.html">
-                                            <strong>查看所有 </strong>
-                                            <i class="fa fa-angle-right"></i>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-
-                        <li>
-                            <a href="login.html">
-                                <i class="fa fa-sign-out"></i> 退出
-                            </a>
-                        </li>
-                    </ul>
-
-                </nav>
-            </div>
+            <?php $this->load->view('view_header'); ?>
             <div class="sidebard-panel">
                 <div>
                     <h4>消息 <span class="badge badge-info pull-right">16</span></h4>
@@ -249,119 +147,15 @@
                         </div>
                     </div>
                 </div>
-
-
-                <div class="row">
-
-                    <div class="col-lg-4">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <span class="label label-primary pull-right">今天</span>
-                                <h5>访客</h5>
-                            </div>
-                            <div class="ibox-content">
-                                <h1 class="no-margins">22 285,400</h1>
-                                <div class="stat-percent font-bold text-navy">20% <i class="fa fa-level-up"></i>
-                                </div>
-                                <small>新订单</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <span class="label label-info pull-right">月</span>
-                                <h5>订单</h5>
-                            </div>
-                            <div class="ibox-content">
-                                <h1 class="no-margins">60 420,600</h1>
-                                <div class="stat-percent font-bold text-info">40% <i class="fa fa-level-up"></i>
-                                </div>
-                                <small>新订单</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <span class="label label-warning pull-right">年</span>
-                                <h5>收入</h5>
-                            </div>
-                            <div class="ibox-content">
-                                <h1 class="no-margins">$ 120 430,800</h1>
-                                <div class="stat-percent font-bold text-warning">16% <i class="fa fa-level-up"></i>
-                                </div>
-                                <small>新订单</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                
+                
+                <!-- Charactor information -->
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <h5>数据报告</h5>
-                                <div class="ibox-tools">
-                                    <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="index_3.html#">
-                                        <i class="fa fa-wrench"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-user">
-                                        <li><a href="index_3.html#">选项1</a>
-                                        </li>
-                                        <li><a href="index_3.html#">选项2</a>
-                                        </li>
-                                    </ul>
-                                    <a class="close-link">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="ibox-content ibox-heading">
-                                <h3>股价上涨
-                            <div class="stat-percent text-navy">34% <i class="fa fa-level-up"></i></div>
-                        </h3>
-                                <small><i class="fa fa-stack-exchange"></i> 上一季度的最新数据</small>
-                            </div>
-                            <div class="ibox-content">
-                                <div>
-
-                                    <div class="pull-right text-right">
-
-                                        <span class="bar_dashboard">5,3,9,6,5,9,7,3,5,2,4,7,3,2,7,9,6,4,5,7,3,2,1,0,9,5,6,8,3,2,1</span>
-                                        <br/>
-                                        <small class="font-bold">$ 20 054.43</small>
-                                    </div>
-                                    <h4>广东地区的数据报告
-                                    <br/>
-                                    <small class="m-r"><a href="graph_flot.html"> 获取最新股票价格 </a> </small>
-                                </h4>
-                                </div>
-                            </div>
-                        </div>
+                    
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
                                 <h5>最新评论</h5>
-                                <div class="ibox-tools">
-                                    <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="index_3.html#">
-                                        <i class="fa fa-wrench"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-user">
-                                        <li><a href="index_3.html#">选项1</a>
-                                        </li>
-                                        <li><a href="index_3.html#">选项2</a>
-                                        </li>
-                                    </ul>
-                                    <a class="close-link">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </div>
                             </div>
                             <div class="ibox-content no-padding">
                                 <ul class="list-group">
@@ -376,14 +170,6 @@
                                         </div>
                                         <small class="block text-muted"><i class="fa fa-clock-o"></i> 2天前</small>
                                     </li>
-                                    <li class="list-group-item">
-                                        <p><a class="text-info" href="index_3.html#">@镜子mini</a> 大一邵老师说记者是高危职业，防火防盗防记者；大二时老师说嫁人莫嫁记者郎。可他们依然坚守岗位，培养新闻学子。现在大三，毕业了也会从事新闻工作。有时候坚持一件事情，并不是因为这样做了会改变什么，而是坚信，这样做是对的。</p>
-                                        <small class="block text-muted"><i class="fa fa-clock-o"></i> 2分钟前</small>
-                                    </li>
-                                    <li class="list-group-item ">
-                                        <p><a class="text-info" href="index_3.html#">@爱nimen</a> 记得费希特在《论学者的使命》中说：“你们都是最优秀的知识分子。如果最优秀的分子丧失了自己的力量，那又用什么去感召呢？如果出类拔萃的人都腐化了，那还到哪里去寻找道德善良呢？”</p>
-                                        <small class="block text-muted"><i class="fa fa-clock-o"></i> 1小时前</small>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -393,115 +179,10 @@
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
                                 <h5>时间轴</h5>
-                                <div class="ibox-tools">
-                                    <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="index_3.html#">
-                                        <i class="fa fa-wrench"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-user">
-                                        <li><a href="index_3.html#">选项1</a>
-                                        </li>
-                                        <li><a href="index_3.html#">选项2</a>
-                                        </li>
-                                    </ul>
-                                    <a class="close-link">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </div>
                             </div>
 
                             <div class="ibox-content timeline">
 
-                                <div class="timeline-item">
-                                    <div class="row">
-                                        <div class="col-xs-3 date">
-                                            <i class="fa fa-briefcase"></i>
-                                            6:00
-                                            <br>
-                                            <small class="text-navy">2 小时前</small>
-                                        </div>
-                                        <div class="col-xs-7 content no-top-border">
-                                            <p class="m-b-xs"><strong>服务器已彻底崩溃</strong>
-                                            </p>
-
-                                            <p>还未检查出错误</p>
-
-                                            <p><span data-diameter="40" class="updating-chart" style="display: none;">9,6,5,9,4,7,3,2,9,8,7,4,5,1,2,9,5,4,7,2,7,7,3,5,2,2,10,8,2,8,4,4,4,9,1,7,4</span>
-                                                <svg class="peity" height="16" width="64">
-                                                    <polygon fill="#1ab394" points="0 15 0 2 1.7777777777777777 6.5 3.5555555555555554 8 5.333333333333333 2 7.111111111111111 9.5 8.88888888888889 5 10.666666666666666 11 12.444444444444443 12.5 14.222222222222221 2 16 3.5 17.77777777777778 5 19.555555555555554 9.5 21.333333333333332 8 23.11111111111111 14 24.888888888888886 12.5 26.666666666666664 2 28.444444444444443 8 30.22222222222222 9.5 32 5 33.77777777777778 12.5 35.55555555555556 5 37.33333333333333 5 39.11111111111111 11 40.888888888888886 8 42.666666666666664 12.5 44.44444444444444 12.5 46.22222222222222 0.5 48 3.5 49.77777777777777 12.5 51.55555555555555 3.5 53.33333333333333 9.5 55.11111111111111 9.5 56.888888888888886 9.5 58.666666666666664 2 60.44444444444444 14 62.22222222222222 5 64 9.5 64 15"></polygon>
-                                                    <polyline fill="transparent" points="0 2 1.7777777777777777 6.5 3.5555555555555554 8 5.333333333333333 2 7.111111111111111 9.5 8.88888888888889 5 10.666666666666666 11 12.444444444444443 12.5 14.222222222222221 2 16 3.5 17.77777777777778 5 19.555555555555554 9.5 21.333333333333332 8 23.11111111111111 14 24.888888888888886 12.5 26.666666666666664 2 28.444444444444443 8 30.22222222222222 9.5 32 5 33.77777777777778 12.5 35.55555555555556 5 37.33333333333333 5 39.11111111111111 11 40.888888888888886 8 42.666666666666664 12.5 44.44444444444444 12.5 46.22222222222222 0.5 48 3.5 49.77777777777777 12.5 51.55555555555555 3.5 53.33333333333333 9.5 55.11111111111111 9.5 56.888888888888886 9.5 58.666666666666664 2 60.44444444444444 14 62.22222222222222 5 64 9.5" stroke="#169c81" stroke-width="1" stroke-linecap="square"></polyline>
-                                                </svg>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="row">
-                                        <div class="col-xs-3 date">
-                                            <i class="fa fa-file-text"></i>
-                                            7:00
-                                            <br>
-                                            <small class="text-navy">3小时前</small>
-                                        </div>
-                                        <div class="col-xs-7 content">
-                                            <p class="m-b-xs"><strong>修复了0.5个bug</strong>
-                                            </p>
-                                            <p>重启服务</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="row">
-                                        <div class="col-xs-3 date">
-                                            <i class="fa fa-coffee"></i>
-                                            8:00
-                                            <br>
-                                        </div>
-                                        <div class="col-xs-7 content">
-                                            <p class="m-b-xs"><strong>喝水、上厕所、做测试</strong>
-                                            </p>
-                                            <p>
-                                                喝了4杯水，上了3次厕所，控制台输出出2324个错误，神啊，带我走吧
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="row">
-                                        <div class="col-xs-3 date">
-                                            <i class="fa fa-phone"></i>
-                                            11:00
-                                            <br>
-                                            <small class="text-navy">21小时前</small>
-                                        </div>
-                                        <div class="col-xs-7 content">
-                                            <p class="m-b-xs"><strong>项目经理打电话来了</strong>
-                                            </p>
-                                            <p>
-                                                TMD，项目经理居然还没有起床！！！
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="row">
-                                        <div class="col-xs-3 date">
-                                            <i class="fa fa-user-md"></i>
-                                            09:00
-                                            <br>
-                                            <small>21小时前</small>
-                                        </div>
-                                        <div class="col-xs-7 content">
-                                            <p class="m-b-xs"><strong>开会</strong>
-                                            </p>
-                                            <p>
-                                                开你妹的会，老子还有897894个bug没有修复
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="timeline-item">
                                     <div class="row">
                                         <div class="col-xs-3 date">
@@ -526,15 +207,107 @@
 
                 </div>
 
-            </div>
-            <div class="footer">
-                <div class="pull-right">
-                    By：<a href="http://www.zi-han.net" target="_blank">zihan's blog</a>
+                
+                <!-- Chat box -->
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="ibox chat-view">
+
+                            <div class="ibox-title">
+                                <small class="pull-right text-muted">最新消息：2015-02-02 18:39:23</small>
+                                评论区
+                            </div>
+
+
+                            <div class="ibox-content">
+
+                                <div class="row">
+
+                                    <div class="col-md-12 ">
+                                        <div class="chat-discussion">
+
+                                            <div class="chat-message">
+                                                <img class="message-avatar" src="<?=base_url().'assets/images/a1.jpg' ?>" alt="">
+                                                <div class="message">
+                                                    <a class="message-author" href="chat_view.html#"> 颜文字君</a>
+                                                    <span class="message-date"> 2015-02-02 18:39:23 </span>
+                                                    <span class="message-content">
+											H+ 是个好框架
+                                            </span>
+                                                </div>
+                                            </div>
+                                            <div class="chat-message">
+                                                <img class="message-avatar" src="<?=base_url().'assets/images/a4.jpg' ?>" alt="">
+                                                <div class="message">
+                                                    <a class="message-author" href="chat_view.html#"> 林依晨Ariel </a>
+                                                    <span class="message-date">  2015-02-02 11:12:36 </span>
+                                                    <span class="message-content">
+											jQuery表单验证插件 - 让表单验证变得更容易
+                                            </span>
+                                                </div>
+                                            </div>
+                                            <div class="chat-message">
+                                                <img class="message-avatar" src="<?=base_url().'assets/images/a2.jpg' ?>" alt="">
+                                                <div class="message">
+                                                    <a class="message-author" href="chat_view.html#"> 谨斯里 </a>
+                                                    <span class="message-date">  2015-02-02 11:12:36 </span>
+                                                    <span class="message-content">
+											验证日期格式(类似30/30/2008的格式,不验证日期准确性只验证格式
+                                            </span>
+                                                </div>
+                                            </div>
+                                            <div class="chat-message">
+                                                <img class="message-avatar" src="<?=base_url().'assets/images/a5.jpg' ?>" alt="">
+                                                <div class="message">
+                                                    <a class="message-author" href="chat_view.html#"> 林依晨Ariel </a>
+                                                    <span class="message-date">  2015-02-02 - 11:12:36 </span>
+                                                    <span class="message-content">
+											还有约79842492229个Bug需要修复
+                                            </span>
+                                                </div>
+                                            </div>
+                                            <div class="chat-message">
+                                                <img class="message-avatar" src="<?=base_url().'assets/images/a6.jpg' ?>" alt="">
+                                                <div class="message">
+                                                    <a class="message-author" href="chat_view.html#"> 林依晨Ariel </a>
+                                                    <span class="message-date">  2015-02-02 11:12:36 </span>
+                                                    <span class="message-content">
+											九部令人拍案叫绝的惊悚悬疑剧情佳作】如果你喜欢《迷雾》《致命ID》《电锯惊魂》《孤儿》《恐怖游轮》这些好片，那么接下来推荐的9部同类题材并同样出色的的电影，绝对不可错过哦~
+                                                        
+                                            </span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="chat-message-form">
+
+                                            <div class="form-group">
+
+                                                <textarea class="form-control message-input" name="message" placeholder="输入消息内容，按回车键发送"></textarea>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
-                <div>
-                    <strong>Copyright</strong> H+ &copy; 2014
-                </div>
+
             </div>
+            
+            <?php $this->load->view('view_footer')?>
 
         </div>
     </div>
@@ -700,6 +473,13 @@
             });
         });
     </script>
+    
+    <!-- nav item active -->
+	<script>
+		$(document).ready(function () {
+			$("#active-homepage").addClass("active");
+		});
+	</script>
 
 </body>
 

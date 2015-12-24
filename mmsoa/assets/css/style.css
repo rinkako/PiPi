@@ -3317,7 +3317,7 @@ code {
   padding: 14px 15px 7px;
   min-height: 48px;
 }
-// before update:padding: 15px 20px 20px 20px;
+/* before update:padding: 15px 20px 20px 20px; */
 .ibox-content {
   background-color: #ffffff;
   color: inherit;
@@ -6295,11 +6295,12 @@ body.skin-3 {
 .skin-3 .nav.nav-tabs > li.active {
   background: transparent;
 }
+/* before update: min-height: 1200px; */
 @media (min-width: 768px) {
   #page-wrapper {
     position: inherit;
     margin: 0 0 0 220px;
-    min-height: 1200px;
+    min-height: 700px;
   }
   .navbar-static-side {
     z-index: 2001;
