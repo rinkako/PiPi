@@ -33,7 +33,7 @@
                     <li>
                         <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">工作记录</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="backend/dailycheck">常检</a>
+                            <li><a href="dailycheck">常检</a>
                             </li>
                             <li><a href="index_2.html">周检</a>
                             </li>

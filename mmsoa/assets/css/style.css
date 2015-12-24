@@ -3317,10 +3317,11 @@ code {
   padding: 14px 15px 7px;
   min-height: 48px;
 }
+// before update:padding: 15px 20px 20px 20px;
 .ibox-content {
   background-color: #ffffff;
   color: inherit;
-  padding: 15px 20px 20px 20px;
+  padding: 15px 20px 0px 20px;
   border-color: #e7eaec;
   border-image: none;
   border-style: solid solid none;

@@ -15,10 +15,11 @@
     <link href="<?=base_url().'assets/css/animate.css' ?>" rel="stylesheet">
     <link href="<?=base_url().'assets/css/style.css?v=2.2.0' ?>" rel="stylesheet">
     <link href="<?=base_url().'assets/js/plugins/layer/skin/layer.css' ?>" rel="stylesheet">
+    <link href="<?=base_url().'assets/css/plugins/switchery/switchery.css' ?>" rel="stylesheet">
 
 </head>
 
-<body>
+<body onload="startTime()">
     <div id="wrapper">
         <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
@@ -30,7 +31,7 @@
             <div class="row border-bottom">
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header">
-                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="layer.html#"><i class="fa fa-bars"></i> </a>
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="dailycheck#"><i class="fa fa-bars"></i> </a>
                         <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
                             <div class="form-group">
                                 <input type="text" placeholder="请输入您需要查找的内容 …" class="form-control" name="top-search" id="top-search">
@@ -49,7 +50,7 @@
                                 <li>
                                     <div class="dropdown-messages-box">
                                         <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="img/a7.jpg">
+                                            <img alt="image" class="img-circle" src="<?=base_url().'assets/images/a7.jpg' ?>">
                                         </a>
                                         <div class="media-body">
                                             <small class="pull-right">46小时前</small>
@@ -63,7 +64,7 @@
                                 <li>
                                     <div class="dropdown-messages-box">
                                         <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="img/a4.jpg">
+                                            <img alt="image" class="img-circle" src="<?=base_url().'assets/images/a4.jpg' ?>">
                                         </a>
                                         <div class="media-body ">
                                             <small class="pull-right text-navy">25小时前</small>
@@ -129,16 +130,16 @@
             </div>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>web弹层组件layer</h2>
+                    <h2 id="time"></h2>
                     <ol class="breadcrumb">
                         <li>
-                            <a href="index.html">主页</a>
+                            <a href="homepage">MOA</a>
                         </li>
                         <li>
-                            <a>UI元素</a>
+                            <a>工作记录</a>
                         </li>
                         <li>
-                            <strong>web弹层组件layer</strong>
+                            <strong>常检</strong>
                         </li>
                     </ol>
                 </div>
@@ -151,31 +152,12 @@
                     <div class="col-lg-12">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
-                                <h5>layer API文档</h5>
-                                <div class="ibox-tools">
-                                    <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="tabs_panels.html#">
-                                        <i class="fa fa-wrench"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-user">
-                                        <li><a href="tabs_panels.html#">选项1</a>
-                                        </li>
-                                        <li><a href="tabs_panels.html#">选项2</a>
-                                        </li>
-                                    </ul>
-                                    <a class="close-link">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="ibox-content">
-                                <div class="panel blank-panel">
+                                <h5>常检考勤 · 情况登记</h5>
+                            	<div class="ibox-content">
+                                	<div class="panel blank-panel">
 
                                     <div class="panel-heading">
                                         <div class="panel-options">
-
                                             <ul class="nav nav-tabs">
                                                 <li class="active"><a data-toggle="tab" href="tabs_panels.html#base">早检</a>
                                                 </li>
@@ -188,100 +170,157 @@
                                     </div>
 
                                     <div class="panel-body">
-
                                         <div class="tab-content">
                                             <div id="base" class="tab-pane active">
-                                                <table class="table table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <td style="width:20%;">键: 值</td>
-                                                            <td style="width:80%;">描述</td>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr style="background:##3E3F34;">
-                                                            <td colspan="2" style="padding:10px 20px;">下表的属性都是默认值，您可在调用时按需重新配置，他们可帮助你实现各式各样的风格。如是调用： $.layer({键: 值, 键: 值, …});</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>type: 0</td>
-                                                            <td>层的类型。0：信息框（默认），1：页面层，2：iframe层，3：加载层，4：tips层。
-                                                                <p>此为重要参数，不同类型层的总开关，若为type:0则不需要配置，其它类型层在调用时必须设置type。</p>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>title: '信息'</td>
-                                                            <td>
-                                                                控制默认标题栏。
-                                                                <br>如想自定义标题样式，可以 title: ['标题', 'background:#c00;'] //第二个参数可书写任意css
-                                                                <br>如不想显示标题栏，配置title: false 即可
-                                                            </td>
-                                                        </tr>
-                                                        
-                                                    </tbody>
-                                                </table>
+                                            	<p>签到：<span><input type="checkbox" class="js-switch" /></span></p>
+					                            <h5>早检情况：&nbsp;<small>请在有问题的课室后面填写好记录，无问题的课室无需填写</small></h5>
+					                            <div class="ibox-content" style="margin-bottom: 0px; padding-bottom: 0px;">
+					                                <form method="get" class="form-horizontal">
+					                                    <div class="form-group">
+					                                        <label class="col-sm-2 control-label">A101</label>
+					
+					                                        <div class="col-sm-10">
+					                                            <input type="text" placeholder="正常" class="form-control">
+					                                        </div>
+					                                    </div>
+					                                    <div class="form-group">
+					                                        <label class="col-sm-2 control-label">A102</label>
+					
+					                                        <div class="col-sm-10">
+					                                            <input type="text" placeholder="正常" class="form-control">
+					                                        </div>
+					                                    </div>
+					                                    <div class="form-group">
+					                                        <label class="col-sm-2 control-label">A103</label>
+					
+					                                        <div class="col-sm-10">
+					                                            <input type="text" placeholder="正常" class="form-control">
+					                                        </div>
+					                                    </div>
+					                                    <div class="form-group">
+					                                        <label class="col-sm-2 control-label">A104</label>
+					
+					                                        <div class="col-sm-10">
+					                                            <input type="text" placeholder="正常" class="form-control">
+					                                        </div>
+					                                    </div>
+					                                    <div class="form-group">
+					                                        <label class="col-sm-2 control-label">A105</label>
+					
+					                                        <div class="col-sm-10">
+					                                            <input type="text" placeholder="正常" class="form-control">
+					                                        </div>
+					                                    </div>
+					                                    <div class="hr-line-dashed"></div>
+					                                    <div class="form-group">
+					                                        <div class="col-sm-4 col-sm-offset-2">
+					                                            <button class="btn btn-primary" type="submit">提交</button>
+					                                            <button class="btn btn-white" type="submit">取消</button>
+					                                        </div>
+					                                    </div>
+					                                </form>
+					                            </div>
                                             </div>
                                             <div id="integrated" class="tab-pane">
-                                                <table class="table table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <td style="width:10%;">方法名</td>
-                                                            <td style="width:90%;">描述</td>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>$.layer({基础参数})</td>
-                                                            <td>
-                                                                核心接口，参数是一个对象，对象属性参见基础参数。
-                                                                <br>诸如layer.alert/layer.confirm/layer.msg/layer.tips等皆为$.layer()的二次封装。
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>layer.v</td>
-                                                            <td>获取layer版本号。</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>layer.alert(msg, icon, fn)</td>
-                                                            <td>
-                                                                对单按钮信息框的重新封装
-                                                                <br>参数分别为: 提示内容, 图标类型(-1到16的选择), 回调函数或标题
-                                                                <br>如：layer.alert('你好layer', 9);
-
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                            	<p>签到：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="checkbox" class="js-switch_2" /></span></p>
+					                            <h5>午检情况：&nbsp;<small>请在有问题的课室后面填写好记录，无问题的课室无需填写</small></h5>
+					                            <div class="ibox-content">
+					                                <form method="get" class="form-horizontal">
+					                                    <div class="form-group">
+					                                        <label class="col-sm-2 control-label">A101</label>
+					
+					                                        <div class="col-sm-10">
+					                                            <input type="text" placeholder="正常" class="form-control">
+					                                        </div>
+					                                    </div>
+					                                    <div class="form-group">
+					                                        <label class="col-sm-2 control-label">A102</label>
+					
+					                                        <div class="col-sm-10">
+					                                            <input type="text" placeholder="正常" class="form-control">
+					                                        </div>
+					                                    </div>
+					                                    <div class="form-group">
+					                                        <label class="col-sm-2 control-label">A103</label>
+					
+					                                        <div class="col-sm-10">
+					                                            <input type="text" placeholder="正常" class="form-control">
+					                                        </div>
+					                                    </div>
+					                                    <div class="form-group">
+					                                        <label class="col-sm-2 control-label">A104</label>
+					
+					                                        <div class="col-sm-10">
+					                                            <input type="text" placeholder="正常" class="form-control">
+					                                        </div>
+					                                    </div>
+					                                    <div class="form-group">
+					                                        <label class="col-sm-2 control-label">A105</label>
+					
+					                                        <div class="col-sm-10">
+					                                            <input type="text" placeholder="正常" class="form-control">
+					                                        </div>
+					                                    </div>
+					                                    <div class="hr-line-dashed"></div>
+					                                    <div class="form-group">
+					                                        <div class="col-sm-4 col-sm-offset-2">
+					                                            <button class="btn btn-primary" type="submit">提交</button>
+					                                            <button class="btn btn-white" type="submit">取消</button>
+					                                        </div>
+					                                    </div>
+					                                </form>
+					                            </div>
                                             </div>
 
                                             <div id="expand" class="tab-pane">
-                                                <table class="table table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <td style="width:25%;">方法名</td>
-                                                            <td style="width:75%;">描述</td>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr style="background:##3E3F34;">
-                                                            <td colspan="2" style="padding:20px;">
-                                                                目前拓展方法主要是指layer.ext.js提供的拓展类，您可以按照自己的需求选择引入，同样的，不需要引入css，只需要执行 layer.use('extend/layer.ext.js') 即可，关于layer.use的使用，请看集成方法的介绍;
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>layer.ext = function(){}</td>
-                                                            <td>
-                                                                首次加载layer.ext.js模块完毕的回调方法。
-                                                                <br>如果页面一加载即执行拓展层，需用到此方法。
-                                                                <br>如：
-                                                                <pre>layer.use('extend/layer.ext.js', function(){
-        layer.ext = function(){
-        layer.prompt();
-    }
-})</pre>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                            	<p>签到：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="checkbox" class="js-switch_3" /></span></p>
+					                            <h5>晚检情况：&nbsp;<small>请在有问题的课室后面填写好记录，无问题的课室无需填写</small></h5>
+					                            <div class="ibox-content">
+					                                <form method="get" class="form-horizontal">
+					                                    <div class="form-group">
+					                                        <label class="col-sm-2 control-label">A101</label>
+					
+					                                        <div class="col-sm-10">
+					                                            <input type="text" placeholder="正常" class="form-control">
+					                                        </div>
+					                                    </div>
+					                                    <div class="form-group">
+					                                        <label class="col-sm-2 control-label">A102</label>
+					
+					                                        <div class="col-sm-10">
+					                                            <input type="text" placeholder="正常" class="form-control">
+					                                        </div>
+					                                    </div>
+					                                    <div class="form-group">
+					                                        <label class="col-sm-2 control-label">A103</label>
+					
+					                                        <div class="col-sm-10">
+					                                            <input type="text" placeholder="正常" class="form-control">
+					                                        </div>
+					                                    </div>
+					                                    <div class="form-group">
+					                                        <label class="col-sm-2 control-label">A104</label>
+					
+					                                        <div class="col-sm-10">
+					                                            <input type="text" placeholder="正常" class="form-control">
+					                                        </div>
+					                                    </div>
+					                                    <div class="form-group">
+					                                        <label class="col-sm-2 control-label">A105</label>
+					
+					                                        <div class="col-sm-10">
+					                                            <input type="text" placeholder="正常" class="form-control">
+					                                        </div>
+					                                    </div>
+					                                    <div class="hr-line-dashed"></div>
+					                                    <div class="form-group">
+					                                        <div class="col-sm-4 col-sm-offset-2">
+					                                            <button class="btn btn-primary" type="submit">提交</button>
+					                                            <button class="btn btn-white" type="submit">取消</button>
+					                                        </div>
+					                                    </div>
+					                                </form>
+					                            </div>
                                             </div>
                                             
                                         </div>
@@ -295,14 +334,7 @@
                     </div>
                 </div>
             </div>
-            <div class="footer">
-                <div class="pull-right">
-                    By：<a href="http://www.zi-han.net" target="_blank">zihan's blog</a>
-                </div>
-                <div>
-                    <strong>Copyright</strong> H+ &copy; 2014
-                </div>
-            </div>
+            <?php $this->load->view('view_footer')?>
 
         </div>
     </div>
@@ -326,6 +358,72 @@
     </script>
 
     <script src="<?=base_url().'assets/js/demo/layer-demo.js' ?>"></script>
+    
+    <!-- Switchery -->
+    <script src="<?=base_url().'assets/js/plugins/switchery/switchery.js' ?>"></script>
+    
+    <script>
+    	$(document).ready(function () {
+        	
+    		var elem = document.querySelector('.js-switch');
+            var switchery = new Switchery(elem, {
+                color: '#1AB394'
+            });
+
+            var elem_2 = document.querySelector('.js-switch_2');
+            var switchery_2 = new Switchery(elem_2, {
+                color: '#1AB394'
+            });
+
+            var elem_3 = document.querySelector('.js-switch_3');
+            var switchery_3 = new Switchery(elem_3, {
+                color: '#1AB394'
+            });
+            
+        })
+    </script>
+    
+    <!-- Dynamic date -->
+	<script> 
+		function startTime() { 
+			var today=new Date(); 
+			var strDate=(" "+(today.getFullYear())+"年"+(today.getMonth()+1)+"月"+today.getDate()+"日"); 
+			var n_day=today.getDay(); 
+			switch(n_day) {
+				case 0: 
+				{strDate=strDate+" 星期日 "}break; 
+				case 1: 
+				{strDate=strDate+" 星期一 "}break; 
+				case 2: 
+				{strDate=strDate+" 星期二 "}break; 
+				case 3: 
+				{strDate=strDate+" 星期三 "}break; 
+				case 4: 
+				{strDate=strDate+" 星期四 "}break; 
+				case 5: 
+				{strDate=strDate+" 星期五 "}break; 
+				case 6: 
+				{strDate=strDate+" 星期六 "}break; 
+				case 7: 
+				{strDate=strDate+" 星期日 "}break; 
+			} 
+			//增加时分秒 
+			// add a zero in front of numbers<10 
+			var h=today.getHours(); 
+			var m=today.getMinutes(); 
+			var s=today.getSeconds() 
+			m=checkTime(m); 
+			s=checkTime(s); 
+			strDate=strDate+" "+h+":"+m+":"+s; 
+			document.getElementById('time').innerHTML=strDate; 
+			t=setTimeout('startTime()',500) 
+		} 
+		
+		function checkTime(i){ 
+			if (i<10) {i="0" + i} 
+			return i 
+		}
+	</script>
 
 </body>
 
