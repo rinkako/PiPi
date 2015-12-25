@@ -20,5 +20,9 @@ Class backend extends CI_Controller {
 		$this->load->view('view_dailycheck');
 	}
 	
+	public function writejournal() {
+		$this->load->view('view_writejournal');
+	}
+	
 	
 }

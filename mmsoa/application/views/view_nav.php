@@ -43,6 +43,15 @@
                             </li>
                         </ul>
                     </li>
+                    <li id="active-journal">
+                        <a href="homepage#"><i class="fa fa-th-large"></i> <span class="nav-label">坐班日志</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li id="active-writejournal"><a href="writejournal">发布</a>
+                            </li>
+                            <li id="active-readjournal"><a href="readjournal">查看</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li>
                         <a href="index.html#"><i class="fa fa fa-globe"></i> <span class="nav-label">v2.0新增</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
