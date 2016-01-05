@@ -1,3 +1,13 @@
+<?php
+  // If the session vars aren't set, try to set them with a cookie
+  if (!isset($_SESSION['user_id'])) {
+    if (isset($_COOKIE['user_id']) && isset($_COOKIE['username'])) {
+      $_SESSION['user_id'] = $_COOKIE['user_id'];
+      $_SESSION['username'] = $_COOKIE['username'];
+    }
+  }
+?>
+
 				<ul class="nav" id="side-menu">
 					<li class="nav-header">
 
@@ -5,7 +15,7 @@
                             <img alt="image" class="img-circle" src="<?=base_url().'assets/images/profile_small.jpg' ?>" />
                              </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-                                <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Beaut-zihan</strong>
+                                <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><?php echo $_SESSION['username']; ?></strong>
                              </span>  <span class="text-muted text-xs block">超级管理员 <b class="caret"></b></span> </span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">

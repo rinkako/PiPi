@@ -265,5 +265,23 @@ class moa_user_model extends CI_Model {
 			}
 		}
 	}
+	
+	/**
+	 * 获取用户id
+	 * @param username - 用户名
+	 * @param password - 哈希后的密码
+	 * @return 用户id
+	 */
+	public function get_uid($username, $password) {
+		if (isset($username) and isset($password)) {
+			$sb = 'SELECT uid FROM MOA_User WHERE username = "' . $username . '" AND password = "' . $password . '"';
+			$sqlquery = $this->db->query($sb);
+			$dataarr = $sqlquery->result();
+			return $dataarr[0]->uid;
+		}
+		else {
+			return false;
+		}
+	}
 
 }
