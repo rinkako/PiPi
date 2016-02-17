@@ -22,6 +22,7 @@ class moa_worker_model extends CI_Model {
 	/**
 	 * 用wid取助理信息
 	 * @param wid - 助理wid
+	 * @return wid对应worker的所有信息
 	 */
 	public function get($wid) {
 		if (isset($wid)) {
@@ -211,7 +212,7 @@ class moa_worker_model extends CI_Model {
 	 * @param contrib - 修改量
 	 * @return 该助理最新的本月旷工次数
 	 */
-	public function update_bad($wid, $contrib = 1) {
+	public function update_absence($wid, $contrib = 1) {
 		if (isset($wid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_Worker SET absence = absence + ' . $contrib . ' WHERE wid = ' . $wid;
 			$sqlquery = $this->db->query($sb);
@@ -229,7 +230,7 @@ class moa_worker_model extends CI_Model {
 	 * @param contrib - 修改量
 	 * @return 该助理最新的本月请假次数
 	 */
-	public function update_bad($uid, $contrib = 1) {
+	public function update_leave($uid, $contrib = 1) {
 		if (isset($uid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_User SET leave = leave + ' . $contrib . ' WHERE wid = ' . $wid;
 			$sqlquery = $this->db->query($sb);

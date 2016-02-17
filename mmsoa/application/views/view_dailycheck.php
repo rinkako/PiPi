@@ -72,100 +72,58 @@
                                     <div class="panel-body">
                                         <div class="tab-content">
                                             <div id="base" class="tab-pane active">
-                                            	<p>签到：<span><input type="checkbox" class="js-switch" /></span></p>
+                                            	<div style="height:50px;">
+                                            		<h5>签到：
+                                            			<span><input type="checkbox" name="signin_morning" id="morning" class="js-switch" /></span>
+                                            		</h5>
+                                            	</div>
 					                            <h5>早检情况：&nbsp;<small>请在有问题的课室后面填写好记录，无问题的课室无需填写</small></h5>
 					                            <div class="ibox-content" style="margin-bottom: 0px; padding-bottom: 0px;">
-					                                <form method="get" class="form-horizontal">
-					                                    <div class="form-group">
-					                                        <label class="col-sm-2 control-label">A101</label>
-					
-					                                        <div class="col-sm-10">
-					                                            <input type="text" placeholder="正常" class="form-control">
-					                                        </div>
-					                                    </div>
-					                                    <div class="form-group">
-					                                        <label class="col-sm-2 control-label">A102</label>
-					
-					                                        <div class="col-sm-10">
-					                                            <input type="text" placeholder="正常" class="form-control">
-					                                        </div>
-					                                    </div>
-					                                    <div class="form-group">
-					                                        <label class="col-sm-2 control-label">A103</label>
-					
-					                                        <div class="col-sm-10">
-					                                            <input type="text" placeholder="正常" class="form-control">
-					                                        </div>
-					                                    </div>
-					                                    <div class="form-group">
-					                                        <label class="col-sm-2 control-label">A104</label>
-					
-					                                        <div class="col-sm-10">
-					                                            <input type="text" placeholder="正常" class="form-control">
-					                                        </div>
-					                                    </div>
-					                                    <div class="form-group">
-					                                        <label class="col-sm-2 control-label">A105</label>
-					
-					                                        <div class="col-sm-10">
-					                                            <input type="text" placeholder="正常" class="form-control">
-					                                        </div>
-					                                    </div>
+					                                <div class="form-horizontal">
+					                                	<?php for ($i = 0; $i < count($classroom_list); $i++) { ?>
+						                                	<div class="form-group">
+						                                        <label class="col-sm-2 control-label"><?php echo $classroom_list[$i]; ?></label>
+						
+						                                        <div class="col-sm-10">
+						                                            <input type="text" name="<?php echo 'cond_morning_' . $i; ?>" placeholder="正常" disabled="" 
+						                                            id="<?php echo 'morning_' . $i; ?>" class="form-control">
+						                                        </div>
+						                                    </div>
+						                                <?php } ?>
 					                                    <div class="hr-line-dashed"></div>
 					                                    <div class="form-group">
 					                                        <div class="col-sm-4 col-sm-offset-2">
-					                                            <button class="btn btn-primary" type="submit">提交</button>
-					                                            <button class="btn btn-white" type="submit">取消</button>
+					                                            <button id="submit_morning" class="btn btn-primary" disabled="" type="submit" 
+					                                            data-toggle="modal" data-target="#myModal">提交</button>
 					                                        </div>
 					                                    </div>
-					                                </form>
+					                                </div>
 					                            </div>
                                             </div>
                                             <div id="integrated" class="tab-pane">
-                                            	<p>签到：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="checkbox" class="js-switch_2" /></span></p>
+                                            	<div style="height:50px;">
+                                            		<h5>签到：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            			<span><input type="checkbox" name="signin_noon" id="noon" class="js-switch_2" /></span>
+                                            		</h5>
+					                            </div>
 					                            <h5>午检情况：&nbsp;<small>请在有问题的课室后面填写好记录，无问题的课室无需填写</small></h5>
 					                            <div class="ibox-content">
-					                                <form method="get" class="form-horizontal">
-					                                    <div class="form-group">
-					                                        <label class="col-sm-2 control-label">A101</label>
-					
-					                                        <div class="col-sm-10">
-					                                            <input type="text" placeholder="正常" class="form-control">
-					                                        </div>
-					                                    </div>
-					                                    <div class="form-group">
-					                                        <label class="col-sm-2 control-label">A102</label>
-					
-					                                        <div class="col-sm-10">
-					                                            <input type="text" placeholder="正常" class="form-control">
-					                                        </div>
-					                                    </div>
-					                                    <div class="form-group">
-					                                        <label class="col-sm-2 control-label">A103</label>
-					
-					                                        <div class="col-sm-10">
-					                                            <input type="text" placeholder="正常" class="form-control">
-					                                        </div>
-					                                    </div>
-					                                    <div class="form-group">
-					                                        <label class="col-sm-2 control-label">A104</label>
-					
-					                                        <div class="col-sm-10">
-					                                            <input type="text" placeholder="正常" class="form-control">
-					                                        </div>
-					                                    </div>
-					                                    <div class="form-group">
-					                                        <label class="col-sm-2 control-label">A105</label>
-					
-					                                        <div class="col-sm-10">
-					                                            <input type="text" placeholder="正常" class="form-control">
-					                                        </div>
-					                                    </div>
+					                                <form method="post" class="form-horizontal">
+						                                <?php for ($i = 0; $i < count($classroom_list); $i++) { ?>
+						                                	<div class="form-group">
+						                                        <label class="col-sm-2 control-label"><?php echo $classroom_list[$i]; ?></label>
+						
+						                                        <div class="col-sm-10">
+						                                            <input type="text" name="<?php echo 'cond_noon_' . $i; ?>" placeholder="正常" disabled="" 
+						                                            id="<?php echo 'noon_' . $i; ?>" class="form-control">
+						                                        </div>
+						                                    </div>
+						                                <?php } ?>
 					                                    <div class="hr-line-dashed"></div>
 					                                    <div class="form-group">
 					                                        <div class="col-sm-4 col-sm-offset-2">
-					                                            <button class="btn btn-primary" type="submit">提交</button>
-					                                            <button class="btn btn-white" type="submit">取消</button>
+					                                            <button id="submit_noon" class="btn btn-primary" disabled="" type="submit" 
+					                                            data-toggle="modal" data-target="#myModal" >提交</button>
 					                                        </div>
 					                                    </div>
 					                                </form>
@@ -173,50 +131,32 @@
                                             </div>
 
                                             <div id="expand" class="tab-pane">
-                                            	<p>签到：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="checkbox" class="js-switch_3" /></span></p>
+                                            	<div style="height:50px;">
+                                            		<h5>签到：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            			<span><input type="checkbox" name="signin_evening" id="evening" class="js-switch_3" /></span>
+                                            		</h5>
+					                            </div>
 					                            <h5>晚检情况：&nbsp;<small>请在有问题的课室后面填写好记录，无问题的课室无需填写</small></h5>
 					                            <div class="ibox-content">
-					                                <form method="get" class="form-horizontal">
-					                                    <div class="form-group">
-					                                        <label class="col-sm-2 control-label">A101</label>
-					
-					                                        <div class="col-sm-10">
-					                                            <input type="text" placeholder="正常" class="form-control">
-					                                        </div>
-					                                    </div>
-					                                    <div class="form-group">
-					                                        <label class="col-sm-2 control-label">A102</label>
-					
-					                                        <div class="col-sm-10">
-					                                            <input type="text" placeholder="正常" class="form-control">
-					                                        </div>
-					                                    </div>
-					                                    <div class="form-group">
-					                                        <label class="col-sm-2 control-label">A103</label>
-					
-					                                        <div class="col-sm-10">
-					                                            <input type="text" placeholder="正常" class="form-control">
-					                                        </div>
-					                                    </div>
-					                                    <div class="form-group">
-					                                        <label class="col-sm-2 control-label">A104</label>
-					
-					                                        <div class="col-sm-10">
-					                                            <input type="text" placeholder="正常" class="form-control">
-					                                        </div>
-					                                    </div>
-					                                    <div class="form-group">
-					                                        <label class="col-sm-2 control-label">A105</label>
-					
-					                                        <div class="col-sm-10">
-					                                            <input type="text" placeholder="正常" class="form-control">
-					                                        </div>
-					                                    </div>
+					                                <form method="post" class="form-horizontal">
+						                                <?php for ($i = 0; $i < count($classroom_list); $i++) { ?>
+						                                	<div class="form-group">
+						                                        <label class="col-sm-2 control-label"><?php echo $classroom_list[$i]; ?></label>
+						
+						                                        <div class="col-sm-10">
+						                                            <input type="text" name="<?php echo 'cond_evening_' . $i; ?>" placeholder="正常" disabled="" 
+						                                            id="<?php echo 'evening_' . $i; ?>" class="form-control">
+						                                        </div>
+						                                    </div>
+						                                <?php } ?>
 					                                    <div class="hr-line-dashed"></div>
 					                                    <div class="form-group">
 					                                        <div class="col-sm-4 col-sm-offset-2">
-					                                            <button class="btn btn-primary" type="submit">提交</button>
-					                                            <button class="btn btn-white" type="submit">取消</button>
+					                                            <button id="submit_evening" class="btn btn-primary" disabled="" type="submit" 
+					                                            data-toggle="modal" data-target="#myModal" >提交</button>
+					                                            <!-- <button class="btn btn-white" type="submit">取消</button>  -->
 					                                        </div>
 					                                    </div>
 					                                </form>
@@ -240,12 +180,30 @@
     </div>
 
     </div>
+    
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                   <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>  -->
+                    <h4 class="modal-title" id="myModalLabel">提示</h4>
+                </div>
+                <div class="modal-body">
+                        <h1 id="submit_result" style="color:#ED5565;text-align:center;"></h1>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Mainly scripts -->
     <script src="<?=base_url().'assets/js/jquery-2.1.1.min.js' ?>"></script>
     <script src="<?=base_url().'assets/js/bootstrap.min.js?v=3.4.0' ?>"></script>
     <script src="<?=base_url().'assets/js/plugins/metisMenu/jquery.metisMenu.js' ?>"></script>
     <script src="<?=base_url().'assets/js/plugins/slimscroll/jquery.slimscroll.min.js' ?>"></script>
+    <script src="<?=base_url().'assets/js/dailycheck.js' ?>"></script>
     
     <!-- nav item active -->
 	<script>

@@ -16,7 +16,7 @@ $("#fetch-btn").click(function() {
 			username: un,
 			password: pw,
 		},
-		success: function(msg) {	
+		success: function(msg) {
 			ret = JSON.parse(msg);
 			if (ret['status'] === false) {
 				// 登录失败，显示错误信息
@@ -25,7 +25,7 @@ $("#fetch-btn").click(function() {
 			}
 			else {
 				// 登录成功，跳转至个人主页
-				window.location.href = 'backend/homepage';
+				window.location.href = ret['url'];
 			}
 		}
 

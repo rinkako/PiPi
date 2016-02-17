@@ -32,6 +32,9 @@ Class login extends CI_Controller {
 		$this->load->view('view_login');
 	}
 	
+	/*
+	 * 登录验证（异步）
+	 */
 	public function loginValidation() {
 		if (isset($_POST['username']) && isset($_POST['password'])) {
  			$username = $_POST['username'];
@@ -48,8 +51,18 @@ Class login extends CI_Controller {
 				set_cookie('user_id', $uid, time() + (60 * 60 * 24 * 30));        // expires in 30 days
 				set_cookie('username', $username, time() + (60 * 60 * 24 * 30));  // expires in 30 days
 				$success = "登录成功";
-				echo json_encode(array("status" => true, "msg" => $success));
-				return;
+				if (isset($_SESSION['user_url'])) {
+					// Save the url needed to be jumped
+					// eg. 从"/MOA/mmsoa/index.php/backend/dailycheck"中截取"backend/dailycheck"
+					$url = substr($_SESSION['user_url'], 21);
+					echo json_encode(array("status" => true, "msg" => $success, "url" => $url));
+					// echo "<meta http-equiv=\"refresh\" content=\"0.5;url=".$url."\"/>";
+					return;
+				} else {
+					$url = "backend/homepage";
+					echo json_encode(array("status" => true, "msg" => $success, "url" => $url));
+					return;
+				}
 			}
 		}
 	}
