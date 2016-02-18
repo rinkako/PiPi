@@ -1,7 +1,7 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-Class login extends CI_Controller {
+Class Login extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
  		$this->load->model('moa_user_model');
@@ -40,9 +40,9 @@ Class login extends CI_Controller {
  			$username = $_POST['username'];
  			$password = md5($_POST['password']);
 			$result = $this->moa_user_model->login_check($username, $password);
-			if ($result == false) {
+			if ($result === FALSE) {
 				$error = "用户名或密码错误!";
-				echo json_encode(array("status" => false, "msg" => $error));
+				echo json_encode(array("status" => FALSE, "msg" => $error));
 				return;
 			} else {
 				$uid = $this->moa_user_model->get_uid($username, $password);
@@ -53,14 +53,14 @@ Class login extends CI_Controller {
 				$success = "登录成功";
 				if (isset($_SESSION['user_url'])) {
 					// Save the url needed to be jumped
-					// eg. 从"/MOA/mmsoa/index.php/backend/dailycheck"中截取"backend/dailycheck"
+					// eg. 从"/MOA/mmsoa/index.php/Backend/dailycheck"中截取"Backend/dailycheck"
 					$url = substr($_SESSION['user_url'], 21);
-					echo json_encode(array("status" => true, "msg" => $success, "url" => $url));
+					echo json_encode(array("status" => TRUE, "msg" => $success, "url" => $url));
 					// echo "<meta http-equiv=\"refresh\" content=\"0.5;url=".$url."\"/>";
 					return;
 				} else {
-					$url = "backend/homepage";
-					echo json_encode(array("status" => true, "msg" => $success, "url" => $url));
+					$url = "Backend/homepage";
+					echo json_encode(array("status" => TRUE, "msg" => $success, "url" => $url));
 					return;
 				}
 			}

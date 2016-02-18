@@ -83,8 +83,7 @@
 					                                	<?php for ($i = 0; $i < count($classroom_list); $i++) { ?>
 						                                	<div class="form-group">
 						                                        <label class="col-sm-2 control-label"><?php echo $classroom_list[$i]; ?></label>
-						
-						                                        <div class="col-sm-10">
+						                                        <div class="col-sm-8">
 						                                            <input type="text" name="<?php echo 'cond_morning_' . $i; ?>" placeholder="正常" disabled="" 
 						                                            id="<?php echo 'morning_' . $i; ?>" class="form-control">
 						                                        </div>
@@ -112,8 +111,7 @@
 						                                <?php for ($i = 0; $i < count($classroom_list); $i++) { ?>
 						                                	<div class="form-group">
 						                                        <label class="col-sm-2 control-label"><?php echo $classroom_list[$i]; ?></label>
-						
-						                                        <div class="col-sm-10">
+						                                        <div class="col-sm-8">
 						                                            <input type="text" name="<?php echo 'cond_noon_' . $i; ?>" placeholder="正常" disabled="" 
 						                                            id="<?php echo 'noon_' . $i; ?>" class="form-control">
 						                                        </div>
@@ -144,8 +142,7 @@
 						                                <?php for ($i = 0; $i < count($classroom_list); $i++) { ?>
 						                                	<div class="form-group">
 						                                        <label class="col-sm-2 control-label"><?php echo $classroom_list[$i]; ?></label>
-						
-						                                        <div class="col-sm-10">
+						                                        <div class="col-sm-8">
 						                                            <input type="text" name="<?php echo 'cond_evening_' . $i; ?>" placeholder="正常" disabled="" 
 						                                            id="<?php echo 'evening_' . $i; ?>" class="form-control">
 						                                        </div>
@@ -203,7 +200,7 @@
     <script src="<?=base_url().'assets/js/bootstrap.min.js?v=3.4.0' ?>"></script>
     <script src="<?=base_url().'assets/js/plugins/metisMenu/jquery.metisMenu.js' ?>"></script>
     <script src="<?=base_url().'assets/js/plugins/slimscroll/jquery.slimscroll.min.js' ?>"></script>
-    <script src="<?=base_url().'assets/js/dailycheck.js' ?>"></script>
+    <script src="<?=base_url().'assets/js/dailycheck_in.js' ?>"></script>
     
     <!-- nav item active -->
 	<script>

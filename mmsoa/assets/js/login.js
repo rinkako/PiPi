@@ -11,7 +11,7 @@ $("#fetch-btn").click(function() {
 	
 	$.ajax({
 		type: 'post', 
-		url: 'login/loginValidation',
+		url: 'Login/loginValidation',
 		data: {
 			username: un,
 			password: pw,
