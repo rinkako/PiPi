@@ -66,6 +66,34 @@ Class Backend extends CI_Controller {
 		}
 	}
 	
+	/*
+	 * 值班
+	 */
+	public function onduty() {
+		if (isset($_SESSION['user_id'])) {
+			$this->load->view('view_onduty');
+		} else {
+			// 未登录的用户请先登录
+			echo "<script language=javascript>alert('要访问的页面需要先登录！');</script>";
+			$_SESSION['user_url'] = $_SERVER['REQUEST_URI'];
+			echo '<script language=javascript>window.location.href="../Login"</script>';
+		}
+	}
+	
+	/*
+	 * 拍摄
+	 */
+	public function filming() {
+		if (isset($_SESSION['user_id'])) {
+			$this->load->view('view_filming');
+		} else {
+			// 未登录的用户请先登录
+			echo "<script language=javascript>alert('要访问的页面需要先登录！');</script>";
+			$_SESSION['user_url'] = $_SERVER['REQUEST_URI'];
+			echo '<script language=javascript>window.location.href="../Login"</script>';
+		}
+	}
+	
 	public function writejournal() {
 		$this->load->view('view_writejournal');
 	}

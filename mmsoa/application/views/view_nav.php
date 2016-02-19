@@ -54,7 +54,7 @@
                             </li>
                             <li id="active-weeklycheck"><a href="weeklycheck">周检</a>
                             </li>
-                            <li id="active-duty"><a href="duty">值班</a>
+                            <li id="active-onduty"><a href="onduty">值班</a>
                             </li>
                             <li id="active-filming"><a href="filming">拍摄</a>
                             </li>

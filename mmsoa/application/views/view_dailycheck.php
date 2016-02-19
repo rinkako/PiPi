@@ -11,10 +11,13 @@
 
     <link href="<?=base_url().'assets/css/bootstrap.min.css?v=3.4.0' ?>" rel="stylesheet">
     <link href="<?=base_url().'assets/font-awesome/css/font-awesome.css?v=4.3.0' ?>" rel="stylesheet">
+    
+    <link href="<?=base_url().'assets/js/plugins/layer/skin/layer.css' ?>" rel="stylesheet">
+    
+    <link href="<?=base_url().'assets/css/plugins/switchery/switchery.css' ?>" rel="stylesheet">
+    
     <link href="<?=base_url().'assets/css/animate.css' ?>" rel="stylesheet">
     <link href="<?=base_url().'assets/css/style.css?v=2.2.0' ?>" rel="stylesheet">
-    <link href="<?=base_url().'assets/js/plugins/layer/skin/layer.css' ?>" rel="stylesheet">
-    <link href="<?=base_url().'assets/css/plugins/switchery/switchery.css' ?>" rel="stylesheet">
 
 </head>
 
