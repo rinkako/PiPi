@@ -155,7 +155,7 @@
 					                                    <div class="form-group">
 					                                        <div class="col-sm-4 col-sm-offset-2">
 					                                            <button id="submit_evening" class="btn btn-primary" disabled="" type="submit" 
-					                                            data-toggle="modal" data-target="#myModal" >提交</button>
+					                                            data-toggle="modal" data-target="#myModal">提交</button>
 					                                            <!-- <button class="btn btn-white" type="submit">取消</button>  -->
 					                                        </div>
 					                                    </div>

@@ -94,8 +94,29 @@ Class Backend extends CI_Controller {
 		}
 	}
 	
+	/*
+	 * 坐班日志
+	 */
 	public function writejournal() {
-		$this->load->view('view_writejournal');
+		if (isset($_SESSION['user_id'])) {
+			// 取所有普通助理的wid与name, level: 0-普通助理  1-组长  2-负责人助理  3-助理负责人、管理员
+			$level = 0;
+			$common_worker = $this->moa_user_model->get_by_level($level);
+			
+			for ($i = 0; $i < count($common_worker); $i++) {
+				$uid_list[$i] = $common_worker[$i]->uid;
+				$name_list[$i] = $common_worker[$i]->name;
+				$wid_list[$i] = $this->moa_worker_model->get_wid_by_uid($uid_list[$i]);
+			}
+			$data['name_list'] = $name_list;
+			$data['wid_list'] = $wid_list;
+			$this->load->view('view_writejournal', $data);
+		} else {
+			// 未登录的用户请先登录
+			echo "<script language=javascript>alert('要访问的页面需要先登录！');</script>";
+			$_SESSION['user_url'] = $_SERVER['REQUEST_URI'];
+			echo '<script language=javascript>window.location.href="../Login"</script>';
+		}
 	}
 	
 }

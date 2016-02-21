@@ -11,13 +11,21 @@
     
     <link href="<?=base_url().'assets/css/bootstrap.min.css?v=3.4.0' ?>" rel="stylesheet">
     <link href="<?=base_url().'assets/font-awesome/css/font-awesome.css?v=4.3.0' ?>" rel="stylesheet">
+    
     <link href="<?=base_url().'assets/css/plugins/iCheck/custom.css' ?>" rel="stylesheet">
+    
+    <link href="<?=base_url().'assets/css/plugins/simditor/simditor.css' ?>" rel="stylesheet">
+    
+    <link href="<?=base_url().'assets/css/plugins/chosen/chosen.css' ?>" rel="stylesheet">
+        
     <link href="<?=base_url().'assets/css/animate.css' ?>" rel="stylesheet">
+    <link href="<?=base_url().'assets/css/plugins/summernote/summernote.css' ?>" rel="stylesheet">
+    <link href="<?=base_url().'assets/css/plugins/summernote/summernote-bs3.css' ?>" rel="stylesheet">
     <link href="<?=base_url().'assets/css/style.css?v=2.2.0' ?>" rel="stylesheet">
 
 </head>
 
-<body>
+<body onload="startTime()">
     <div id="wrapper">
         <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
@@ -29,16 +37,16 @@
             <?php $this->load->view('view_header'); ?>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>基本表单</h2>
+                    <h2 id="time"></h2>
                     <ol class="breadcrumb">
                         <li>
-                            <a href="index.html">主页</a>
+                            <a href="index.html">MOA</a>
                         </li>
                         <li>
-                            <a>表单</a>
+                            <a>坐班日志</a>
                         </li>
                         <li>
-                            <strong>基本表单</strong>
+                            <strong>发布</strong>
                         </li>
                     </ol>
                 </div>
@@ -51,52 +59,119 @@
                     <div class="col-lg-12">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
-                                <h5>所有表单元素 <small>包括自定义样式的复选和单选按钮</small></h5>
+                                <h5>多媒体组长坐班日志 </h5>
                             </div>
                             <div class="ibox-content">
                                 <form method="get" class="form-horizontal">
                                 	<div class="form-group">
-	                                	<label class="col-sm-3 control-label">组别：</label>
-										<div class="col-sm-9">
-										    <label class="radio-inline">
-										        <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios">A组</label>
-										    <label class="radio-inline">
-										        <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios">B组</label>
+	                                	<div class="col-sm-3">
+	                                    	<label class="col-sm-11 col-sm-offset-1 control-label">组别</label>
+                                    	</div>
+										<div class="col-sm-7">
+										    <label class="radio-inline" style="font-size: 14px;">
+										        <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> A 组</label>
+										    <label class="radio-inline" style="font-size: 14px;">
+										        <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> B 组</label>
 										</div>
 									</div>
                                     <div class="hr-line-dashed"></div>
+                                    
                                     <div class="form-group">
-	                                    <label class="col-sm-3 control-label">早检情况：</label>
-										<div class="col-sm-9">
-										    <textarea name="" class="form-control" placeholder="请输入文本" > </textarea>
+                                    	<div class="col-sm-3">
+                                    		</br>
+                                    		</br>
+	                                    	<label class="col-sm-11 col-sm-offset-1 control-label">早检情况</label>
+                                    	</div>
+										<div class="col-sm-7">
+										    <textarea name="journal_morning" id="text_morning" class="form-control" placeholder="请输入文本" style="height: 100px;"> </textarea>
 										</div>
 									</div>
                                     <div class="hr-line-dashed"></div>
+                                    
                                     <div class="form-group">
-	                                    <label class="col-sm-3 control-label">午检情况：</label>
-										<div class="col-sm-9">
-										    <textarea name="" class="form-control" placeholder="请输入文本"> </textarea>
+                                    	<div class="col-sm-3">
+                                    		</br>
+                                    		</br>
+	                                    	<label class="col-sm-11 col-sm-offset-1 control-label">午检情况</label>
+                                    	</div>
+										<div class="col-sm-7">
+										    <textarea name="journal_noon" id="text_noon" class="form-control" placeholder="请输入文本" style="height: 100px;"> </textarea>
 										</div>
 									</div>
                                     <div class="hr-line-dashed"></div>
+                                    
                                     <div class="form-group">
-	                                    <label class="col-sm-3 control-label">晚检情况：</label>
-										<div class="col-sm-9">
-										    <textarea name="" class="form-control" placeholder="请输入文本"> </textarea>
+                                    	<div class="col-sm-3">
+                                    		</br>
+                                    		</br>
+	                                    	<label class="col-sm-11 col-sm-offset-1 control-label">晚检情况</label>
+                                    	</div>
+										<div class="col-sm-7">
+										    <textarea name="journal_evening" id="text_evening" class="form-control" placeholder="请输入文本" style="height: 100px;"> </textarea>
 										</div>
 									</div>
                                     <div class="hr-line-dashed"></div>
+                                    
                                     <div class="form-group">
-	                                    <label class="col-sm-3 control-label">总结：</label>
-										<div class="col-sm-9">
-										    <textarea name="" class="form-control" placeholder="请输入文本"> </textarea>
+	                                    <div class="col-sm-3">
+                                    		</br>
+                                    		</br>
+                                    		</br>
+	                                    	<label class="col-sm-11 col-sm-offset-1 control-label">优秀助理</label>
+                                    	</div>
+										<div class="col-sm-7">
+											<div class="input-group">
+												<select id="select_best" data-placeholder="请选择优秀助理" class="chosen-select" multiple style="width:594px;" tabindex="4">
+												<?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+													<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+												<?php } ?>
+	                                        </select>
+											</div>
+											<div>
+											    <textarea name="journal_best" id="text_best" class="form-control" placeholder="请输入文本" style="height: 100px;"> </textarea>
+											</div>
+                                    	</div>
+									</div>
+                                    <div class="hr-line-dashed"></div>
+                                    
+                                    <div class="form-group">
+	                                    <div class="col-sm-3">
+                                    		</br>
+                                    		</br>
+                                    		</br>
+	                                    	<label class="col-sm-11 col-sm-offset-1 control-label">异常助理</label>
+                                    	</div>
+										<div class="col-sm-7">
+											<div class="input-group">
+												<select id="select_bad" data-placeholder="请选择异常助理" class="chosen-select" multiple style="width:594px;" tabindex="4">
+	                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+													<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+												<?php } ?>
+	                                        </select>
+											</div>
+											<div>
+											    <textarea name="journal_bad" id="text_bad" class="form-control" placeholder="请输入文本" style="height: 100px;"> </textarea>
+											</div>
+                                    	</div>
+									</div>
+                                    <div class="hr-line-dashed"></div>
+                                    
+                                    <div class="form-group">
+	                                    <div class="col-sm-3">
+                                    		</br>
+                                    		</br>
+	                                    	<label class="col-sm-11 col-sm-offset-1 control-label">总结</label>
+                                    	</div>
+										<div class="col-sm-7">
+										    <textarea name="journal_summary" id="text_summary" class="form-control" placeholder="请输入文本" style="height: 100px;"> </textarea>
 										</div>
 									</div>
                                     <div class="hr-line-dashed"></div>
+                                    
                                     <div class="form-group">
-                                        <div class="col-sm-4 col-sm-offset-2">
-                                            <button class="btn btn-primary" type="submit">发布</button>
-                                            <button class="btn btn-white" type="submit">取消</button>
+                                        <div class="col-sm-4 col-sm-offset-5">
+                                            <button class="btn btn-primary" type="submit" id="submit_journal" 
+                                            data-toggle="modal" data-target="#myModal">发布</button>
                                         </div>
                                     </div>
                                 </form>
@@ -110,43 +185,20 @@
         </div>
     </div>
 
-
     </div>
-    <div id="modal-form" class="modal fade" aria-hidden="true">
+    
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
+                <div class="modal-header">
+                   <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>  -->
+                    <h4 class="modal-title" id="myModalLabel">提示</h4>
+                </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-6 b-r">
-                            <h3 class="m-t-none m-b">登录</h3>
-
-                            <p>欢迎登录本站(⊙o⊙)</p>
-
-                            <form role="form">
-                                <div class="form-group">
-                                    <label>用户名：</label>
-                                    <input type="email" placeholder="请输入用户名" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>密码：</label>
-                                    <input type="password" placeholder="请输入密码" class="form-control">
-                                </div>
-                                <div>
-                                    <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>登录</strong>
-                                    </button>
-                                    <label>
-                                        <input type="checkbox" class="i-checks">自动登录</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-sm-6">
-                            <h4>还不是会员？</h4>
-                            <p>您可以注册一个账户</p>
-                            <p class="text-center">
-                                <a href="form_basic.html"><i class="fa fa-sign-in big-icon"></i></a>
-                            </p>
-                        </div>
-                    </div>
+                        <h1 id="submit_result" style="color:#ED5565;text-align:center;"></h1>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
                 </div>
             </div>
         </div>
@@ -157,6 +209,7 @@
     <script src="<?=base_url().'assets/js/bootstrap.min.js?v=3.4.0' ?>"></script>
     <script src="<?=base_url().'assets/js/plugins/metisMenu/jquery.metisMenu.js' ?>"></script>
     <script src="<?=base_url().'assets/js/plugins/slimscroll/jquery.slimscroll.min.js' ?>"></script>
+    <script src="<?=base_url().'assets/js/journal_in.js' ?>"></script>
     
     <!-- nav item active -->
 	<script>
@@ -173,13 +226,98 @@
 
     <!-- iCheck -->
     <script src="<?=base_url().'assets/js/plugins/iCheck/icheck.min.js' ?>"></script>
+    
+    <!-- Chosen -->
+    <script src="<?=base_url().'assets/js/plugins/chosen/chosen.jquery.js' ?>"></script>
+    
+    <!-- simditor -->
+    <script type="text/javascript" src="<?=base_url().'assets/js/plugins/simditor/module.js' ?>"></script>
+    <script type="text/javascript" src="<?=base_url().'assets/js/plugins/simditor/uploader.js' ?>"></script>
+    <script type="text/javascript" src="<?=base_url().'assets/js/plugins/simditor/hotkeys.js' ?>"></script>
+    <script type="text/javascript" src="<?=base_url().'assets/js/plugins/simditor/simditor.js' ?>"></script>
+    
+    <!-- SUMMERNOTE -->
+    <script src="<?=base_url().'assets/js/plugins/summernote/summernote.min.js' ?>"></script>
+    <script src="<?=base_url().'assets/js/plugins/summernote/summernote-zh-CN.js' ?>"></script>
+    
     <script>
+    
         $(document).ready(function () {
-            $('.i-checks').iCheck({
+            /* Checkbox */
+            $('#optionsRadios1').iCheck({
                 checkboxClass: 'icheckbox_square-green',
                 radioClass: 'iradio_square-green',
             });
+
+            $('#optionsRadios2').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+            
+            
         });
+
+        /* Chosen */
+        var config = {
+                '.chosen-select': {},
+                '.chosen-select-deselect': {
+                    allow_single_deselect: true
+                },
+                '.chosen-select-no-single': {
+                    disable_search_threshold: 10
+                },
+                '.chosen-select-no-results': {
+                    no_results_text: 'Oops, nothing found!'
+                },
+                '.chosen-select-width': {
+                    width: "95%"
+                }
+            }
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
+        
+        /* Dynamic date */
+		function startTime() { 
+			var today=new Date(); 
+			var strDate=(" "+(today.getFullYear())+"年"+(today.getMonth()+1)+"月"+today.getDate()+"日"); 
+			var n_day=today.getDay(); 
+			switch(n_day) {
+				case 0: 
+				{strDate=strDate+" 星期日 "}break; 
+				case 1: 
+				{strDate=strDate+" 星期一 "}break; 
+				case 2: 
+				{strDate=strDate+" 星期二 "}break; 
+				case 3: 
+				{strDate=strDate+" 星期三 "}break; 
+				case 4: 
+				{strDate=strDate+" 星期四 "}break; 
+				case 5: 
+				{strDate=strDate+" 星期五 "}break; 
+				case 6: 
+				{strDate=strDate+" 星期六 "}break; 
+				case 7: 
+				{strDate=strDate+" 星期日 "}break; 
+			} 
+			//增加时分秒 
+			// add a zero in front of numbers<10 
+			var h=today.getHours(); 
+			var m=today.getMinutes(); 
+			var s=today.getSeconds() 
+			m=checkTime(m); 
+			s=checkTime(s); 
+			strDate=strDate+" "+h+":"+m+":"+s; 
+			document.getElementById('time').innerHTML=strDate; 
+			t=setTimeout('startTime()',500) 
+		} 
+		
+		function checkTime(i) { 
+			if (i<10) {i="0" + i} 
+			return i 
+		}
+		
+        
     </script>
 
 </body>
