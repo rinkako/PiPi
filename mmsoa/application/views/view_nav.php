@@ -18,24 +18,27 @@
 				<ul class="nav" id="side-menu">
 					<li class="nav-header">
 
-                        <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="<?=base_url().'assets/images/profile_small.jpg' ?>" />
-                             </span>
+                        <div class="dropdown profile-element">
+                        	<span>
+                            	<img alt="image" class="img-circle" src="<?=base_url().'assets/images/profile_small.jpg' ?>" />
+                            </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-                                <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><?php echo $_SESSION['username']; ?></strong>
-                             </span>  <span class="text-muted text-xs block">超级管理员 <b class="caret"></b></span> </span>
+                                <span class="clear">
+                                	<span class="block m-t-xs"> <strong class="font-bold"><?php echo $_SESSION['name']; ?>  </strong><b class="caret"></b></span>
+                                	<span class="text-muted text-xs block"><?php echo $_SESSION['level_name']; ?></span>
+                                </span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a href="form_avatar.html">修改头像</a>
+                                <li><a href="personaldata">个人资料</a>
                                 </li>
-                                <li><a href="profile.html">个人资料</a>
+                                <li><a href="changepassword">修改密码</a>
                                 </li>
                                 <li><a href="contacts.html">联系我们</a>
                                 </li>
                                 <li><a href="mailbox.html">信箱</a>
                                 </li>
                                 <li class="divider"></li>
-                                <li><a href="login.html">安全退出</a>
+                                <li><a href="../Login">安全退出</a>
                                 </li>
                             </ul>
                         </div>

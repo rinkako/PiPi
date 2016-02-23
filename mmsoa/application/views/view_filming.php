@@ -43,10 +43,10 @@
                     <h2 id="time"></h2>
                     <ol class="breadcrumb">
                         <li>
-                            <a href="homepage">MOA</a>
+                            MOA
                         </li>
                         <li>
-                            <a>工作记录</a>
+                            	工作记录
                         </li>
                         <li>
                             <strong>拍摄</strong>

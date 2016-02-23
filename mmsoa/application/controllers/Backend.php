@@ -119,4 +119,39 @@ Class Backend extends CI_Controller {
 		}
 	}
 	
+	/*
+	 * 个人资料
+	 */
+	public function personaldata() {
+		if (isset($_SESSION['user_id'])) {
+			// 获取个人信息
+			$obj = $this->moa_user_model->get($_SESSION['user_id']);
+			$data['personal_data'] = $obj;
+			$this->load->view('view_personaldata', $data);
+		} else {
+			// 未登录的用户请先登录
+			echo "<script language=javascript>alert('要访问的页面需要先登录！');</script>";
+			$_SESSION['user_url'] = $_SERVER['REQUEST_URI'];
+			echo '<script language=javascript>window.location.href="../Login"</script>';
+		}
+	}
+	
+	/*
+	 * 修改密码
+	 */
+	public function changepassword() {
+		if (isset($_SESSION['user_id'])) {
+			// 获取个人信息
+			$obj = $this->moa_user_model->get($_SESSION['user_id']);
+			$data['username'] = $obj->username;
+			$this->load->view('view_changepassword', $data);
+		} else {
+			// 未登录的用户请先登录
+			echo "<script language=javascript>alert('要访问的页面需要先登录！');</script>";
+			$_SESSION['user_url'] = $_SERVER['REQUEST_URI'];
+			echo '<script language=javascript>window.location.href="../Login"</script>';
+		}
+	}
+	
+	
 }

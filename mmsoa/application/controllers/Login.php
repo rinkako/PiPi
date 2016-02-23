@@ -51,6 +51,23 @@ Class Login extends CI_Controller {
 				set_cookie('user_id', $uid, time() + (60 * 60 * 24 * 30));        // expires in 30 days
 				set_cookie('username', $username, time() + (60 * 60 * 24 * 30));  // expires in 30 days
 				$success = "登录成功";
+				
+				// 获取姓名与用户级别
+				$obj = $this->moa_user_model->get($_SESSION['user_id']);
+				$_SESSION['name'] = $obj->name;
+				$level = $obj->level;
+				$_SESSION['level'] = $level;
+				if ($level == 0) {
+					$level_name = "普通助理";
+				} else if ($level == 1) {
+					$level_name = "组长";
+				} else if ($level == 2) {
+					$level_name = "负责人助理";
+				} else if ($level == 3) {
+					$level_name = "负责人·管理员";
+				}
+				$_SESSION['level_name'] = $level_name;
+				
 				if (isset($_SESSION['user_url'])) {
 					// Save the url needed to be jumped
 					// eg. 从"/MOA/mmsoa/index.php/Backend/dailycheck"中截取"Backend/dailycheck"

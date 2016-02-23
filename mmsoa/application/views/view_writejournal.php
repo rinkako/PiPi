@@ -40,10 +40,10 @@
                     <h2 id="time"></h2>
                     <ol class="breadcrumb">
                         <li>
-                            <a href="index.html">MOA</a>
+                            MOA
                         </li>
                         <li>
-                            <a>坐班日志</a>
+                            	坐班日志
                         </li>
                         <li>
                             <strong>发布</strong>
@@ -62,7 +62,7 @@
                                 <h5>多媒体组长坐班日志 </h5>
                             </div>
                             <div class="ibox-content">
-                                <form method="get" class="form-horizontal">
+                                <form class="form-horizontal">
                                 	<div class="form-group">
 	                                	<div class="col-sm-3">
 	                                    	<label class="col-sm-11 col-sm-offset-1 control-label">组别</label>
