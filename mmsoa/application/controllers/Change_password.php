@@ -25,23 +25,31 @@ Class Change_password extends CI_Controller {
 	 */
 	public function changePassword() {
 		if (isset($_SESSION['user_id'])) {
-			if (isset($_POST['password_old']) && isset($_POST['password_new'])) {
+			if (isset($_POST['password_old'])) {
 				$obj = $this->moa_user_model->get($_SESSION['user_id']);
 				$pw_old = $obj->password;
 				if ($pw_old != md5($_POST['password_old'])) {
 					echo json_encode(array("status" => FALSE, "msg" => "旧密码错误"));
 					return;
 				} else {
-					$pd_paras['password'] = md5($_POST['password_new']);
-					$res = $this->moa_user_model->update($_SESSION['user_id'], $pd_paras);
-					
-					if ($res != FALSE) {
-						echo json_encode(array("status" => TRUE, "msg" => "修改成功"));
-						return;
-					} else {
-						echo json_encode(array("status" => FALSE, "msg" => "修改失败"));
-						return;
+					if (isset($_POST['password_new']) && isset($_POST['confirm_password'])) {
+						if ($_POST['password_new'] == $_POST['confirm_password']) {
+							$pd_paras['password'] = md5($_POST['password_new']);
+							$res = $this->moa_user_model->update($_SESSION['user_id'], $pd_paras);
+								
+							if ($res != FALSE) {
+								echo json_encode(array("status" => TRUE, "msg" => "修改成功"));
+								return;
+							} else {
+								echo json_encode(array("status" => FALSE, "msg" => "修改失败"));
+								return;
+							}
+						} else {
+							echo json_encode(array("status" => FALSE, "msg" => "两次输入的密码不一致"));
+							return;
+						}
 					}
+					
 				}
 			} else {
 				echo json_encode(array("status" => FALSE, "msg" => "修改失败"));

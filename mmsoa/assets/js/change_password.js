@@ -5,6 +5,7 @@ $("#submit_changepassword").click(function() {
 	
 	var pw_old = $("#password_old").val();
 	var pw_new = $("#password_new").val();
+	var pw_con = $("#confirm_password").val();
 	
 	$.ajax({
 		type: "POST", 
@@ -12,6 +13,7 @@ $("#submit_changepassword").click(function() {
 		data: {
 			"password_old": pw_old,
 			"password_new": pw_new,
+			"confirm_password": pw_con,
 		},
 		success: function(msg) {
 			ret = JSON.parse(msg);

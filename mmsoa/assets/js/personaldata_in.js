@@ -2,7 +2,6 @@
  * 个人信息更新
  */
 
-
 $("#submit_personaldata").click(function() {
 	
 	var phone = $("#pd_phone").val();

@@ -93,7 +93,7 @@
 					                                    <div class="form-group">
 					                                        <div class="col-sm-4 col-sm-offset-5">
 					                                            <button id="submit_onduty" class="btn btn-primary" disabled="" type="submit" 
-					                                            data-toggle="modal" data-target="#myModal">提交</button>
+					                                            data-toggle="modal" data-target="#myModal">登记</button>
 					                                        </div>
 					                                    </div>
 					                                </div>

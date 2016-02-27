@@ -1,6 +1,8 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
+require_once('Public_methods.php');
+
 /**
  * 后台控制类
  * @author 伟
@@ -145,6 +147,50 @@ Class Backend extends CI_Controller {
 			$obj = $this->moa_user_model->get($_SESSION['user_id']);
 			$data['username'] = $obj->username;
 			$this->load->view('view_changepassword', $data);
+		} else {
+			// 未登录的用户请先登录
+			echo "<script language=javascript>alert('要访问的页面需要先登录！');</script>";
+			$_SESSION['user_url'] = $_SERVER['REQUEST_URI'];
+			echo '<script language=javascript>window.location.href="../Login"</script>';
+		}
+	}
+	
+	/*
+	 * 添加新用户
+	 */
+	public function adduser() {
+		if (isset($_SESSION['user_id'])) {
+			$data['daily_classrooms'] = Public_methods::get_daily_classrooms();
+			$data['weekly_classrooms'] = Public_methods::get_weekly_classrooms();
+			$this->load->view('view_adduser', $data);
+		} else {
+			// 未登录的用户请先登录
+			echo "<script language=javascript>alert('要访问的页面需要先登录！');</script>";
+			$_SESSION['user_url'] = $_SERVER['REQUEST_URI'];
+			echo '<script language=javascript>window.location.href="../Login"</script>';
+		}
+	}
+	
+	/*
+	 * 查看用户列表
+	 */
+	public function searchuser() {
+		if (isset($_SESSION['user_id'])) {
+			// state: 0-正常  1-锁定  2-已删除
+			$state = 0;
+			// 取状态为正常的所有用户
+			$users = $this->moa_user_model->get_by_state($state);
+			// 获取普通助理的常检周检课室列表
+			$workers = array();
+			for ($i = 0; $i < count($users); $i++) {
+				if ($users[$i]->level == 0) {
+					$tmp_wid = $this->moa_worker_model->get_wid_by_uid($users[$i]->uid);
+					$workers[$i] = $this->moa_worker_model->get($tmp_wid);
+				}
+			}
+			$data['users'] = $users;
+			$data['workers'] = $workers;
+			$this->load->view('view_searchuser', $data);
 		} else {
 			// 未登录的用户请先登录
 			echo "<script language=javascript>alert('要访问的页面需要先登录！');</script>";

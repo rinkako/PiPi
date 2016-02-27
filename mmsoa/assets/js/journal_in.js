@@ -3,6 +3,14 @@
  */
 
 $("#submit_journal").click(function() {
+	var journal_group = null;
+	var obj = document.getElementsByName("group_radio");
+	for (var i = 0; i < obj.length; i++) {
+		if (obj[i].checked) {
+			journal_group = obj[i].value;
+		}
+	}
+	
 	var report_list = [];
 	var i = 0;
 	
@@ -18,6 +26,7 @@ $("#submit_journal").click(function() {
 		url: "../Journal_in/write_journal",
 		data: {
 			"journal_body": report_list,
+			"group": journal_group,
 		},
 		success: function(msg) {
 			ret = JSON.parse(msg);

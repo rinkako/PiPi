@@ -63,6 +63,17 @@
                             </li>
                         </ul>
                     </li>
+                    <li id="active-examrecord">
+                        <a href="homepage#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">查看记录</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li id="active-dailyexam"><a href="dailyexam">常检</a>
+                            </li>
+                            <li id="active-weeklyexam"><a href="weeklyexam">周检</a>
+                            </li>
+                            <li id="active-dutyexam"><a href="dutyexam">周检</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li id="active-journal">
                         <a href="homepage#"><i class="fa fa-th-large"></i> <span class="nav-label">坐班日志</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -72,47 +83,16 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="index.html#"><i class="fa fa fa-globe"></i> <span class="nav-label">v2.0新增</span><span class="fa arrow"></span></a>
+                    <li id="active-usermanagement">
+                        <a href="homepage#"><i class="fa fa fa-globe"></i> <span class="nav-label">用户管理</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="toastr_notifications.html">Toastr通知</a>
+                            <li id="active-adduser"><a href="adduser">添加</a>
                             </li>
-                            <li><a href="nestable_list.html">嵌套列表</a>
-                            </li>
-                            <li><a href="timeline_v2.html">时间轴</a>
-                            </li>
-                            <li><a href="forum_main.html">论坛</a>
-                            </li>
-                            <li><a href="code_editor.html">代码编辑器</a>
-                            </li>
-                            <li><a href="modal_window.html">模态窗口</a>
-                            </li>
-                            <li><a href="validation.html">表单验证</a>
-                            </li>
-                            <li><a href="tree_view_v2.html">树形视图</a>
-                            </li>
-                            <li><a href="chat_view.html">聊天窗口</a>
+                            <li id="active-searchuser"><a href="searchuser">查看</a>
                             </li>
                         </ul>
                     </li>
-<!--  
-                    <li>
-                        <a href="index.html#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">图表</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="graph_echarts.html">百度ECharts</a>
-                            </li>
-                            <li><a href="graph_flot.html">Flot</a>
-                            </li>
-                            <li><a href="graph_morris.html">Morris.js</a>
-                            </li>
-                            <li><a href="graph_rickshaw.html">Rickshaw</a>
-                            </li>
-                            <li><a href="graph_peity.html">Peity</a>
-                            </li>
-                            <li><a href="graph_sparkline.html">Sparkline</a>
-                            </li>
-                        </ul>
-                    </li>
+                    <!--  
                     <li>
                         <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">信箱 </span><span class="label label-warning pull-right">16</span></a>
                         <ul class="nav nav-second-level">

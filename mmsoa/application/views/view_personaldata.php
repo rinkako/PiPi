@@ -19,8 +19,6 @@
     <link href="<?=base_url().'assets/css/plugins/chosen/chosen.css' ?>" rel="stylesheet">
         
     <link href="<?=base_url().'assets/css/animate.css' ?>" rel="stylesheet">
-    <link href="<?=base_url().'assets/css/plugins/summernote/summernote.css' ?>" rel="stylesheet">
-    <link href="<?=base_url().'assets/css/plugins/summernote/summernote-bs3.css' ?>" rel="stylesheet">
     <link href="<?=base_url().'assets/css/style.css?v=2.2.0' ?>" rel="stylesheet">
 
 </head>
@@ -145,7 +143,7 @@
                                         <label class="col-sm-2 col-sm-offset-1 control-label">入职日期</label>
                                         <div class="col-sm-3">
                                             <input type="text" name="pd_indate" placeholder="请选择入职日期" disabled="" 
-                                            id="pd_indate" class="form-control" value="<?php echo $personal_data->indate; ?>">
+                                            id="pd_indate" class="form-control" value="<?php echo substr($personal_data->indate, 0, 10); ?>">
                                         </div>
                                     </div>
                                     
@@ -219,8 +217,8 @@
 	            element.closest('.form-group').removeClass('has-error').addClass('has-success');
 	        },
 	        errorElement: "span",
-	        errorClass: "help-block m-b-none",
-	        validClass: "help-block m-b-none"
+	        errorClass: "color-error m-b-none",
+	        validClass: "color-success m-b-none"
 	
 	    });
     

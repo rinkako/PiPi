@@ -85,6 +85,35 @@ class moa_user_model extends CI_Model {
 			return false;
 		}
 	}
+	
+	/**
+	 * 取某状态所有用户
+	 * @param mystate - 状态
+	 */
+	public function get_by_state($mystate) {
+		if (isset($mystate)) {
+			$this->db->where(array('state'=>$mystate));
+			return $this->db->get('MOA_User')->result();
+		}
+		else {
+			return false;
+		}
+	}
+	
+	/**
+	 * 取某级别某状态所有用户
+	 * @param mylevel - 级别
+	 * @param mystate - 状态
+	 */
+	public function get_by_level_state($mylevel, $mystate) {
+		if (isset($mylevel) && isset($mystate)) {
+			$this->db->where(array('level'=>$mylevel, 'state'=>$mystate));
+			return $this->db->get('MOA_User')->result();
+		}
+		else {
+			return false;
+		}
+	}
 
     /**
 	 * 取指定用户名的有效记录
@@ -92,9 +121,9 @@ class moa_user_model extends CI_Model {
 	 * @param nums - 最大条目
 	 * @param offset - 偏移量
 	 */
-	public function get_by_name($username, $nums = NULL, $offset = 0) {
+	public function get_by_username($username, $nums = NULL, $offset = 0) {
 		if (isset($username)) {
-			$this->db->where(array('name'=>$username, 'status'=>0));
+			$this->db->where(array('username'=>$username, 'state'=>0));
 			if (!is_null($nums)) {
 				$this->db->limit($nums, $offset);
 			}

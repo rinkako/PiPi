@@ -19,8 +19,6 @@
     <link href="<?=base_url().'assets/css/plugins/chosen/chosen.css' ?>" rel="stylesheet">
         
     <link href="<?=base_url().'assets/css/animate.css' ?>" rel="stylesheet">
-    <link href="<?=base_url().'assets/css/plugins/summernote/summernote.css' ?>" rel="stylesheet">
-    <link href="<?=base_url().'assets/css/plugins/summernote/summernote-bs3.css' ?>" rel="stylesheet">
     <link href="<?=base_url().'assets/css/style.css?v=2.2.0' ?>" rel="stylesheet">
 
 </head>
@@ -64,7 +62,7 @@
                                 	<div class="form-group">
                                         <label class="col-sm-3 col-sm-offset-1 control-label">用户名</label>
                                         <div class="col-sm-4">
-                                            <input id="password" name="password" class="form-control" type="text" 
+                                            <input id="username" name="username" class="form-control" type="text" 
                                             placeholder="用户名" disabled="" value="<?php echo $username; ?>">
                                         </div>
                                     </div>
@@ -89,14 +87,14 @@
                                         <label class="col-sm-3 col-sm-offset-1 control-label">确认密码</label>
                                         <div class="col-sm-4">
                                             <input id="confirm_password" name="confirm_password" class="form-control" type="password" 
-                                            placeholder="请确认新密码">
+                                            placeholder="请再次输入新密码">
                                         </div>
                                     </div>
                                 
                                     <div class="hr-line-dashed"></div>
                                     
                                     <div class="form-group">
-                                        <div class="col-sm-4 col-sm-offset-4">
+                                        <div class="col-sm-4 col-sm-offset-5">
                                             <button class="btn btn-primary" type="submit" id="submit_changepassword" 
                                             data-toggle="modal" data-target="#myModal">修改</button>
                                         </div>
@@ -163,8 +161,8 @@
 	            element.closest('.form-group').removeClass('has-error').addClass('has-success');
 	        },
 	        errorElement: "span",
-	        errorClass: "help-block m-b-none",
-	        validClass: "help-block m-b-none"
+	        errorClass: "color-error m-b-none",
+	        validClass: "color-success m-b-none"
 	
 	    });
     

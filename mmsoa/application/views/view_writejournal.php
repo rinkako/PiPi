@@ -63,17 +63,19 @@
                             </div>
                             <div class="ibox-content">
                                 <form class="form-horizontal">
+                                
                                 	<div class="form-group">
 	                                	<div class="col-sm-3">
 	                                    	<label class="col-sm-11 col-sm-offset-1 control-label">组别</label>
                                     	</div>
 										<div class="col-sm-7">
 										    <label class="radio-inline" style="font-size: 14px;">
-										        <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> A 组</label>
+										        <input type="radio" checked="" value="1" id="group_A" name="group_radio"> A 组</label>
 										    <label class="radio-inline" style="font-size: 14px;">
-										        <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> B 组</label>
+										        <input type="radio" value="2" id="group_B" name="group_radio"> B 组</label>
 										</div>
 									</div>
+									
                                     <div class="hr-line-dashed"></div>
                                     
                                     <div class="form-group">
@@ -83,7 +85,7 @@
 	                                    	<label class="col-sm-11 col-sm-offset-1 control-label">早检情况</label>
                                     	</div>
 										<div class="col-sm-7">
-										    <textarea name="journal_morning" id="text_morning" class="form-control" placeholder="请输入文本" style="height: 100px;"> </textarea>
+										    <textarea name="journal_morning" id="text_morning" class="form-control" placeholder="请输入早检情况" style="height: 100px;"></textarea>
 										</div>
 									</div>
                                     <div class="hr-line-dashed"></div>
@@ -95,7 +97,7 @@
 	                                    	<label class="col-sm-11 col-sm-offset-1 control-label">午检情况</label>
                                     	</div>
 										<div class="col-sm-7">
-										    <textarea name="journal_noon" id="text_noon" class="form-control" placeholder="请输入文本" style="height: 100px;"> </textarea>
+										    <textarea name="journal_noon" id="text_noon" class="form-control" placeholder="请输入午检情况" style="height: 100px;"></textarea>
 										</div>
 									</div>
                                     <div class="hr-line-dashed"></div>
@@ -107,7 +109,7 @@
 	                                    	<label class="col-sm-11 col-sm-offset-1 control-label">晚检情况</label>
                                     	</div>
 										<div class="col-sm-7">
-										    <textarea name="journal_evening" id="text_evening" class="form-control" placeholder="请输入文本" style="height: 100px;"> </textarea>
+										    <textarea name="journal_evening" id="text_evening" class="form-control" placeholder="请输入晚检情况" style="height: 100px;"></textarea>
 										</div>
 									</div>
                                     <div class="hr-line-dashed"></div>
@@ -128,7 +130,7 @@
 	                                        </select>
 											</div>
 											<div>
-											    <textarea name="journal_best" id="text_best" class="form-control" placeholder="请输入文本" style="height: 100px;"> </textarea>
+											    <textarea name="journal_best" id="text_best" class="form-control" placeholder="请输入优秀助理的表现" style="height: 100px;"></textarea>
 											</div>
                                     	</div>
 									</div>
@@ -150,7 +152,7 @@
 	                                        </select>
 											</div>
 											<div>
-											    <textarea name="journal_bad" id="text_bad" class="form-control" placeholder="请输入文本" style="height: 100px;"> </textarea>
+											    <textarea name="journal_bad" id="text_bad" class="form-control" placeholder="请输入异常助理的表现" style="height: 100px;"></textarea>
 											</div>
                                     	</div>
 									</div>
@@ -163,7 +165,7 @@
 	                                    	<label class="col-sm-11 col-sm-offset-1 control-label">总结</label>
                                     	</div>
 										<div class="col-sm-7">
-										    <textarea name="journal_summary" id="text_summary" class="form-control" placeholder="请输入文本" style="height: 100px;"> </textarea>
+										    <textarea name="journal_summary" id="text_summary" class="form-control" placeholder="请输入坐班总结" style="height: 100px;"></textarea>
 										</div>
 									</div>
                                     <div class="hr-line-dashed"></div>
@@ -243,13 +245,13 @@
     <script>
     
         $(document).ready(function () {
-            /* Checkbox */
-            $('#optionsRadios1').iCheck({
+            /* Radio */
+            $('#group_A').iCheck({
                 checkboxClass: 'icheckbox_square-green',
                 radioClass: 'iradio_square-green',
             });
 
-            $('#optionsRadios2').iCheck({
+            $('#group_B').iCheck({
                 checkboxClass: 'icheckbox_square-green',
                 radioClass: 'iradio_square-green',
             });
