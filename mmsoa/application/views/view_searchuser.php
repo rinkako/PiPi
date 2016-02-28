@@ -149,55 +149,6 @@
         <div class="modal-dialog">
             <div class="modal-content">
             	<div class="modal-header">
-            		<h4 class='modal-title' id="modal_header" style='text-align: center'> 的个人信息</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                    
-                            <div class="list-group col-sm-6">
-                                <div class="list-group-item">
-                                    <h3 class="list-group-item-heading">用户名</h3>
-                                    <p class="list-group-item-text" id="info_username"></p>
-                                </div>
-
-                                <div class="list-group-item">
-                                    <h3 class="list-group-item-heading">QQ</h3>
-                                    <p class="list-group-item-text" id="info_qq"></p>
-                                </div>
-
-                                <div class="list-group-item">
-                                    <h3 class="list-group-item-heading">微信</h3>
-                                    <p class="list-group-item-text" id="info_wechat"></p>
-                                </div>
-                            </div>
-                            
-                            <div class="list-group col-sm-6">
-                                <div class="list-group-item">
-                                    <h3 class="list-group-item-heading">学院</h3>
-                                    <p class="list-group-item-text" id="info_school"></p>
-                                </div>
-
-                                <div class="list-group-item">
-                                    <h3 class="list-group-item-heading">宿舍</h3>
-                                    <p class="list-group-item-text" id="info_address"></p>
-                                </div>
-                                
-                                <div class="list-group-item">
-                                    <h3 class="list-group-item-heading">入职日期</h3>
-                                    <p class="list-group-item-text" id="info_indate"></p>
-                                </div>
-                            </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div id="modal-form" class="modal fade" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            	<div class="modal-header">
             		<h4 class='modal-title' id="modal_header" style='text-align: center'></h4>
                 </div>
                 <div class="modal-body">
@@ -206,34 +157,34 @@
                             <div class="list-group col-sm-6">
                                 <div class="list-group-item">
                                     <h3 class="list-group-item-heading">用户名</h3>
-                                    <p class="list-group-item-text" id="info_username"></p>
+                                    <p class="list-group-item-text" id="info_username">mms_01</p>
                                 </div>
 
                                 <div class="list-group-item">
                                     <h3 class="list-group-item-heading">QQ</h3>
-                                    <p class="list-group-item-text" id="info_qq"></p>
+                                    <p class="list-group-item-text" id="info_qq">1021265972</p>
                                 </div>
 
                                 <div class="list-group-item">
                                     <h3 class="list-group-item-heading">微信</h3>
-                                    <p class="list-group-item-text" id="info_wechat"></p>
+                                    <p class="list-group-item-text" id="info_wechat">weixin1021265972</p>
                                 </div>
                             </div>
                             
                             <div class="list-group col-sm-6">
                                 <div class="list-group-item">
                                     <h3 class="list-group-item-heading">学院</h3>
-                                    <p class="list-group-item-text" id="info_school"></p>
+                                    <p class="list-group-item-text" id="info_school">数据科学与计算机学院</p>
                                 </div>
 
                                 <div class="list-group-item">
                                     <h3 class="list-group-item-heading">宿舍</h3>
-                                    <p class="list-group-item-text" id="info_address"></p>
+                                    <p class="list-group-item-text" id="info_address">至善园2号234</p>
                                 </div>
                                 
                                 <div class="list-group-item">
                                     <h3 class="list-group-item-heading">入职日期</h3>
-                                    <p class="list-group-item-text" id="info_indate"></p>
+                                    <p class="list-group-item-text" id="info_indate">2012-12-12</p>
                                 </div>
                             </div>
                         

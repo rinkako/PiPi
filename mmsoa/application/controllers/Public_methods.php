@@ -18,6 +18,84 @@ Class Public_methods extends CI_Controller {
 		return $cur_week;
 	}
 	
+	/**
+	 * 获取值班时间段
+	 * @param weekday 星期
+	 * @param from 值班开始时间
+	 * @param to 值班结束时间
+	 * @return 值班时间段数组
+	 */
+	public static function get_duty_periods($weekday, $from, $to) {
+		$t_from = strtotime($from);
+		$t_to = strtotime($to);
+		$p_start = 0;
+		$p_end = 0;
+		$periods = array();
+		// 工作日
+		if ($weekday >= 1 && $weekday <= 5) {
+			$duty_starts = array();
+			$duty_starts[] = strtotime("07:30");
+			$duty_starts[] = strtotime("10:30");
+			$duty_starts[] = strtotime("12:30");
+			$duty_starts[] = strtotime("14:00");
+			$duty_starts[] = strtotime("16:00");
+			$duty_starts[] = strtotime("18:00");
+			$duty_ends = array();
+			$duty_ends[] = strtotime("10:30");
+			$duty_ends[] = strtotime("12:30");
+			$duty_ends[] = strtotime("14:00");
+			$duty_ends[] = strtotime("16:00");
+			$duty_ends[] = strtotime("18:00");
+			$duty_ends[] = strtotime("22:00");
+			// 误差容忍范围为30分钟=0.5 * 60 *60s
+			for ($i = 0; $i < 6; $i++) {
+				if (($t_from - $duty_starts[$i]) >= -(0.5 * 60 *60) && 
+					($t_from - $duty_starts[$i]) <= (0.5 * 60 *60)) {
+					$p_start = $i + 1;
+				}
+			}
+			for ($j = 0; $j < 6; $j++) {
+				if (($t_to - $duty_ends[$j]) >= -(0.5 * 60 *60) && 
+					($t_to - $duty_ends[$j]) <= (0.5 * 60 *60)) {
+					$p_end = $j + 1;
+				}
+			}
+			for ($k = $p_start; $k <= $p_end; $k++) {
+				$periods[] = $k;
+			}
+		} 
+		// 周末
+		else if ($weekday == 6 || $weekday == 7) {
+			$weekend_starts = array();
+			$weekend_starts[] = strtotime("07:30");
+			$weekend_starts[] = strtotime("12:30");
+			$weekend_starts[] = strtotime("18:00");
+			$weekend_ends = array();
+			$weekend_ends[] = strtotime("12:30");
+			$weekend_ends[] = strtotime("18:00");
+			$weekend_ends[] = strtotime("22:00");
+			for ($i = 0; $i < 3; $i++) {
+				if (($t_from - $weekend_starts[$i]) >= -(0.5 * 60 *60) &&
+					($t_from - $weekend_starts[$i]) <= (0.5 * 60 *60)) {
+						$p_start = $i + 7;
+					}
+			}
+			for ($j = 0; $j < 3; $j++) {
+				if (($t_to - $weekend_ends[$j]) >= -(0.5 * 60 *60) &&
+					($t_to - $weekend_ends[$j]) <= (0.5 * 60 *60)) {
+						$p_end = $j + 7;
+					}
+			}
+			for ($k = $p_start; $k <= $p_end; $k++) {
+				$periods[] = $k;
+			}
+		}
+		else {
+			return NULL;
+		}
+		return $periods;
+	}
+	
 	/*
 	 * 获取常检课室列表
 	 */

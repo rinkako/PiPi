@@ -7,13 +7,13 @@ $("#select_level").change(function() {
 	var chosen_level = $("#select_level").val();
 	
 	if (chosen_level == 0) {
-		$("#radio_group").show();
-        $("#chosen_daily").show();
-        $("#chosen_weekly").show();
+		$("#radio_group").show(500);
+        $("#chosen_daily").show(500);
+        $("#chosen_weekly").show(500);
 	} else {
-		$("#radio_group").hide();
-        $("#chosen_daily").hide();
-        $("#chosen_weekly").hide();
+		$("#radio_group").hide(500);
+        $("#chosen_daily").hide(500);
+        $("#chosen_weekly").hide(500);
 	}
 });
 

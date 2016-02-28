@@ -94,7 +94,7 @@
 						                                <?php } ?>
 					                                    <div class="hr-line-dashed"></div>
 					                                    <div class="form-group">
-					                                        <div class="col-sm-4 col-sm-offset-2">
+					                                        <div class="col-sm-4 col-sm-offset-5">
 					                                            <button id="submit_morning" class="btn btn-primary" disabled="" type="submit" 
 					                                            data-toggle="modal" data-target="#myModal">提交</button>
 					                                        </div>
@@ -122,7 +122,7 @@
 						                                <?php } ?>
 					                                    <div class="hr-line-dashed"></div>
 					                                    <div class="form-group">
-					                                        <div class="col-sm-4 col-sm-offset-2">
+					                                        <div class="col-sm-4 col-sm-offset-5">
 					                                            <button id="submit_noon" class="btn btn-primary" disabled="" type="submit" 
 					                                            data-toggle="modal" data-target="#myModal" >提交</button>
 					                                        </div>
@@ -153,7 +153,7 @@
 						                                <?php } ?>
 					                                    <div class="hr-line-dashed"></div>
 					                                    <div class="form-group">
-					                                        <div class="col-sm-4 col-sm-offset-2">
+					                                        <div class="col-sm-4 col-sm-offset-5">
 					                                            <button id="submit_evening" class="btn btn-primary" disabled="" type="submit" 
 					                                            data-toggle="modal" data-target="#myModal">提交</button>
 					                                            <!-- <button class="btn btn-white" type="submit">取消</button>  -->

@@ -13,9 +13,7 @@
     <link href="<?=base_url().'assets/font-awesome/css/font-awesome.css?v=4.3.0' ?>" rel="stylesheet">
     
     <link href="<?=base_url().'assets/css/plugins/iCheck/custom.css' ?>" rel="stylesheet">
-    
-    <link href="<?=base_url().'assets/css/plugins/simditor/simditor.css' ?>" rel="stylesheet">
-    
+        
     <link href="<?=base_url().'assets/css/plugins/chosen/chosen.css' ?>" rel="stylesheet">
     
     <link href="<?=base_url().'assets/css/plugins/jasny/jasny-bootstrap.min.css' ?>" rel="stylesheet">
@@ -102,7 +100,7 @@
                                         <label class="col-sm-3 col-sm-offset-1 control-label">职务</label>
                                         <div class="col-sm-4">
                                         	<select id="select_level" name="level" data-placeholder="请选择用户类型" class="chosen-select col-sm-12" tabindex="4">
-                                        		<option value="">请选择用户类型</option>
+                                        		<option value="9">请选择用户类型</option>
                                         		<option value="0">普通助理</option>
                                         		<option value="1">组长</option>
                                         		<option value="2">负责人助理</option>

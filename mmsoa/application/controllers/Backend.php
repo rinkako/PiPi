@@ -73,7 +73,22 @@ Class Backend extends CI_Controller {
 	 */
 	public function onduty() {
 		if (isset($_SESSION['user_id'])) {
-			$this->load->view('view_onduty');
+			// 取所有普通助理的wid与name, level: 0-普通助理  1-组长  2-负责人助理  3-助理负责人  4-管理员  5-办公室负责人
+			$level = 0;
+			$common_worker = $this->moa_user_model->get_by_level($level);
+				
+			for ($i = 0; $i < count($common_worker); $i++) {
+				$uid_list[$i] = $common_worker[$i]->uid;
+				$name_list[$i] = $common_worker[$i]->name;
+				$wid_list[$i] = $this->moa_worker_model->get_wid_by_uid($uid_list[$i]);
+			}
+			
+			$wid = $this->moa_worker_model->get_wid_by_uid($_SESSION['user_id']);
+			$data['wid'] = $wid;
+			$data['name_list'] = $name_list;
+			$data['wid_list'] = $wid_list;
+			// 传入wid列表用于选择被代班助理
+			$this->load->view('view_onduty', $data);
 		} else {
 			// 未登录的用户请先登录
 			echo "<script language=javascript>alert('要访问的页面需要先登录！');</script>";
@@ -97,11 +112,11 @@ Class Backend extends CI_Controller {
 	}
 	
 	/*
-	 * 坐班日志
+	 * 发布坐班日志
 	 */
 	public function writejournal() {
 		if (isset($_SESSION['user_id'])) {
-			// 取所有普通助理的wid与name, level: 0-普通助理  1-组长  2-负责人助理  3-助理负责人、管理员
+			// 取所有普通助理的wid与name, level: 0-普通助理  1-组长  2-负责人助理  3-助理负责人  4-管理员  5-办公室负责人
 			$level = 0;
 			$common_worker = $this->moa_user_model->get_by_level($level);
 			
@@ -122,7 +137,7 @@ Class Backend extends CI_Controller {
 	}
 	
 	/*
-	 * 个人资料
+	 * 查看/修改个人资料
 	 */
 	public function personaldata() {
 		if (isset($_SESSION['user_id'])) {

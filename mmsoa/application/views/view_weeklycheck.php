@@ -97,7 +97,7 @@
 						                                <?php } ?>
 					                                    <div class="hr-line-dashed"></div>
 					                                    <div class="form-group">
-					                                        <div class="col-sm-4 col-sm-offset-2">
+					                                        <div class="col-sm-4 col-sm-offset-5">
 					                                            <button id="submit_week" class="btn btn-primary" disabled="" type="submit" 
 					                                            data-toggle="modal" data-target="#myModal">提交</button>
 					                                        </div>
