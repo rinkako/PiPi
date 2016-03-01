@@ -104,8 +104,8 @@
                                             </div>
                                             <div id="integrated" class="tab-pane">
                                             	<div style="height:50px;">
-                                            		<h5>签到：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            			<span><input type="checkbox" name="signin_noon" id="noon" class="js-switch_2" /></span>
+                                            		<h5>签到：
+                                            			<span style="margin-left: 41px;"><input type="checkbox" name="signin_noon" id="noon" class="js-switch_2" /></span>
                                             		</h5>
 					                            </div>
 					                            <h5>午检情况：&nbsp;<small>请在有问题的课室后面填写好记录，无问题的课室无需填写</small></h5>
@@ -133,10 +133,8 @@
 
                                             <div id="expand" class="tab-pane">
                                             	<div style="height:50px;">
-                                            		<h5>签到：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            			<span><input type="checkbox" name="signin_evening" id="evening" class="js-switch_3" /></span>
+                                            		<h5>签到：
+                                            			<span  style="margin-left: 116px;"><input type="checkbox" name="signin_evening" id="evening" class="js-switch_3" /></span>
                                             		</h5>
 					                            </div>
 					                            <h5>晚检情况：&nbsp;<small>请在有问题的课室后面填写好记录，无问题的课室无需填写</small></h5>
@@ -218,6 +216,9 @@
     <script src="<?=base_url().'assets/js/hplus.js?v=2.2.0' ?>"></script>
     <script src="<?=base_url().'assets/js/plugins/pace/pace.min.js' ?>"></script>
     
+    <!-- Dynamic date -->
+    <script src="<?=base_url().'assets/js/dynamicDate.js' ?>"></script>
+    
     <!-- layer javascript -->
     <script src="<?=base_url().'assets/js/plugins/layer/layer.min.js' ?>"></script>
     <script>
@@ -250,48 +251,6 @@
             
         });
     </script>
-    
-    <!-- Dynamic date -->
-	<script> 
-		function startTime() { 
-			var today=new Date(); 
-			var strDate=(" "+(today.getFullYear())+"年"+(today.getMonth()+1)+"月"+today.getDate()+"日"); 
-			var n_day=today.getDay(); 
-			switch(n_day) {
-				case 0: 
-				{strDate=strDate+" 星期日 "}break; 
-				case 1: 
-				{strDate=strDate+" 星期一 "}break; 
-				case 2: 
-				{strDate=strDate+" 星期二 "}break; 
-				case 3: 
-				{strDate=strDate+" 星期三 "}break; 
-				case 4: 
-				{strDate=strDate+" 星期四 "}break; 
-				case 5: 
-				{strDate=strDate+" 星期五 "}break; 
-				case 6: 
-				{strDate=strDate+" 星期六 "}break; 
-				case 7: 
-				{strDate=strDate+" 星期日 "}break; 
-			} 
-			//增加时分秒 
-			// add a zero in front of numbers<10 
-			var h=today.getHours(); 
-			var m=today.getMinutes(); 
-			var s=today.getSeconds() 
-			m=checkTime(m); 
-			s=checkTime(s); 
-			strDate=strDate+" "+h+":"+m+":"+s; 
-			document.getElementById('time').innerHTML=strDate; 
-			t=setTimeout('startTime()',500) 
-		} 
-		
-		function checkTime(i) { 
-			if (i<10) {i="0" + i} 
-			return i 
-		}
-	</script>
 
 </body>
 

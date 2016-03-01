@@ -75,7 +75,6 @@ $("#submit_onduty").click(function() {
 				$("#replaced_no").iCheck('disable');
 				$("#range_slider").attr("disabled", true);
 				$("#submit_onduty").attr("disabled", true);
-				switchery.attr("disabled", true);
 			}
 		},
 		error: function(){

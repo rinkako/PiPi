@@ -12,7 +12,7 @@ Class Onduty_in extends CI_Controller {
 		parent::__construct();
 		$this->load->model('moa_user_model');
 		$this->load->model('moa_worker_model');
-		$this->load->model('moa_duty_model');
+		$this->load->model('moa_attend_model');
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('session');
 		$this->load->helper('cookie');
@@ -58,7 +58,7 @@ Class Onduty_in extends CI_Controller {
 						// 多个时间段分别插入数据库
 						for ($i = 0; $i < count($periods_list); $i++) {
 							$attend_paras['dutyPeriod'] = $periods_list[$i];
-							$attend_id = $this->moa_duty_model->add($attend_paras);
+							$attend_id = $this->moa_attend_model->add($attend_paras);
 							if (!($attend_id)) {
 								echo json_encode(array("status" => FALSE, "msg" => "登记失败"));
 								return;
@@ -69,11 +69,15 @@ Class Onduty_in extends CI_Controller {
 					} 
 					else if ($_POST['is_replaced'] == 1) {
 						$attend_paras['isSubstitute'] = 1;
+						if (!$_POST['replaced_wid']) {
+							echo json_encode(array("status" => FALSE, "msg" => "请选择原值班助理"));
+							return;
+						}
 						$attend_paras['substituteFor'] = $_POST['replaced_wid'];
 						// 多个时间段分别插入数据库
 						for ($i = 0; $i < count($periods_list); $i++) {
 							$attend_paras['dutyPeriod'] = $periods_list[$i];
-							$attend_id = $this->moa_duty_model->add($attend_paras);
+							$attend_id = $this->moa_attend_model->add($attend_paras);
 							if (!($attend_id)) {
 								echo json_encode(array("status" => FALSE, "msg" => "登记失败"));
 								return;

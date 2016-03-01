@@ -79,7 +79,7 @@
                                         <div class="tab-content">
                                             <div id="base" class="tab-pane active">
                                             	<div class="form-group"  style="height: 38px;">
-                                            		<label class="col-sm-1 control-label" style="padding: 8px 0px 0px 0px; margin-right: -5px;">
+                                            		<label class="col-sm-1 control-label" style="padding: 8px 0px 0px 0px; margin-right: -2px;">
                                             			<h5>签到：
                                             			</h5>
                                             		</label>
@@ -98,7 +98,7 @@
 													</div>
 			                                    </div>
 			                                    
-			                                    <div class="form-group" id="chosen_replaced"  style="height: 30px;">
+			                                    <div class="form-group" id="chosen_replaced"  style="height: 30px; position: relative; z-index: 999999;">
 			                                        <label class="col-sm-2 control-label" style="padding: 8px 0px 0px 0px; margin-right: -82px; "><h5>原值班助理：</h5></label>
 			                                        <div class="col-sm-3">
 			                                        	<select id="select_replaced" name="replaced_colleague" data-placeholder="请选择原值班助理" class="chosen-select col-sm-12" tabindex="4">
@@ -117,30 +117,28 @@
 			                                        </div>
 			                                    </div>
 			                                    
-			                                    <div class="form-group">
-						                            
-						                            <div class="ibox-content" style="margin-bottom: 0px; padding-bottom: 0px;">
-						                                <div class="form-horizontal" id="onduty_form">
-						                                	<div class="form-group">
-						                                		<h5>值班时间：&nbsp;<small>请拖动绿条选择时间段</small></h5>
-						                                	</div>
-						                                	
-						                                    <div class="form-group">
-						                                		<input type="text" id="range_slider" value="" disabled=""></input>
-						                                	</div>
-						                                	
-						                                    <div class="hr-line-dashed"></div>
-						                                    
-						                                    <div class="form-group">
-						                                        <div class="col-sm-4 col-sm-offset-5">
-						                                            <button id="submit_onduty" class="btn btn-primary" disabled="" type="submit" 
-						                                            data-toggle="modal" data-target="#myModal">登记</button>
-						                                        </div>
-						                                    </div>
-						                                    
-						                                </div>
-						                            </div>
-						                        </div>
+					                            <div class="ibox-content" style="margin-bottom: 0px; padding-bottom: 0px;">
+					                                <div class="form-horizontal" id="onduty_form">
+					                                	<div class="form-group">
+					                                		<h5>值班时间：&nbsp;<small>请拖动绿条选择时间段</small></h5>
+					                                	</div>
+					                                	
+					                                    <div class="form-group">
+					                                		<div id="range_slider"></div>
+					                                	</div>
+					                                	
+					                                    <div class="hr-line-dashed"></div>
+					                                    
+					                                    <div class="form-group">
+					                                        <div class="col-sm-4 col-sm-offset-5">
+					                                            <button id="submit_onduty" class="btn btn-primary" disabled="" type="submit" 
+					                                            data-toggle="modal" data-target="#myModal">登记</button>
+					                                        </div>
+					                                    </div>
+					                                    
+					                                </div>
+					                            </div>
+						                        
                                             </div>
                                         </div>
 
@@ -196,6 +194,9 @@
     <!-- Custom and plugin javascript -->
     <script src="<?=base_url().'assets/js/hplus.js?v=2.2.0' ?>"></script>
     <script src="<?=base_url().'assets/js/plugins/pace/pace.min.js' ?>"></script>
+    
+    <!-- Dynamic date -->
+    <script src="<?=base_url().'assets/js/dynamicDate.js' ?>"></script>
     
     <!-- iCheck -->
     <script src="<?=base_url().'assets/js/plugins/iCheck/icheck.min.js' ?>"></script>
@@ -285,45 +286,6 @@
             $(selector).chosen(config[selector]);
         }
 
-		/* Dynamic date */
-		function startTime() { 
-			var today=new Date(); 
-			var strDate=(" "+(today.getFullYear())+"年"+(today.getMonth()+1)+"月"+today.getDate()+"日"); 
-			var n_day=today.getDay(); 
-			switch(n_day) {
-				case 0: 
-				{strDate=strDate+" 星期日 "}break; 
-				case 1: 
-				{strDate=strDate+" 星期一 "}break; 
-				case 2: 
-				{strDate=strDate+" 星期二 "}break; 
-				case 3: 
-				{strDate=strDate+" 星期三 "}break; 
-				case 4: 
-				{strDate=strDate+" 星期四 "}break; 
-				case 5: 
-				{strDate=strDate+" 星期五 "}break; 
-				case 6: 
-				{strDate=strDate+" 星期六 "}break; 
-				case 7: 
-				{strDate=strDate+" 星期日 "}break; 
-			} 
-			//增加时分秒 
-			// add a zero in front of numbers<10 
-			var h=today.getHours(); 
-			var m=today.getMinutes(); 
-			var s=today.getSeconds() 
-			m=checkTime(m); 
-			s=checkTime(s); 
-			strDate=strDate+" "+h+":"+m+":"+s; 
-			document.getElementById('time').innerHTML=strDate; 
-			t=setTimeout('startTime()',500) 
-		} 
-		
-		function checkTime(i) { 
-			if (i<10) {i="0" + i} 
-			return i 
-		}
 	</script>
 
 </body>

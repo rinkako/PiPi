@@ -125,8 +125,8 @@
 	                                            	 ?>
 	                                            </td>
 	                                            <td>
-	                                            	<button type="button" data-toggle="modal" href="searchuser#modal-form" id="<?php echo $i; ?>" name="more_info"
-	                                            	class="btn btn-xs btn-outline btn-default" style="margin-bottom: -5px;">更多信息</button>
+	                                            	<button type="button" data-toggle="modal" href="<?php echo 'searchuser#modal-form' . $i; ?>" id="<?php echo $i; ?>" name="more_info"
+	                                            	class="btn btn-xs btn-outline btn-default" value="<?php echo $i; ?>" onclick="showMore(event);" style="margin-bottom: -5px;">更多信息</button>
 	                                            </td>
 	                                        </tr>
 	                                    <?php } ?>
@@ -145,54 +145,56 @@
 
     </div>
     
-    <div id="modal-form" class="modal fade" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            	<div class="modal-header">
-            		<h4 class='modal-title' id="modal_header" style='text-align: center'></h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                    
-                            <div class="list-group col-sm-6">
-                                <div class="list-group-item">
-                                    <h3 class="list-group-item-heading">用户名</h3>
-                                    <p class="list-group-item-text" id="info_username">mms_01</p>
-                                </div>
-
-                                <div class="list-group-item">
-                                    <h3 class="list-group-item-heading">QQ</h3>
-                                    <p class="list-group-item-text" id="info_qq">1021265972</p>
-                                </div>
-
-                                <div class="list-group-item">
-                                    <h3 class="list-group-item-heading">微信</h3>
-                                    <p class="list-group-item-text" id="info_wechat">weixin1021265972</p>
-                                </div>
-                            </div>
-                            
-                            <div class="list-group col-sm-6">
-                                <div class="list-group-item">
-                                    <h3 class="list-group-item-heading">学院</h3>
-                                    <p class="list-group-item-text" id="info_school">数据科学与计算机学院</p>
-                                </div>
-
-                                <div class="list-group-item">
-                                    <h3 class="list-group-item-heading">宿舍</h3>
-                                    <p class="list-group-item-text" id="info_address">至善园2号234</p>
-                                </div>
-                                
-                                <div class="list-group-item">
-                                    <h3 class="list-group-item-heading">入职日期</h3>
-                                    <p class="list-group-item-text" id="info_indate">2012-12-12</p>
-                                </div>
-                            </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php for ($i = 0; $i < count($users); $i++) { ?>
+	    <div id="<?php echo 'modal-form' . $i; ?>" class="modal fade" aria-hidden="true">
+	        <div class="modal-dialog">
+	            <div class="modal-content">
+	            	<div class="modal-header">
+	            		<h4 class='modal-title' id="modal_header" style='text-align: center'></h4>
+	                </div>
+	                <div class="modal-body">
+	                    <div class="row">
+	                    
+	                            <div class="list-group col-sm-6">
+	                                <div class="list-group-item">
+	                                    <h3 class="list-group-item-heading">用户名</h3>
+	                                    <p class="list-group-item-text" id="info_username"><?php echo $users[$i]->username; ?></p>
+	                                </div>
+	
+	                                <div class="list-group-item">
+	                                    <h3 class="list-group-item-heading">QQ</h3>
+	                                    <p class="list-group-item-text" id="info_qq"><?php echo $users[$i]->qq; ?></p>
+	                                </div>
+	
+	                                <div class="list-group-item">
+	                                    <h3 class="list-group-item-heading">微信</h3>
+	                                    <p class="list-group-item-text" id="info_wechat"><?php echo $users[$i]->wechat; ?></p>
+	                                </div>
+	                            </div>
+	                            
+	                            <div class="list-group col-sm-6">
+	                                <div class="list-group-item">
+	                                    <h3 class="list-group-item-heading">学院</h3>
+	                                    <p class="list-group-item-text" id="info_school"><?php echo $users[$i]->school; ?></p>
+	                                </div>
+	
+	                                <div class="list-group-item">
+	                                    <h3 class="list-group-item-heading">宿舍</h3>
+	                                    <p class="list-group-item-text" id="info_address"><?php echo $users[$i]->address; ?></p>
+	                                </div>
+	                                
+	                                <div class="list-group-item">
+	                                    <h3 class="list-group-item-heading">入职日期</h3>
+	                                    <p class="list-group-item-text" id="info_indate"><?php echo $users[$i]->indate; ?></p>
+	                                </div>
+	                            </div>
+	                        
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+    <?php } ?>
 
     <!-- Mainly scripts -->
     <script src="<?=base_url().'assets/js/jquery-2.1.1.min.js' ?>"></script>
@@ -213,6 +215,9 @@
     <!-- Custom and plugin javascript -->
     <script src="<?=base_url().'assets/js/hplus.js?v=2.2.0' ?>"></script>
     <script src="<?=base_url().'assets/js/plugins/pace/pace.min.js' ?>"></script>
+    
+    <!-- Dynamic date -->
+    <script src="<?=base_url().'assets/js/dynamicDate.js' ?>"></script>
     
     <!-- Jquery Validate -->
     <script type="text/javascript" src="<?=base_url().'assets/js/plugins/validate/jquery.validate.min.js' ?>"></script>
@@ -272,47 +277,6 @@
         for (var selector in config) {
             $(selector).chosen(config[selector]);
         }
-        
-        /* Dynamic date */
-		function startTime() { 
-			var today=new Date(); 
-			var strDate=(" "+(today.getFullYear())+"年"+(today.getMonth()+1)+"月"+today.getDate()+"日"); 
-			var n_day=today.getDay(); 
-			switch(n_day) {
-				case 0: 
-				{strDate=strDate+" 星期日 "}break; 
-				case 1: 
-				{strDate=strDate+" 星期一 "}break; 
-				case 2: 
-				{strDate=strDate+" 星期二 "}break; 
-				case 3: 
-				{strDate=strDate+" 星期三 "}break; 
-				case 4: 
-				{strDate=strDate+" 星期四 "}break; 
-				case 5: 
-				{strDate=strDate+" 星期五 "}break; 
-				case 6: 
-				{strDate=strDate+" 星期六 "}break; 
-				case 7: 
-				{strDate=strDate+" 星期日 "}break; 
-			} 
-			//增加时分秒 
-			// add a zero in front of numbers<10 
-			var h=today.getHours(); 
-			var m=today.getMinutes(); 
-			var s=today.getSeconds() 
-			m=checkTime(m); 
-			s=checkTime(s); 
-			strDate=strDate+" "+h+":"+m+":"+s; 
-			document.getElementById('time').innerHTML=strDate; 
-			t=setTimeout('startTime()',500) 
-		} 
-		
-		function checkTime(i) { 
-			if (i<10) {i="0" + i} 
-			return i 
-		}
-		
         
     </script>
 

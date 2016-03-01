@@ -1,5 +1,5 @@
 <?php
-class moa_duty_model extends CI_Model {
+class moa_attend_model extends CI_Model {
 	/**
 	 * 添加值班考勤记录
 	 * @param paras - 参数列表
