@@ -18,7 +18,7 @@
 				<ul class="nav" id="side-menu">
 					<li class="nav-header">
 
-                        <div class="dropdown profile-element">
+                        <div class="dropdown profile-element user-head">
                         	<span>
                             	<img alt="image" class="img-circle" src="<?=base_url().'assets/images/profile_small.jpg' ?>" />
                             </span>
@@ -63,14 +63,14 @@
                             </li>
                         </ul>
                     </li>
-                    <li id="active-examrecord">
-                        <a href="homepage#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">查看记录</span><span class="fa arrow"></span></a>
+                    <li id="active-workReview">
+                        <a href="homepage#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">工作审查</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li id="active-dailyexam"><a href="dailyexam">常检</a>
+                            <li id="active-dailyReview"><a href="dailyReview">常检</a>
                             </li>
-                            <li id="active-weeklyexam"><a href="weeklyexam">周检</a>
+                            <li id="active-weeklyReview"><a href="weeklyReview">周检</a>
                             </li>
-                            <li id="active-dutyexam"><a href="dutyexam">周检</a>
+                            <li id="active-dutyReview"><a href="dutyReview">值班</a>
                             </li>
                         </ul>
                     </li>

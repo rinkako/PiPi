@@ -26,7 +26,7 @@ Class Weeklycheck_in extends CI_Controller {
 	/*
 	 * 周检
 	 */
-	public function weeklycheck() {
+	public function weeklyCheck() {
 		if (isset($_SESSION['user_id'])) {
 			// 获取周检课室
 			$uid = $_SESSION['user_id'];

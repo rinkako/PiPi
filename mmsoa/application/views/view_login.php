@@ -11,7 +11,7 @@
     <meta name="description" content="MOA是多媒体办公自动化系统，基于Bootstrap开发的扁平化主题，采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
 
     <link href="<?=base_url().'assets/css/bootstrap.min.css?v=3.4.0' ?>" rel="stylesheet">
-    <link href="<?=base_url().'assets/font-awesome/css/font-awesome.css?v=4.3.0' ?>" rel="stylesheet">
+    <link href="<?=base_url().'assets/font-awesome/css/font-awesome.min.css' ?>" rel="stylesheet">
 
     <link href="<?=base_url().'assets/css/animate.css' ?>" rel="stylesheet">
     <link href="<?=base_url().'assets/css/style.css?v=2.2.0' ?>" rel="stylesheet">

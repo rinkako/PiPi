@@ -26,7 +26,7 @@ Class Dailycheck_in extends CI_Controller {
 	/*
 	 * 早检
 	 */
-	public function dailycheck_morning() {
+	public function dailyCheckMorning() {
 		if (isset($_SESSION['user_id'])) {
 			// 获取常检课室
 			$uid = $_SESSION['user_id'];
@@ -131,7 +131,7 @@ Class Dailycheck_in extends CI_Controller {
 	/*
 	 * 午检
 	 */
-	public function dailycheck_noon() {
+	public function dailyCheckNoon() {
 		if (isset($_SESSION['user_id'])) {
 			// 获取常检课室
 			$uid = $_SESSION['user_id'];
@@ -236,7 +236,7 @@ Class Dailycheck_in extends CI_Controller {
 	/*
 	 * 晚检
 	 */
-	public function dailycheck_evening() {
+	public function dailyCheckEvening() {
 		if (isset($_SESSION['user_id'])) {
 			// 获取常检课室
 			$uid = $_SESSION['user_id'];

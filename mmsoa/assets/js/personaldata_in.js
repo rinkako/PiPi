@@ -15,7 +15,7 @@ $("#submit_personaldata").click(function() {
 	
 	$.ajax({
 		type: "POST", 
-		url: "../Personaldata_in/Personaldata_update",
+		url: "../Personaldata_in/personalDataUpdate",
 		data: {
 			"pd_phone": phone,
 			"pd_shortphone": shortphone,

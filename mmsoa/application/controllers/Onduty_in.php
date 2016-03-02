@@ -25,7 +25,7 @@ Class Onduty_in extends CI_Controller {
 	/*
 	 * 值班时间登记
 	 */
-	public function onduty_record() {
+	public function ondutyRecord() {
 		if (isset($_SESSION['user_id'])) {
 			$uid = $_SESSION['user_id'];
 			$wid = $this->moa_worker_model->get_wid_by_uid($uid);

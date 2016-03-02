@@ -24,7 +24,7 @@ Class Personaldata_in extends CI_Controller {
 	/*
 	 * 发布坐班日志
 	 */
-	public function Personaldata_update() {
+	public function personalDataUpdate() {
 		if (isset($_SESSION['user_id'])) {
 			if (isset($_POST['pd_phone'])) {
 				$pd_paras['phone'] = $_POST['pd_phone'];

@@ -23,7 +23,7 @@ $("#submit_journal").click(function() {
 	
 	$.ajax({
 		type: "POST", 
-		url: "../Journal_in/write_journal",
+		url: "../Journal_in/writeJournal",
 		data: {
 			"journal_body": report_list,
 			"group": journal_group,

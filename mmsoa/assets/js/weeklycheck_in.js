@@ -57,7 +57,7 @@ $("#submit_week").click(function() {
 	
 	$.ajax({
 		type: "POST", 
-		url: "../Weeklycheck_in/weeklycheck",
+		url: "../Weeklycheck_in/weeklyCheck",
 		data: {
 			"cond_week": desc_list,
 			"cond_lamp": lamp_list,

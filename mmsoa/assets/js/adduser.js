@@ -40,7 +40,7 @@ $("#submit_adduser").click(function() {
 	
 	$.ajax({
 		type: "POST", 
-		url: "../User_management/add_new_user",
+		url: "../User_management/addNewUser",
 		data: {
 			"username": add_username,
 			"password": add_password,

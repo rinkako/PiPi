@@ -24,7 +24,7 @@ Class User_management extends CI_Controller {
 	/*
 	 * 添加新用户
 	 */
-	public function add_new_user() {
+	public function addNewUser() {
 		if (isset($_SESSION['user_id'])) {
 			if (isset($_POST['username'])) {
 				$user_record = $this->moa_user_model->get_by_username($_POST['username']);

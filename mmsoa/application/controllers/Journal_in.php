@@ -25,7 +25,7 @@ Class Journal_in extends CI_Controller {
 	/*
 	 * 发布坐班日志
 	 */
-	public function write_journal() {
+	public function writeJournal() {
 		if (isset($_SESSION['user_id'])) {
 			$uid = $_SESSION['user_id'];
 			$wid = $this->moa_worker_model->get_wid_by_uid($uid);

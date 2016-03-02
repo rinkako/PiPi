@@ -34,7 +34,7 @@ class moa_worker_model extends CI_Model {
 			$res = $this->db->get('MOA_Worker')->result();
 			return $res;
 		}
-		return false;	
+		return false;
 	}
 
 	/**
