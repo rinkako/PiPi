@@ -18,7 +18,7 @@
 				<ul class="nav" id="side-menu">
 					<li class="nav-header">
 
-                        <div class="dropdown profile-element user-head">
+                        <div class="dropdown profile-element">
                         	<span>
                             	<img alt="image" class="img-circle" src="<?=base_url().'assets/images/profile_small.jpg' ?>" />
                             </span>

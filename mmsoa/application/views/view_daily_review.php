@@ -94,7 +94,7 @@
 					                                            <th>姓名</th>
 					                                            <th>课室</th>
 					                                            <th>情况</th>
-					                                            <th>时间</th>
+					                                            <th>登记时间</th>
 					                                        </tr>
 					                                    </thead>
 					                                    <tbody>
@@ -131,7 +131,7 @@
 				                                            <th>姓名</th>
 				                                            <th>课室</th>
 				                                            <th>情况</th>
-				                                            <th>时间</th>
+				                                            <th>登记时间</th>
 				                                        </tr>
 				                                    </thead>
 				                                    <tbody>
@@ -168,7 +168,7 @@
 				                                            <th>姓名</th>
 				                                            <th>课室</th>
 				                                            <th>情况</th>
-				                                            <th>时间</th>
+				                                            <th>登记时间</th>
 				                                        </tr>
 				                                    </thead>
 				                                    <tbody>

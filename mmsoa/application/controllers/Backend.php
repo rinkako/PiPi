@@ -28,7 +28,7 @@ Class Backend extends CI_Controller {
 		$this->load->view('view_homepage');
 	}
 	
-	/*
+	/**
 	 * 常检签到、课室情况登记页面
 	 * 常检课室列表加载
 	 */
@@ -49,7 +49,7 @@ Class Backend extends CI_Controller {
 		}
 	}
 	
-	/*
+	/**
 	 * 周检签到、课室情况登记页面
 	 * 周检课室列表加载
 	 */
@@ -70,7 +70,7 @@ Class Backend extends CI_Controller {
 		}
 	}
 	
-	/*
+	/**
 	 * 值班
 	 */
 	public function onDuty() {
@@ -99,7 +99,7 @@ Class Backend extends CI_Controller {
 		}
 	}
 	
-	/*
+	/**
 	 * 拍摄
 	 */
 	public function filming() {
@@ -113,7 +113,7 @@ Class Backend extends CI_Controller {
 		}
 	}
 	
-	/*
+	/**
 	 * 发布坐班日志
 	 */
 	public function writeJournal() {
@@ -138,7 +138,7 @@ Class Backend extends CI_Controller {
 		}
 	}
 	
-	/*
+	/**
 	 * 查看/修改个人资料
 	 */
 	public function personalData() {
@@ -155,7 +155,7 @@ Class Backend extends CI_Controller {
 		}
 	}
 	
-	/*
+	/**
 	 * 修改密码
 	 */
 	public function changePassword() {
@@ -172,7 +172,7 @@ Class Backend extends CI_Controller {
 		}
 	}
 	
-	/*
+	/**
 	 * 添加新用户
 	 */
 	public function addUser() {
@@ -188,7 +188,7 @@ Class Backend extends CI_Controller {
 		}
 	}
 	
-	/*
+	/**
 	 * 查看用户列表
 	 */
 	public function searchUser() {
@@ -216,7 +216,7 @@ Class Backend extends CI_Controller {
 		}
 	}
 	
-	/*
+	/**
 	 * 查看常检记录
 	 */
 	public function dailyReview() {
@@ -226,16 +226,7 @@ Class Backend extends CI_Controller {
 			
 			// 1-周一  2-周二  ... 6-周六  7-周日
 			$weekday = date("w") == 0 ? 7 : date("w");
-			$weekday_desc = '';
-			switch ($weekday) {
-				case 1: $weekday_desc = '一'; break;
-				case 2: $weekday_desc = '二'; break;
-				case 3: $weekday_desc = '三'; break;
-				case 4: $weekday_desc = '四'; break;
-				case 5: $weekday_desc = '五'; break;
-				case 6: $weekday_desc = '六'; break;
-				case 7: $weekday_desc = '天'; break;
-			}
+			$weekday_desc = Public_methods::translate_weekday($weekday);
 			
 			// 已完成早检助理人数
 			$m_count = 0;
@@ -428,6 +419,73 @@ Class Backend extends CI_Controller {
 			}
 			
 			$this->load->view('view_daily_review', $data);
+		} else {
+			// 未登录的用户请先登录
+			echo "<script language=javascript>alert('要访问的页面需要先登录！');</script>";
+			$_SESSION['user_url'] = $_SERVER['REQUEST_URI'];
+			echo '<script language=javascript>window.location.href="../Login"</script>';
+		}
+	}
+	
+	/**
+	 * 查看周检记录
+	 */
+	public function weeklyReview() {
+		if (isset($_SESSION['user_id'])) {
+			// 周一为一周的第一天
+			$weekcount = Public_methods::cal_week();
+				
+			// 已完成早检助理人数
+			$w_count = 0;
+			$data['w_count'] = $w_count;
+			
+			// 获取本周所有周检记录
+			$check_type = 3;
+			$w_check_obj = $this->moa_check_model->get_by_weekcount_type($weekcount, $check_type);
+			if ($w_check_obj != FALSE) {
+				// 获取已完成周检的助理名单
+				$w_wid_list = array();
+				$w_prob_list = array();
+				$w_time_list = array();
+				$w_room_list = array();
+				$w_name_list = array();
+				$w_day_list = array();
+				$w_lamp_list = array();
+	
+				for ($i = 0; $i < count($w_check_obj); $i++) {
+					$w_tmp_wid = $w_check_obj[$i]->actual_wid;
+					$w_wid_list[$w_count] = $w_tmp_wid;
+					$w_day_list[$w_count] = Public_methods::translate_weekday($w_check_obj[$i]->weekday);
+					$w_time_list[$w_count] = $w_check_obj[$i]->timestamp;
+					$w_lamp_list[$w_count] = $w_check_obj[$i]->light;
+					$w_worker_obj = $this->moa_worker_model->get($w_tmp_wid);
+					$w_user_obj = $this->moa_user_model->get($w_worker_obj->uid);
+					$w_name_list[$w_count] = $w_user_obj->name;
+					$w_room_obj = $this->moa_room_model->get($w_check_obj[$i]->roomid);
+					$w_room_list[$w_count] = $w_room_obj->room;
+					
+					// 课室有故障，添加故障说明到$w_prob_list
+					$w_prob_list[$w_count] = '';
+					if ($w_check_obj[$i]->isChecked == 2) {
+						$w_pro_obj = $this->moa_problem_model->get($w_check_obj[$i]->problemid);
+						$w_prob_list[$w_count] = $w_prob_list[$w_count] . $w_pro_obj->description;
+					}
+					
+					$w_count++;
+				}
+	
+				// 装载前端所需数据
+				$data['w_count'] = $w_count;
+				$data['w_weekcount'] = $weekcount;
+				$data['w_day_list'] = $w_day_list;
+				$data['w_name_list'] = $w_name_list;
+				$data['w_room_list'] = $w_room_list;
+				$data['w_prob_list'] = $w_prob_list;
+				$data['w_lamp_list'] = $w_lamp_list;
+				$data['w_time_list'] = $w_time_list;
+			}
+				
+			$this->load->view('view_weekly_review', $data);
 		} else {
 			// 未登录的用户请先登录
 			echo "<script language=javascript>alert('要访问的页面需要先登录！');</script>";

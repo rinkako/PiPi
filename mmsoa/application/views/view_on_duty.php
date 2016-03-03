@@ -204,7 +204,7 @@
     <script src="<?=base_url().'assets/js/plugins/ionRangeSlider/ion.rangeSlider.min.js' ?>"></script>
     
     <!-- layer javascript -->
-    <script src="<?=base_url().'assets/js/plugins/layer/layer.min.js' ?>"></script>
+    <script src="<?=base_url().'assets/js/plugins/layer/layer.js' ?>"></script>
     <script>
         layer.use('extend/layer.ext.js'); //载入layer拓展模块
     </script>

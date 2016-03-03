@@ -7,7 +7,7 @@ Class Public_methods extends CI_Controller {
 		$this->load->helper(array('form', 'url'));
 	}
 	
-	/*
+	/**
 	 *  计算当前周数
 	 */
 	public static function cal_week() {
@@ -16,6 +16,45 @@ Class Public_methods extends CI_Controller {
 		// 周日为一周的第一天
 		//$cur_week = date("w") == 0 ? $cur_week + 1 : $cur_week;
 		return $cur_week;
+	}
+	
+	/**
+	 * 将星期的数据库标识解析为中文
+	 * @param weekday_num 星期的数据库数字标号
+	 * @return 星期对应的中文
+	 */
+	public static function translate_weekday($weekday_num) {
+		$weekday_desc = '';
+		switch ($weekday_num) {
+			case 1: $weekday_desc = '一'; break;
+			case 2: $weekday_desc = '二'; break;
+			case 3: $weekday_desc = '三'; break;
+			case 4: $weekday_desc = '四'; break;
+			case 5: $weekday_desc = '五'; break;
+			case 6: $weekday_desc = '六'; break;
+			case 7: $weekday_desc = '天'; break;
+		}
+		return $weekday_desc;
+	}
+	
+	/**
+	 * 
+	 * @param number $period
+	 * @return number
+	 */
+	public static function get_working_hours($period) {
+		$working_hours = 0;
+		return $working_hours;
+	}
+	
+	/**
+	 * 
+	 * @param number $period
+	 * @return string
+	 */
+	public static function get_duty_duration($period) {
+		$duty_duration = '07:30-10:30';
+		return $duty_duration;
 	}
 	
 	/**
@@ -96,7 +135,7 @@ Class Public_methods extends CI_Controller {
 		return $periods;
 	}
 	
-	/*
+	/**
 	 * 获取常检课室列表
 	 */
 	public static function get_daily_classrooms() {
@@ -124,7 +163,7 @@ Class Public_methods extends CI_Controller {
 		return $daily_classrooms;
 	}
 	
-	/*
+	/**
 	 * 获取周检课室列表
 	 */
 	public static function get_weekly_classrooms() {

@@ -93,4 +93,27 @@ class moa_check_model extends CI_Model {
 			return false;
 		}
 	}
+	
+	/**
+	 * 取指定周次、类型的检查记录
+	 * @param weekcount - 周次
+	 * @param type - 检查类型
+	 * @param nums - 最大条目
+	 * @param offset - 偏移量
+	 */
+	public function get_by_weekcount_type($weekcount, $type, $nums = NULL, $offset = 0) {
+		if (isset($weekcount) && isset($type)) {
+			$this->db->where(array('weekcount'=>$weekcount, 'type'=>$type));
+			$this->db->order_by('timestamp', 'ASC');
+			$this->db->order_by('actual_wid', 'ASC');
+			if (!is_null($nums)) {
+				$this->db->limit($nums, $offset);
+			}
+			return $this->db->get('MOA_Check')->result();
+		}
+		else {
+			return false;
+		}
+	}
+	
 }
