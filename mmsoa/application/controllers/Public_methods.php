@@ -38,22 +38,68 @@ Class Public_methods extends CI_Controller {
 	}
 	
 	/**
-	 * 
-	 * @param number $period
-	 * @return number
+	 * 获取值班段时长
+	 * @param number $period 值班时间段
+	 * @return number 该段值班时长
 	 */
 	public static function get_working_hours($period) {
+		/*
+			值班时间段
+			1 - 07:30~10:30
+			2 - 10:30~12:30
+			3 - 12:30~14:00
+			4 - 14:00~16:00
+			5 - 16:00~18:00
+			6 - 18:00~22:00
+			7 - 07:30~12:30(周末)
+			8 - 12:30~18:00(周末)
+			9 - 18:00~22:00(周末)
+		*/
 		$working_hours = 0;
+		switch ($period) {
+			case 1: $working_hours = 3; break;
+			case 2: $working_hours = 2; break;
+			case 3: $working_hours = 1.5; break;
+			case 4: $working_hours = 2; break;
+			case 5: $working_hours = 2; break;
+			case 6: $working_hours = 4; break;
+			case 7: $working_hours = 5; break;
+			case 8: $working_hours = 5.5; break;
+			case 9: $working_hours = 4; break;
+		}
 		return $working_hours;
 	}
 	
 	/**
-	 * 
-	 * @param number $period
-	 * @return string
+	 * 获取值班时间区间
+	 * @param number $period 值班时间段
+	 * @return string 值班时间区间
 	 */
 	public static function get_duty_duration($period) {
-		$duty_duration = '07:30-10:30';
+		/*
+		 值班时间段
+		 1 - 07:30~10:30
+		 2 - 10:30~12:30
+		 3 - 12:30~14:00
+		 4 - 14:00~16:00
+		 5 - 16:00~18:00
+		 6 - 18:00~22:00
+		 7 - 07:30~12:30(周末)
+		 8 - 12:30~18:00(周末)
+		 9 - 18:00~22:00(周末)
+		 */
+		$duty_duration = '';
+		switch ($period) {
+			case 1: $duty_duration = '07:30~10:30'; break;
+			case 2: $duty_duration = '10:30~12:30'; break;
+			case 3: $duty_duration = '12:30~14:00'; break;
+			case 4: $duty_duration = '14:00~16:00'; break;
+			case 5: $duty_duration = '16:00~18:00'; break;
+			case 6: $duty_duration = '18:00~22:00'; break;
+			case 7: $duty_duration = '07:30~12:30'; break;
+			case 8: $duty_duration = '12:30~18:00'; break;
+			case 9: $duty_duration = '18:00~22:00'; break;
+		}
 		return $duty_duration;
 	}
 	
