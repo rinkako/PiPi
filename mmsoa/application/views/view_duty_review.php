@@ -122,8 +122,8 @@
 	<script>
 		$(document).ready(function () {
 			$("#active-workReview").addClass("active");
-			$("#active-weeklyReview").addClass("active");
-			$("#mini").attr("href", "weeklyReview#");
+			$("#active-dutyReview").addClass("active");
+			$("#mini").attr("href", "dutyReview#");
 		});
 	</script>
 

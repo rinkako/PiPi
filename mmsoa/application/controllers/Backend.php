@@ -138,11 +138,27 @@ Class Backend extends CI_Controller {
 			$obj = $this->moa_user_model->get($_SESSION['user_id']);
 			$data['personal_data'] = $obj;
 			$this->load->view('view_personal_data', $data);
+			//$this->load->view('view_personal_data');
 		} else {
 			// 未登录的用户请先登录
 			$this->requireLogin();
 		}
 	}
+
+	/*
+	public function new_ui() {
+		if (isset($_SESSION['user_id'])) {
+			// 获取个人信息
+			$obj = $this->moa_user_model->get($_SESSION['user_id']);
+			$data['personal_data'] = $obj;
+			//$this->load->view('view_personal_data', $data);
+			$this->load->view('new_ui_test', $data);
+		} else {
+			// 未登录的用户请先登录
+			$this->requireLogin();
+		}
+	}
+	*/
 	
 	/**
 	 * 修改密码
@@ -546,6 +562,8 @@ Class Backend extends CI_Controller {
 			$this->requireLogin();
 		}
 	}
+	
+	
 	
 	/**
 	 * 登录要求

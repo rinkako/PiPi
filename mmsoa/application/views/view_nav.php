@@ -48,18 +48,18 @@
 
                     </li>
 					<li id="active-homepage">
-                        <a href="homepage"><i class="fa fa-columns"></i> <span class="nav-label">个人主页</span><span class="label label-danger pull-right">2.0</span></a>
+                        <a class="J_menuItem" href="homepage"><i class="fa fa-columns"></i> <span class="nav-label">个人主页</span><span class="label label-danger pull-right">2.0</span></a>
                     </li>  
                     <li id="active-workrecord">
                         <a href="homepage#"><i class="fa fa-th-large"></i> <span class="nav-label">工作记录</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li id="active-dailycheck"><a href="dailycheck">常检</a>
+                            <li id="active-dailycheck"><a class="J_menuItem" href="dailycheck">常检</a>
                             </li>
-                            <li id="active-weeklycheck"><a href="weeklycheck">周检</a>
+                            <li id="active-weeklycheck"><a class="J_menuItem" href="weeklycheck">周检</a>
                             </li>
-                            <li id="active-onduty"><a href="onduty">值班</a>
+                            <li id="active-onduty"><a class="J_menuItem" href="onduty">值班</a>
                             </li>
-                            <li id="active-filming"><a href="filming">拍摄</a>
+                            <li id="active-filming"><a class="J_menuItem" href="filming">拍摄</a>
                             </li>
                         </ul>
                     </li>
