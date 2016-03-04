@@ -16,6 +16,7 @@ Class Backend extends CI_Controller {
  		$this->load->model('moa_room_model');
  		$this->load->model('moa_problem_model');
  		$this->load->model('moa_attend_model');
+ 		$this->load->model('moa_leaderreport_model');
  		$this->load->helper(array('form', 'url'));
  		$this->load->library('session');
  		$this->load->helper('cookie');
@@ -123,6 +124,73 @@ Class Backend extends CI_Controller {
 			$data['name_list'] = $name_list;
 			$data['wid_list'] = $wid_list;
 			$this->load->view('view_write_journal', $data);
+		} else {
+			// 未登录的用户请先登录
+			$this->requireLogin();
+		}
+	}
+	
+	/**
+	 * 查看坐班日志
+	 */
+	public function readJournal() {
+		if (isset($_SESSION['user_id'])) {
+			// 获取最近的一篇坐班日志
+			$data['leader_name'] = '';
+			$data['group'] = '';
+			$data['timestamp'] = '';
+			$data['weekcount'] = '';
+			$data['weekday'] = '';
+			$data['body_list'] = array('', '', '', '', '', '');
+			$data['best_list'] = array();
+			$data['bad_list'] = array();
+			
+			// state： 0 - 正常  1- 已删除
+			$state = 0;
+			$report_obj = $this->moa_leaderreport_model->get_lasted($state);
+			// 正确获取到所需记录
+			if ($report_obj) {
+				$data['group'] = Public_methods::translate_group($report_obj->group);
+				$data['timestamp'] = $report_obj->timestamp;
+				$data['weekcount'] = $report_obj->weekcount;
+				$data['weekday'] = Public_methods::translate_weekday($report_obj->weekday);
+				$body_list = explode(' ## ', $report_obj->body);
+				$data['body_list'] = $body_list;
+				
+				// 获取组长姓名
+				$leader_wid = $report_obj->wid;
+				$r_worker_obj = $this->moa_worker_model->get($leader_wid);
+				$r_user_obj = $this->moa_user_model->get($r_worker_obj->uid);
+				$data['leader_name'] = $r_user_obj->name;
+				
+				// 获取优秀助理姓名列表
+				$best_list = array();
+				if (!is_null($report_obj->bestlist)) {
+					$best_wid_list = explode(',', $report_obj->bestlist);
+					for ($i = 0; $i < count($best_wid_list); $i++) {
+						$best_wid = $best_wid_list[$i];
+						$best_worker_obj = $this->moa_worker_model->get($best_wid);
+						$best_user_obj = $this->moa_user_model->get($best_worker_obj->uid);
+						$best_list[$i] = $best_user_obj->name;
+					}
+				}
+				$data['best_list'] = $best_list;
+				
+				// 获取异常助理姓名列表
+				$bad_list = array();
+				if (!is_null($report_obj->badlist)) {
+					$bad_wid_list = explode(',', $report_obj->badlist);
+					for ($j = 0; $j < count($bad_wid_list); $j++) {
+						$bad_wid = $bad_wid_list[$j];
+						$bad_worker_obj = $this->moa_worker_model->get($bad_wid);
+						$bad_user_obj = $this->moa_user_model->get($bad_worker_obj->uid);
+						$bad_list[$j] = $bad_user_obj->name;
+					}
+				}
+				$data['bad_list'] = $bad_list;
+			}
+			
+			$this->load->view('view_read_journal', $data);
 		} else {
 			// 未登录的用户请先登录
 			$this->requireLogin();

@@ -38,6 +38,21 @@ Class Public_methods extends CI_Controller {
 	}
 	
 	/**
+	 * 将组别的数据库标识解析为英文
+	 * @param group_num 组别的数据库数字标号
+	 * @return 组别对应的英文
+	 */
+	public static function translate_group($group_num) {
+		$group_desc = '';
+		switch ($group_num) {
+			case 0: $group_desc = 'N'; break;
+			case 1: $group_desc = 'A'; break;
+			case 2: $group_desc = 'B'; break;
+		}
+		return $group_desc;
+	}
+	
+	/**
 	 * 获取值班段时长
 	 * @param number $period 值班时间段
 	 * @return number 该段值班时长

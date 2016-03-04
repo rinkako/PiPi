@@ -53,11 +53,11 @@
                     <li id="active-workrecord">
                         <a href="homepage#"><i class="fa fa-th-large"></i> <span class="nav-label">工作记录</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li id="active-dailycheck"><a class="J_menuItem" href="dailycheck">常检</a>
+                            <li id="active-dailycheck"><a class="J_menuItem" href="dailyCheck">常检</a>
                             </li>
-                            <li id="active-weeklycheck"><a class="J_menuItem" href="weeklycheck">周检</a>
+                            <li id="active-weeklycheck"><a class="J_menuItem" href="weeklyCheck">周检</a>
                             </li>
-                            <li id="active-onduty"><a class="J_menuItem" href="onduty">值班</a>
+                            <li id="active-onduty"><a class="J_menuItem" href="onDuty">值班</a>
                             </li>
                             <li id="active-filming"><a class="J_menuItem" href="filming">拍摄</a>
                             </li>
@@ -77,18 +77,18 @@
                     <li id="active-journal">
                         <a href="homepage#"><i class="fa fa-th-large"></i> <span class="nav-label">坐班日志</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li id="active-writejournal"><a href="writejournal">发布</a>
+                            <li id="active-writeJournal"><a href="writeJournal">发布</a>
                             </li>
-                            <li id="active-readjournal"><a href="readjournal">查看</a>
+                            <li id="active-readJournal"><a href="readJournal">查看</a>
                             </li>
                         </ul>
                     </li>
                     <li id="active-usermanagement">
                         <a href="homepage#"><i class="fa fa fa-globe"></i> <span class="nav-label">用户管理</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li id="active-adduser"><a href="adduser">添加</a>
+                            <li id="active-adduser"><a href="addUser">添加</a>
                             </li>
-                            <li id="active-searchuser"><a href="searchuser">查看</a>
+                            <li id="active-searchuser"><a href="searchUser">查看</a>
                             </li>
                         </ul>
                     </li>

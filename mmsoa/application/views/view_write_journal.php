@@ -214,8 +214,8 @@
 	<script>
 		$(document).ready(function () {
 			$("#active-journal").addClass("active");
-			$("#active-writejournal").addClass("active");
-			$("#mini").attr("href", "writejournal#");
+			$("#active-writeJournal").addClass("active");
+			$("#mini").attr("href", "writeJournal#");
 		});
 	</script>
 

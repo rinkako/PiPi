@@ -3122,6 +3122,7 @@ body.body-small .footer.fixed {
 }
 .table > thead > tr > th {
   border-bottom: 1px solid #DDDDDD;
+  text-align: center;
   vertical-align: bottom;
 }
 .table > thead > tr > th,
@@ -3133,7 +3134,8 @@ body.body-small .footer.fixed {
   border-top: 1px solid #e7eaec;
   line-height: 1.42857;
   padding: 8px;
-  vertical-align: top;
+  text-align: center;
+  vertical-align: middle;
 }
 /* PANELS */
 .panel.blank-panel {
@@ -6426,4 +6428,14 @@ body.skin-3 {
 /* user head portrait */
 .user-head {
 	padding-left: 23px;
+}
+
+/* table vertical head */
+.td-left {
+	text-align: left !important;
+}
+
+/* tr height */
+.tr-height {
+	height: 150px;
 }

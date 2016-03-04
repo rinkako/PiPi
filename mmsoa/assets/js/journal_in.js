@@ -21,6 +21,15 @@ $("#submit_journal").click(function() {
 	report_list[i++] = $("#text_bad").val();
 	report_list[i++] = $("#text_summary").val();
 	
+	// 在文本首末分别添加字符串“<p>”和“</p>”,并将回车替换为“</p><p>”
+	for (var j = 0; j < 6; j++) {
+		report_list[j] = report_list[j].replace(/\n/g, "</p><p>");
+		report_list[j] = report_list[j].replace(/ /g, "&nbsp;");
+		report_list[j] = "<p>" + report_list[j];
+		report_list[j] += "</p>";
+		
+	}
+	
 	var best_list = $("#select_best").val();
 	var bad_list = $("#select_bad").val();
 	

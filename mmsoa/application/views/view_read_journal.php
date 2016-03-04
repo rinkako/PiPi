@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="renderer" content="webkit">
 
-    <title>MOA-查看周检情况</title>
+    <title>MOA-查看坐班日志</title>
     <?php $this->load->view('view_keyword'); ?>
     
     <link href="<?=base_url().'assets/css/bootstrap.min.css?v=3.4.0' ?>" rel="stylesheet">
@@ -48,10 +48,10 @@
                             MOA
                         </li>
                         <li>
-                        	工作审查
+                        	坐班日志
                         </li>
                         <li>
-                            <strong>周检情况</strong>
+                            <strong>查看</strong>
                         </li>	
                     </ol>
                 </div>
@@ -62,48 +62,82 @@
             <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="ibox float-e-margins">
+                        <div class="ibox float-e-margins ">
                             <div class="ibox-title">
-                                <h5>查看周检情况</h5>
+                                <h5>查看坐班日志</h5>
                             </div>
-                            <div class="ibox-content">
-                            
-                                <table class="table table-striped table-bordered table-hover users-dataTable">
-                                    <thead>
-                                        <tr>
-                                        	<th>序号</th>
-                                            <th>周次</th>
-                                            <th>星期</th>
-                                            <th>姓名</th>
-                                            <th>课室</th>
-                                            <th>情况</th>
-                                            <th>灯时</th>
-                                            <th>登记时间</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    	<?php for ($i = 0; $i < $w_count; $i++) { ?>
-	                                        <tr>
-	                                        	<td><?php echo $i + 1; ?></td>
-	                                            <td><?php echo $w_weekcount; ?></td>
-	                                            <td><?php echo $w_day_list[$i]; ?></td>
-	                                            <td><?php echo $w_name_list[$i]; ?></td>
-	                                            <td><?php echo $w_room_list[$i]; ?></td>
-	                                            <td  class="td-left">
-	                                            	<?php 
-	                                            		if ($w_prob_list[$i] == '') {
-	                                            			echo '正常';
-	                                            		} else {
-	                                            			echo $w_prob_list[$i];
-	                                            		}
-	                                            	?>
-	                                            </td>
-	                                            <td><?php echo $w_lamp_list[$i]; ?></td>
-	                                            <td><?php echo $w_time_list[$i]; ?></td>
-	                                        </tr>
-	                                    <?php } ?>
-	                                </tbody>
-	                            </table>
+                            <div class="ibox-content col-sm-12">
+                            	<h1 class="col-sm-offset-5">组长坐班日志</h1>
+                            	<div class="col-sm-1"></div>
+                            	<div class="col-sm-10">
+	                                <table class="table table-striped table-bordered table-hover users-dataTable">
+	                                    <tbody>
+		                                    	<table class="table table-striped table-bordered" style="margin-bottom: -1px;">
+		                                        	<tbody>
+		                                        		<tr>
+				                                        	<td><strong>组长</strong></td>
+				                                            <td><?php echo $leader_name; ?></td>
+				                                            <td><strong>组别</strong></td>
+				                                            <td><?php echo $group; ?>组</td>
+				                                            <td><strong>日期</strong></td>
+				                                            <td><?php echo $timestamp . ' 第' . $weekcount . '周 星期' . $weekday; ?></td>
+			                                            </tr>
+		                                            </tbody>
+			                                    </table>
+		                                   
+		                                    	<table class="table table-bordered">
+		                                        	<tbody>
+		                                        		<tr class="tr-height">
+					                                        <td class="col-sm-2"><strong>早检情况</strong></td>
+					                                        <td class="td-left"><?php echo $body_list[0]; ?></td>
+														</tr>
+														<tr class="tr-height">
+						                                    <td class="col-sm-2"><strong>午检情况</strong></td>
+						                                    <td class="td-left"><?php echo $body_list[1]; ?></td>
+					                                    </tr>
+					                                    <tr class="tr-height">
+						                                    <td class="col-sm-2"><strong>晚检情况</strong></td>
+						                                    <td class="td-left"><?php echo $body_list[2]; ?></td>
+					                                    </tr>
+					                                    <tr class="tr-height">
+					                                        <td class="col-sm-2"><strong>优秀助理</strong></td>
+					                                        <td class="td-left">
+					                                        	<p>优秀助理有：
+					                                        		<strong>
+						                                        		<?php 
+						                                        			foreach ($best_list as $best) {
+						                                        				echo $best . ' &nbsp;&nbsp;';
+						                                        			}
+						                                        		?>
+						                                        	</strong>
+					                                        	</p>
+					                                        	<?php echo $body_list[3]; ?>
+					                                        </td>
+														</tr>
+														<tr  class="tr-height">
+						                                    <td class="col-sm-2"><strong>异常助理</strong></td>
+						                                    <td class="td-left">
+						                                    	<p>异常助理有：
+					                                        		<strong>
+						                                        		<?php 
+						                                        			foreach ($bad_list as $bad) {
+						                                        				echo $bad . ' &nbsp;&nbsp;';
+						                                        			}
+						                                        		?>
+						                                        	</strong>
+					                                        	</p>
+						                                    	<?php echo $body_list[4]; ?>
+						                                    </td>
+					                                    </tr class="tr-height">
+					                                    <tr>
+						                                    <td class="col-sm-2"><strong>总结</strong></td>
+						                                    <td class="td-left"><?php echo $body_list[5]; ?></td>
+					                                    </tr>
+		                                            </tbody>
+			                                    </table>
+		                                </tbody>
+		                            </table>
+	                            </div>
 	                        </div>
 	                    </div>
 	                </div>
@@ -123,9 +157,9 @@
     <!-- nav item active -->
 	<script>
 		$(document).ready(function () {
-			$("#active-workReview").addClass("active");
-			$("#active-weeklyReview").addClass("active");
-			$("#mini").attr("href", "weeklyReview#");
+			$("#active-journal").addClass("active");
+			$("#active-readJournal").addClass("active");
+			$("#mini").attr("href", "readJournal#");
 		});
 	</script>
 

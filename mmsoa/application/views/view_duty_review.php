@@ -88,7 +88,7 @@
 	                                            <td><?php echo $d_weekday; ?></td>
 	                                            <td><?php echo $d_name_list[$i]; ?></td>
 	                                            <td><?php echo $d_duration_list[$i]; ?></td>
-	                                            <td>
+	                                            <td  class="td-left">
 	                                            	<?php 
 	                                            		if ($d_sub_list[$i] == '') {
 	                                            			echo '无';

@@ -105,7 +105,7 @@
 						                                            <td><?php echo $m_weekday; ?></td>
 						                                            <td><?php echo $m_name_list[$i]; ?></td>
 						                                            <td><?php echo str_replace(',', ' ', $m_room_list[$i]); ?></td>
-						                                            <td>
+						                                            <td  class="td-left">
 						                                            	<?php 
 						                                            		if ($m_prob_list[$i] == '') {
 						                                            			echo '正常';

@@ -146,7 +146,7 @@
 	        <div class="modal-dialog">
 	            <div class="modal-content">
 	            	<div class="modal-header">
-	            		<h4 class='modal-title' id="modal_header" style='text-align: center'></h4>
+	            		<h4 class='modal-title' id="modal_header" style='text-align: center'><?php echo $users[$i]->name; ?> - 详细信息</h4>
 	                </div>
 	                <div class="modal-body">
 	                    <div class="row">
