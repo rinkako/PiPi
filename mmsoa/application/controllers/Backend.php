@@ -233,7 +233,7 @@ Class Backend extends CI_Controller {
 			
 			// 已完成午检助理人数
 			$n_count = 0;
-			$data['_count'] = $n_count;
+			$data['n_count'] = $n_count;
 			
 			// 已完成晚检助理人数
 			$e_count = 0;

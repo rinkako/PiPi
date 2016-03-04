@@ -1,6 +1,13 @@
 /**
  * 登录验证
  */
+function keyLogin() {
+	// Enter键的键值为13
+	if (event.keyCode == 13) {
+		//调用登录按钮的登录事件
+		document.getElementById("fetch-btn").click();
+	}
+}
 
 /**
  * 异步登录验证

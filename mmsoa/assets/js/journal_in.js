@@ -21,12 +21,17 @@ $("#submit_journal").click(function() {
 	report_list[i++] = $("#text_bad").val();
 	report_list[i++] = $("#text_summary").val();
 	
+	var best_list = $("#select_best").val();
+	var bad_list = $("#select_bad").val();
+	
 	$.ajax({
 		type: "POST", 
 		url: "../Journal_in/writeJournal",
 		data: {
 			"journal_body": report_list,
 			"group": journal_group,
+			"bestlist": best_list,
+			"badlist": bad_list,
 		},
 		success: function(msg) {
 			ret = JSON.parse(msg);

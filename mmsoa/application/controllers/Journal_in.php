@@ -29,11 +29,17 @@ Class Journal_in extends CI_Controller {
 		if (isset($_SESSION['user_id'])) {
 			$uid = $_SESSION['user_id'];
 			$wid = $this->moa_worker_model->get_wid_by_uid($uid);
-			if ($_POST['journal_body']) {
+			if (isset($_POST['journal_body'])) {
 				$journal_paras['wid'] = $wid;
 				
 				// state： 0-正常  1-已删除
 				$journal_paras['state'] = 0;
+				
+				// group：0 - N  1 - A  2 - B
+				$journal_paras['group'] = 0;
+				if (isset($_POST['group'])) {
+					$journal_paras['group'] = $_POST['group'];
+				}
 				
 				// 周一为一周的第一天
 				$journal_paras['weekcount'] = Public_methods::cal_week();
@@ -43,7 +49,16 @@ Class Journal_in extends CI_Controller {
 				
 				$journal_paras['timestamp'] = date('Y-m-d H:i:s');
 				$journal_paras['body'] = implode(' ## ', $_POST['journal_body']);
-				$lrid = $this->moa_leaderreport_model->add_report($journal_paras);
+				
+				//$journal_paras['bestlist'] = ''; 若加上该初始化，则有空字符串存入数据库，不加则为Null
+				if (isset($_POST['bestlist']) && !empty($_POST['bestlist'])) {
+					$journal_paras['bestlist'] = implode(',', $_POST['bestlist']);
+				}
+				//$journal_paras['badlist'] = ''; 若加上该初始化，则有空字符串存入数据库，不加则为Null
+				if (isset($_POST['badlist']) && !empty($_POST['badlist'])) {
+					$journal_paras['badlist'] = implode(',', $_POST['badlist']);
+				}
+				$lrid = $this->moa_leaderreport_model->add($journal_paras);
 				
 				if ($lrid) {
 					echo json_encode(array("status" => TRUE, "msg" => "发布成功"));
