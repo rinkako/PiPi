@@ -42,6 +42,8 @@ $("#submit_journal").click(function() {
 				$("#submit_result").attr("style", "color:#1AB394;text-align:center;");
 				$("#submit_result").html(ret["msg"]);
 				// 锁定所有按钮和输入框
+				$("#group_A").iCheck('disable');
+				$("#group_B").iCheck('disable');
 				$("#text_morning").attr("disabled", true);
 				$("#text_noon").attr("disabled", true);
 				$("#text_evening").attr("disabled", true);

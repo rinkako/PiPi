@@ -48,13 +48,19 @@ Class Journal_in extends CI_Controller {
 				$journal_paras['weekday'] = date("w") == 0 ? 7 : date("w");
 				
 				$journal_paras['timestamp'] = date('Y-m-d H:i:s');
+				
+				// 避免journal_body中含有指定分割字符串' ## '
+				foreach ($_POST['journal_body'] as &$part) {
+					$part = str_replace(' ## ', ' ', $part);
+				}
+				// 以' ## '作为分割记号存入数据库
 				$journal_paras['body'] = implode(' ## ', $_POST['journal_body']);
 				
-				//$journal_paras['bestlist'] = ''; 若加上该初始化，则有空字符串存入数据库，不加则为Null
+				$journal_paras['bestlist'] = NULL;
 				if (isset($_POST['bestlist']) && !empty($_POST['bestlist'])) {
 					$journal_paras['bestlist'] = implode(',', $_POST['bestlist']);
 				}
-				//$journal_paras['badlist'] = ''; 若加上该初始化，则有空字符串存入数据库，不加则为Null
+				$journal_paras['badlist'] = NULL;
 				if (isset($_POST['badlist']) && !empty($_POST['badlist'])) {
 					$journal_paras['badlist'] = implode(',', $_POST['badlist']);
 				}
