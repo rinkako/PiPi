@@ -9,6 +9,8 @@
     <title>MOA-发布坐班日志</title>
     <?php $this->load->view('view_keyword'); ?>
     
+    <link href="<?=base_url().'assets/images/moa.ico' ?>" rel="shortcut icon">
+    
     <link href="<?=base_url().'assets/css/bootstrap.min.css?v=3.4.0' ?>" rel="stylesheet">
     <link href="<?=base_url().'assets/font-awesome/css/font-awesome.min.css' ?>" rel="stylesheet">
     

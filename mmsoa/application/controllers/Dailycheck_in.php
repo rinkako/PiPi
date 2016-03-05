@@ -54,6 +54,7 @@ Class Dailycheck_in extends CI_Controller {
 				$check_paras['timestamp'] = $time;
 	
 				for ($i = 0; $i < $room_count; $i++) {
+					$check_paras['problemid'] = NULL;
 					$roomid = $this->moa_check_model->get_roomid_by_room($classroom_list[$i]);
 					$check_paras['roomid'] = $roomid;
 					// 课室情况
@@ -104,17 +105,23 @@ Class Dailycheck_in extends CI_Controller {
 					// 1-周一  2-周二  ... 6-周六  7-周日
 					$attend_paras['weekday'] = date("w") == 0 ? 7 : date("w");
 					// 签到type: 0-值班  1-早检 2-午检 3-晚检 4-周检
-					$attend_paras['type'] = 1;
+					$type = 1;
+					$attend_paras['type'] = $type;
 					// 是否迟到：0-否 1-是
 					$attend_paras['isLate'] = 0;
 					// 是否代班：0 - 否   1 - 是
 					$attend_paras['isSubstitute'] = 0;
 					$attend_id = $this->moa_attend_model->add($attend_paras);
-					if (!($attend_id)) {
+					
+					// 更新工时
+					$contrib = Public_methods::get_daily_working_hours($type);
+					$affected_rows = $this->moa_worker_model->update_worktime($wid, $contrib);
+					
+					if (!($attend_id)  || $affected_rows == 0) {
 						echo json_encode(array("status" => FALSE, "msg" => "登记失败"));
 						return;
 					}
-					// 成功写入考勤记录
+					// 成功写入考勤记录以及工时更新
 					echo json_encode(array("status" => TRUE, "msg" => "提交成功"));
 					return;
 				} else {
@@ -159,6 +166,7 @@ Class Dailycheck_in extends CI_Controller {
 				$check_paras['timestamp'] = $time;
 	
 				for ($i = 0; $i < $room_count; $i++) {
+					$check_paras['problemid'] = NULL;
 					$roomid = $this->moa_check_model->get_roomid_by_room($classroom_list[$i]);
 					$check_paras['roomid'] = $roomid;
 					// 课室情况
@@ -209,17 +217,23 @@ Class Dailycheck_in extends CI_Controller {
 					// 1-周一  2-周二  ... 6-周六  7-周日
 					$attend_paras['weekday'] = date("w") == 0 ? 7 : date("w");
 					// 签到type: 0-值班  1-早检 2-午检 3-晚检 4-周检
-					$attend_paras['type'] = 2;
+					$type = 2;
+					$attend_paras['type'] = $type;
 					// 是否迟到：0-否 1-是
 					$attend_paras['isLate'] = 0;
 					// 是否代班：0 - 否   1 - 是
 					$attend_paras['isSubstitute'] = 0;
 					$attend_id = $this->moa_attend_model->add($attend_paras);
-					if (!($attend_id)) {
+					
+					// 更新工时
+					$contrib = Public_methods::get_daily_working_hours($type);
+					$affected_rows = $this->moa_worker_model->update_worktime($wid, $contrib);
+					
+					if (!($attend_id) || $affected_rows == 0) {
 						echo json_encode(array("status" => FALSE, "msg" => "登记失败"));
 						return;
 					}
-					// 成功写入考勤记录
+					// 成功写入考勤记录以及工时更新
 					echo json_encode(array("status" => TRUE, "msg" => "提交成功"));
 					return;
 				} else {
@@ -264,6 +278,7 @@ Class Dailycheck_in extends CI_Controller {
 				$check_paras['timestamp'] = $time;
 	
 				for ($i = 0; $i < $room_count; $i++) {
+					$check_paras['problemid'] = NULL;
 					$roomid = $this->moa_check_model->get_roomid_by_room($classroom_list[$i]);
 					$check_paras['roomid'] = $roomid;
 					// 课室情况
@@ -314,17 +329,23 @@ Class Dailycheck_in extends CI_Controller {
 					// 1-周一  2-周二  ... 6-周六  7-周日
 					$attend_paras['weekday'] = date("w") == 0 ? 7 : date("w");
 					// 签到type: 0-值班  1-早检 2-午检 3-晚检 4-周检
-					$attend_paras['type'] = 3;
+					$type = 3;
+					$attend_paras['type'] = $type;
 					// 是否迟到：0-否 1-是
 					$attend_paras['isLate'] = 0;
 					// 是否代班：0 - 否   1 - 是
 					$attend_paras['isSubstitute'] = 0;
 					$attend_id = $this->moa_attend_model->add($attend_paras);
-					if (!($attend_id)) {
+					
+					// 更新工时
+					$contrib = Public_methods::get_daily_working_hours($type);
+					$affected_rows = $this->moa_worker_model->update_worktime($wid, $contrib);
+					
+					if (!($attend_id) || $affected_rows == 0) {
 						echo json_encode(array("status" => FALSE, "msg" => "登记失败"));
 						return;
 					}
-					// 成功写入考勤记录
+					// 成功写入考勤记录以及工时更新
 					echo json_encode(array("status" => TRUE, "msg" => "提交成功"));
 					return;
 				} else {

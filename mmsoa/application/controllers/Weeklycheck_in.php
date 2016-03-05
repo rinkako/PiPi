@@ -53,6 +53,7 @@ Class Weeklycheck_in extends CI_Controller {
 				$check_paras['timestamp'] = $time;
 	
 				for ($i = 0; $i < $room_count; $i++) {
+					$check_paras['problemid'] = NULL;
 					$roomid = $this->moa_check_model->get_roomid_by_room($classroom_list[$i]);
 					$check_paras['roomid'] = $roomid;
 					// 课室情况
@@ -111,7 +112,12 @@ Class Weeklycheck_in extends CI_Controller {
 					// 是否代班：0 - 否   1 - 是
 					$attend_paras['isSubstitute'] = 0;
 					$attend_id = $this->moa_attend_model->add($attend_paras);
-					if (!($attend_id)) {
+					
+					// 更新工时
+					$contrib = Public_methods::get_weekly_working_hours($room_count);
+					$affected_rows = $this->moa_worker_model->update_worktime($wid, $contrib);
+					
+					if (!($attend_id) || $affected_rows == 0) {
 						echo json_encode(array("status" => FALSE, "msg" => "登记失败"));
 						return;
 					}

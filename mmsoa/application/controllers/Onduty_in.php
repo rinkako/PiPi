@@ -59,7 +59,12 @@ Class Onduty_in extends CI_Controller {
 						for ($i = 0; $i < count($periods_list); $i++) {
 							$attend_paras['dutyPeriod'] = $periods_list[$i];
 							$attend_id = $this->moa_attend_model->add($attend_paras);
-							if (!($attend_id)) {
+							
+							// 更新工时
+							$contrib = Public_methods::get_working_hours($periods_list[$i]);
+							$affected_rows = $this->moa_worker_model->update_worktime($wid, $contrib);
+							
+							if (!($attend_id) || $affected_rows == 0) {
 								echo json_encode(array("status" => FALSE, "msg" => "登记失败"));
 								return;
 							}
@@ -78,7 +83,12 @@ Class Onduty_in extends CI_Controller {
 						for ($i = 0; $i < count($periods_list); $i++) {
 							$attend_paras['dutyPeriod'] = $periods_list[$i];
 							$attend_id = $this->moa_attend_model->add($attend_paras);
-							if (!($attend_id)) {
+							
+							// 更新工时
+							$contrib = Public_methods::get_working_hours($periods_list[$i]);
+							$affected_rows = $this->moa_worker_model->update_worktime($wid, $contrib);
+							
+							if (!($attend_id) || $affected_rows == 0) {
 								echo json_encode(array("status" => FALSE, "msg" => "登记失败"));
 								return;
 							}

@@ -125,9 +125,8 @@ class moa_worker_model extends CI_Model {
 	public function update_worktime($wid, $contrib) {
 		if (isset($wid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_Worker SET worktime = worktime + ' . $contrib . ' WHERE wid = ' . $wid;
-			$sqlquery = $this->db->query($sb);
-			$dataarr = $sqlquery->result();
-			return $dataarr[0]->worktime;
+			$affected_lines = $this->db->query($sb);
+			return $affected_lines;
 		}
 		else {
 			return false;
@@ -143,9 +142,8 @@ class moa_worker_model extends CI_Model {
 	public function update_lastmonth($wid, $contrib) {
 		if (isset($wid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_Worker SET lastmonth = ' . $contrib . ' WHERE wid = ' . $wid;
-			$sqlquery = $this->db->query($sb);
-			$dataarr = $sqlquery->result();
-			return $dataarr[0]->lastmonth;
+			$affected_lines = $this->db->query($sb);
+			return $affected_lines;
 		}
 		else {
 			return false;
@@ -161,9 +159,8 @@ class moa_worker_model extends CI_Model {
 	public function update_best($wid, $contrib = 1) {
 		if (isset($wid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_Worker SET best = best + ' . $contrib . ' WHERE wid = ' . $wid;
-			$sqlquery = $this->db->query($sb);
-			$dataarr = $sqlquery->result();
-			return $dataarr[0]->best;
+			$affected_lines = $this->db->query($sb);
+			return $affected_lines;
 		}
 		else {
 			return false;
@@ -179,9 +176,8 @@ class moa_worker_model extends CI_Model {
 	public function update_bad($wid, $contrib = 1) {
 		if (isset($wid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_Worker SET bad = bad + ' . $contrib . ' WHERE wid = ' . $wid;
-			$sqlquery = $this->db->query($sb);
-			$dataarr = $sqlquery->result();
-			return $dataarr[0]->bad;
+			$affected_lines = $this->db->query($sb);
+			return $affected_lines;
 		}
 		else {
 			return false;
@@ -197,9 +193,8 @@ class moa_worker_model extends CI_Model {
 	public function update_perfect($wid, $contrib = 1) {
 		if (isset($wid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_Worker SET perfect = perfect + ' . $contrib . ' WHERE wid = ' . $wid;
-			$sqlquery = $this->db->query($sb);
-			$dataarr = $sqlquery->result();
-			return $dataarr[0]->perfect;
+			$affected_lines = $this->db->query($sb);
+			return $affected_lines;
 		}
 		else {
 			return false;
@@ -215,9 +210,8 @@ class moa_worker_model extends CI_Model {
 	public function update_absence($wid, $contrib = 1) {
 		if (isset($wid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_Worker SET absence = absence + ' . $contrib . ' WHERE wid = ' . $wid;
-			$sqlquery = $this->db->query($sb);
-			$dataarr = $sqlquery->result();
-			return $dataarr[0]->absence;
+			$affected_lines = $this->db->query($sb);
+			return $affected_lines;
 		}
 		else {
 			return false;
@@ -233,9 +227,8 @@ class moa_worker_model extends CI_Model {
 	public function update_leave($uid, $contrib = 1) {
 		if (isset($uid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_User SET leave = leave + ' . $contrib . ' WHERE wid = ' . $wid;
-			$sqlquery = $this->db->query($sb);
-			$dataarr = $sqlquery->result();
-			return $dataarr[0]->leave;
+			$affected_lines = $this->db->query($sb);
+			return $affected_lines;
 		}
 		else {
 			return false;
@@ -251,9 +244,8 @@ class moa_worker_model extends CI_Model {
 	public function update_check($uid, $contrib = 1) {
 		if (isset($uid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_User SET checks = checks + ' . $contrib . ' WHERE wid = ' . $wid;
-			$sqlquery = $this->db->query($sb);
-			$dataarr = $sqlquery->result();
-			return $dataarr[0]->checks;
+			$affected_lines = $this->db->query($sb);
+			return $affected_lines;
 		}
 		else {
 			return false;
@@ -269,9 +261,8 @@ class moa_worker_model extends CI_Model {
 	public function update_penalty($wid, $contrib = 1) {
 		if (isset($uid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_User SET penalty = penalty + ' . $contrib . ' WHERE wid = ' . $wid;
-			$sqlquery = $this->db->query($sb);
-			$dataarr = $sqlquery->result();
-			return $dataarr[0]->penalty;
+			$affected_lines = $this->db->query($sb);
+			return $affected_lines;
 		}
 		else {
 			return false;

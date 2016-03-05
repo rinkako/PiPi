@@ -53,6 +53,31 @@ Class Public_methods extends CI_Controller {
 	}
 	
 	/**
+	 * 获取常检工时
+	 * @param number $type 常检类型
+	 * @return number 常检工时
+	 */
+	public static function get_daily_working_hours($type) {
+		$working_hours = 0;
+		switch ($type) {
+			case 1: $working_hours = 1; break;
+			case 2: $working_hours = 0.5; break;
+			case 3: $working_hours = 0.5; break;
+		}
+		return $working_hours;
+	}
+	
+	/**
+	 * 获取周检工时
+	 * @param number $room_count 周检课室数量
+	 * @return number 周检工时
+	 */
+	public static function get_weekly_working_hours($room_count) {
+		// 每周检一间课室记为0.5工时
+		return ($room_count * 0.5);
+	}
+	
+	/**
 	 * 获取值班段时长
 	 * @param number $period 值班时间段
 	 * @return number 该段值班时长

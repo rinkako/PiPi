@@ -6,6 +6,8 @@
 	<meta name="description" content="free-educational-responsive-web-template-webEdu">
 	<meta name="author" content="webThemez.com">
 	<title>MOA -东校区多媒体管理系统-</title>
+	
+    <link href="<?=base_url().'assets/images/moa.ico' ?>" rel="shortcut icon">
 	<link href="<?=base_url().'assets/images/favicon.png' ?>" rel="stylesheet">
 	<link href="<?=base_url().'assets/css/bootstrap.min.css' ?>" rel="stylesheet">
 	<link href="<?=base_url().'assets/css/font-awesome.min.css' ?>" rel="stylesheet">

@@ -9,6 +9,8 @@
     <title>MOA-查看值班记录</title>
     <?php $this->load->view('view_keyword'); ?>
     
+    <link href="<?=base_url().'assets/images/moa.ico' ?>" rel="shortcut icon">
+    
     <link href="<?=base_url().'assets/css/bootstrap.min.css?v=3.4.0' ?>" rel="stylesheet">
     <link href="<?=base_url().'assets/font-awesome/css/font-awesome.min.css' ?>" rel="stylesheet">
         
@@ -88,7 +90,7 @@
 	                                            <td><?php echo $d_weekday; ?></td>
 	                                            <td><?php echo $d_name_list[$i]; ?></td>
 	                                            <td><?php echo $d_duration_list[$i]; ?></td>
-	                                            <td  class="td-left">
+	                                            <td>
 	                                            	<?php 
 	                                            		if ($d_sub_list[$i] == '') {
 	                                            			echo '无';

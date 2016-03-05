@@ -157,9 +157,8 @@ class moa_user_model extends CI_Model {
 	public function update_contribution($uid, $contrib) {
 		if (isset($uid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_User SET contribution = contribution + ' . $contrib . ' WHERE uid = ' . $uid;
-			$sqlquery = $this->db->query($sb);
-			$dataarr = $sqlquery->result();
-			return $dataarr[0]->contribution;
+			$affected_lines = $this->db->query($sb);
+			return $affected_lines;
 		}
 		else {
 			return false;
@@ -175,9 +174,8 @@ class moa_user_model extends CI_Model {
 	public function update_best($uid, $contrib = 1) {
 		if (isset($uid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_User SET totalBest = totalBest + ' . $contrib . ' WHERE uid = ' . $uid;
-			$sqlquery = $this->db->query($sb);
-			$dataarr = $sqlquery->result();
-			return $dataarr[0]->totalBest;
+			$affected_lines = $this->db->query($sb);
+			return $affected_lines;
 		}
 		else {
 			return false;
@@ -193,9 +191,8 @@ class moa_user_model extends CI_Model {
 	public function update_bad($uid, $contrib = 1) {
 		if (isset($uid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_User SET totalBad = totalBad + ' . $contrib . ' WHERE uid = ' . $uid;
-			$sqlquery = $this->db->query($sb);
-			$dataarr = $sqlquery->result();
-			return $dataarr[0]->totalBad;
+			$affected_lines = $this->db->query($sb);
+			return $affected_lines;
 		}
 		else {
 			return false;
@@ -211,9 +208,8 @@ class moa_user_model extends CI_Model {
 	public function update_perfect($uid, $contrib = 1) {
 		if (isset($uid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_User SET totalPerfect = totalPerfect + ' . $contrib . ' WHERE uid = ' . $uid;
-			$sqlquery = $this->db->query($sb);
-			$dataarr = $sqlquery->result();
-			return $dataarr[0]->totalPerfect;
+			$affected_lines = $this->db->query($sb);
+			return $affected_lines;
 		}
 		else {
 			return false;
@@ -229,9 +225,8 @@ class moa_user_model extends CI_Model {
 	public function update_absence($uid, $contrib = 1) {
 		if (isset($uid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_User SET totalAbsence = totalAbsence + ' . $contrib . ' WHERE uid = ' . $uid;
-			$sqlquery = $this->db->query($sb);
-			$dataarr = $sqlquery->result();
-			return $dataarr[0]->totalAbsence;
+			$affected_lines = $this->db->query($sb);
+			return $affected_lines;
 		}
 		else {
 			return false;
@@ -247,9 +242,8 @@ class moa_user_model extends CI_Model {
 	public function update_leave($uid, $contrib = 1) {
 		if (isset($uid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_User SET totalLeave = totalLeave + ' . $contrib . ' WHERE uid = ' . $uid;
-			$sqlquery = $this->db->query($sb);
-			$dataarr = $sqlquery->result();
-			return $dataarr[0]->totalLeave;
+			$affected_lines = $this->db->query($sb);
+			return $affected_lines;
 		}
 		else {
 			return false;
@@ -265,9 +259,8 @@ class moa_user_model extends CI_Model {
 	public function update_check($uid, $contrib = 1) {
 		if (isset($uid) and isset($contrib)) {
 			$sb = 'UPDATE MOA_User SET totalCheck = totalCheck + ' . $contrib . ' WHERE uid = ' . $uid;
-			$sqlquery = $this->db->query($sb);
-			$dataarr = $sqlquery->result();
-			return $dataarr[0]->totalCheck;
+			$affected_lines = $this->db->query($sb);
+			return $affected_lines;
 		}
 		else {
 			return false;

@@ -8,6 +8,8 @@
     <meta name="renderer" content="webkit">
 
     <title>失物招领</title>
+    
+    <link href="<?=base_url().'assets/images/moa.ico' ?>" rel="shortcut icon">
 
     <link href="<?=base_url().'assets/css/bootstrap.min.css?v=3.4.0' ?>" rel="stylesheet">
     <link href="<?=base_url().'assets/font-awesome/css/font-awesome.min.css' ?>" rel="stylesheet">

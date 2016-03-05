@@ -48,10 +48,10 @@
 
                     </li>
 					<li id="active-homepage">
-                        <a class="J_menuItem" href="homepage"><i class="fa fa-columns"></i> <span class="nav-label">个人主页</span><span class="label label-danger pull-right">2.0</span></a>
+                        <a class="J_menuItem" href="homepage"><i class="fa fa-home"></i> <span class="nav-label">个人主页</span><span class="label label-danger pull-right">2.0</span></a>
                     </li>  
                     <li id="active-workrecord">
-                        <a href="homepage#"><i class="fa fa-th-large"></i> <span class="nav-label">工作记录</span> <span class="fa arrow"></span></a>
+                        <a href="homepage#"><i class="fa fa-edit"></i> <span class="nav-label">工作记录</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li id="active-dailycheck"><a class="J_menuItem" href="dailyCheck">常检</a>
                             </li>
@@ -64,7 +64,7 @@
                         </ul>
                     </li>
                     <li id="active-workReview">
-                        <a href="homepage#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">工作审查</span><span class="fa arrow"></span></a>
+                        <a href="homepage#"><i class="fa fa-table"></i> <span class="nav-label">工作审查</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li id="active-dailyReview"><a href="dailyReview">常检</a>
                             </li>
@@ -75,7 +75,7 @@
                         </ul>
                     </li>
                     <li id="active-journal">
-                        <a href="homepage#"><i class="fa fa-th-large"></i> <span class="nav-label">坐班日志</span> <span class="fa arrow"></span></a>
+                        <a href="homepage#"><i class="fa fa-file-text"></i> <span class="nav-label">坐班日志</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li id="active-writeJournal"><a href="writeJournal">发布</a>
                             </li>
@@ -84,7 +84,7 @@
                         </ul>
                     </li>
                     <li id="active-usermanagement">
-                        <a href="homepage#"><i class="fa fa fa-globe"></i> <span class="nav-label">用户管理</span><span class="fa arrow"></span></a>
+                        <a href="homepage#"><i class="fa fa-user"></i> <span class="nav-label">用户管理</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li id="active-adduser"><a href="addUser">添加</a>
                             </li>
