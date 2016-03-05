@@ -76,11 +76,11 @@
 		                                        	<tbody>
 		                                        		<tr>
 				                                        	<td><strong>组长</strong></td>
-				                                            <td><?php echo $leader_name; ?></td>
+				                                            <td class="td-font-size"><?php echo $leader_name; ?></td>
 				                                            <td><strong>组别</strong></td>
-				                                            <td><?php echo $group; ?>组</td>
+				                                            <td class="td-font-size"><?php echo $group; ?>组</td>
 				                                            <td><strong>日期</strong></td>
-				                                            <td><?php echo $timestamp . ' 第' . $weekcount . '周 星期' . $weekday; ?></td>
+				                                            <td class="td-font-size"><?php echo $timestamp . ' 第' . $weekcount . '周 星期' . $weekday; ?></td>
 			                                            </tr>
 		                                            </tbody>
 			                                    </table>
@@ -89,19 +89,19 @@
 		                                        	<tbody>
 		                                        		<tr class="tr-height">
 					                                        <td class="col-sm-2"><strong>早检情况</strong></td>
-					                                        <td class="td-left"><?php echo $body_list[0]; ?></td>
+					                                        <td class="td-left td-font-size"><?php echo $body_list[0]; ?></td>
 														</tr>
 														<tr class="tr-height">
 						                                    <td class="col-sm-2"><strong>午检情况</strong></td>
-						                                    <td class="td-left"><?php echo $body_list[1]; ?></td>
+						                                    <td class="td-left td-font-size"><?php echo $body_list[1]; ?></td>
 					                                    </tr>
 					                                    <tr class="tr-height">
 						                                    <td class="col-sm-2"><strong>晚检情况</strong></td>
-						                                    <td class="td-left"><?php echo $body_list[2]; ?></td>
+						                                    <td class="td-left td-font-size"><?php echo $body_list[2]; ?></td>
 					                                    </tr>
 					                                    <tr class="tr-height">
 					                                        <td class="col-sm-2"><strong>优秀助理</strong></td>
-					                                        <td class="td-left">
+					                                        <td class="td-left td-font-size">
 					                                        	<p>优秀助理有：
 					                                        		<strong>
 						                                        		<?php 
@@ -116,7 +116,7 @@
 														</tr>
 														<tr  class="tr-height">
 						                                    <td class="col-sm-2"><strong>异常助理</strong></td>
-						                                    <td class="td-left">
+						                                    <td class="td-left td-font-size">
 						                                    	<p>异常助理有：
 					                                        		<strong>
 						                                        		<?php 
@@ -131,7 +131,7 @@
 					                                    </tr class="tr-height">
 					                                    <tr>
 						                                    <td class="col-sm-2"><strong>总结</strong></td>
-						                                    <td class="td-left"><?php echo $body_list[5]; ?></td>
+						                                    <td class="td-left td-font-size"><?php echo $body_list[5]; ?></td>
 					                                    </tr>
 		                                            </tbody>
 			                                    </table>
@@ -211,7 +211,8 @@
 
         /* Chosen */
         var config = {
-                '.chosen-select': {},
+                '.chosen-select': {
+                },
                 '.chosen-select-deselect': {
                     allow_single_deselect: true
                 },

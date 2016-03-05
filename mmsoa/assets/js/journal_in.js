@@ -53,6 +53,7 @@ $("#submit_journal").click(function() {
 				// 锁定所有按钮和输入框
 				$("#group_A").iCheck('disable');
 				$("#group_B").iCheck('disable');
+				$('.chosen-select').prop('disabled', true).trigger("chosen:updated");
 				$("#text_morning").attr("disabled", true);
 				$("#text_noon").attr("disabled", true);
 				$("#text_evening").attr("disabled", true);

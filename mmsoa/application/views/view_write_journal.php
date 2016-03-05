@@ -261,7 +261,10 @@
 
         /* Chosen */
         var config = {
-                '.chosen-select': {},
+                '.chosen-select': {
+                    // 实现中间字符的模糊查询
+                	search_contains: true
+                },
                 '.chosen-select-deselect': {
                     allow_single_deselect: true
                 },

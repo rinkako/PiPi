@@ -6435,6 +6435,10 @@ body.skin-3 {
 	text-align: left !important;
 }
 
+.td-font-size {
+	font-size: 14px;
+}
+
 /* tr height */
 .tr-height {
 	height: 150px;

@@ -10,11 +10,13 @@ $("#onduty").change(function() {
 	if (is_signin.checked) {
 		$("#replaced_yes").iCheck('enable');
 		$("#replaced_no").iCheck('enable');
+		$('.chosen-select').prop('disabled', false).trigger("chosen:updated");
 		$("#range_slider").attr("disabled", false);
 		$("#submit_onduty").attr("disabled", false);
 	} else {
 		$("#replaced_yes").iCheck('disable');
 		$("#replaced_no").iCheck('disable');
+		$('.chosen-select').prop('disabled', true).trigger("chosen:updated");
 		$("#range_slider").attr("disabled", true);
 		$("#submit_onduty").attr("disabled", true);
 	}
@@ -73,6 +75,7 @@ $("#submit_onduty").click(function() {
 				// 锁定所有按钮和输入框
 				$("#replaced_yes").iCheck('disable');
 				$("#replaced_no").iCheck('disable');
+				$('.chosen-select').prop('disabled', true).trigger("chosen:updated");
 				$("#range_slider").attr("disabled", true);
 				$("#submit_onduty").attr("disabled", true);
 			}
