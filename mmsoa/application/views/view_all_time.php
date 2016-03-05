@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="renderer" content="webkit">
 
-    <title>MOA-查看坐班日志</title>
+    <title>MOA-工时统计</title>
     <?php $this->load->view('view_keyword'); ?>
     
     <link href="<?=base_url().'assets/images/moa.ico' ?>" rel="shortcut icon">
@@ -50,10 +50,10 @@
                             MOA
                         </li>
                         <li>
-                        	坐班日志
+                        	工时统计
                         </li>
                         <li>
-                            <strong>查看</strong>
+                            <strong>全员</strong>
                         </li>	
                     </ol>
                 </div>
@@ -64,82 +64,40 @@
             <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="ibox float-e-margins ">
+                        <div class="ibox float-e-margins">
                             <div class="ibox-title">
-                                <h5>查看坐班日志</h5>
+                                <h5>查看全员工时</h5>
                             </div>
-                            <div class="ibox-content col-sm-12">
-                            	<h1 class="col-sm-offset-5">组长坐班日志</h1>
-                            	<div class="col-sm-1"></div>
-                            	<div class="col-sm-10">
-	                                <table class="table table-striped table-bordered table-hover users-dataTable">
-	                                    <tbody>
-		                                    	<table class="table table-striped table-bordered" style="margin-bottom: -1px;">
-		                                        	<tbody>
-		                                        		<tr>
-				                                        	<td><strong>组长</strong></td>
-				                                            <td class="td-font-size"><?php echo $leader_name; ?></td>
-				                                            <td><strong>组别</strong></td>
-				                                            <td class="td-font-size"><?php echo $group; ?>组</td>
-				                                            <td><strong>日期</strong></td>
-				                                            <td class="td-font-size"><?php echo $timestamp . ' 第' . $weekcount . '周 星期' . $weekday; ?></td>
-			                                            </tr>
-		                                            </tbody>
-			                                    </table>
-		                                   
-		                                    	<table class="table table-bordered">
-		                                        	<tbody>
-		                                        		<tr class="tr-height">
-					                                        <td class="col-sm-2"><strong>早检情况</strong></td>
-					                                        <td class="td-left td-font-size"><?php echo $body_list[0]; ?></td>
-														</tr>
-														<tr class="tr-height">
-						                                    <td class="col-sm-2"><strong>午检情况</strong></td>
-						                                    <td class="td-left td-font-size"><?php echo $body_list[1]; ?></td>
-					                                    </tr>
-					                                    <tr class="tr-height">
-						                                    <td class="col-sm-2"><strong>晚检情况</strong></td>
-						                                    <td class="td-left td-font-size"><?php echo $body_list[2]; ?></td>
-					                                    </tr>
-					                                    <tr class="tr-height">
-					                                        <td class="col-sm-2"><strong>优秀助理</strong></td>
-					                                        <td class="td-left td-font-size">
-					                                        	<p>优秀助理有：
-					                                        		<strong>
-						                                        		<?php 
-						                                        			foreach ($best_list as $best) {
-						                                        				echo $best . ' &nbsp;&nbsp;';
-						                                        			}
-						                                        		?>
-						                                        	</strong>
-					                                        	</p>
-					                                        	<?php echo $body_list[3]; ?>
-					                                        </td>
-														</tr>
-														<tr  class="tr-height">
-						                                    <td class="col-sm-2"><strong>异常助理</strong></td>
-						                                    <td class="td-left td-font-size">
-						                                    	<p>异常助理有：
-					                                        		<strong>
-						                                        		<?php 
-						                                        			foreach ($bad_list as $bad) {
-						                                        				echo $bad . ' &nbsp;&nbsp;';
-						                                        			}
-						                                        		?>
-						                                        	</strong>
-					                                        	</p>
-						                                    	<?php echo $body_list[4]; ?>
-						                                    </td>
-					                                    </tr class="tr-height">
-					                                    <tr>
-						                                    <td class="col-sm-2"><strong>总结</strong></td>
-						                                    <td class="td-left td-font-size"><?php echo $body_list[5]; ?></td>
-					                                    </tr>
-		                                            </tbody>
-			                                    </table>
-		                                </tbody>
-		                            </table>
-	                            </div>
+                            <div class="ibox-content">
+                            
+                                <table class="table table-striped table-bordered table-hover users-dataTable">
+                                    <thead>
+                                        <tr>
+                                        	<th>序号</th>
+                                            <th>姓名</th>
+                                            <th>本月工时</th>
+                                            <th>本月工资</th>
+                                            <th>银行卡号</th>
+                                            <th>联系电话</th>
+                                            <th>历史累计工时</th>
+                                            <th>历史累计工资</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    	<?php for ($i = 0; $i < $count; $i++) { ?>
+	                                        <tr>
+	                                        	<td><?php echo $i + 1; ?></td>
+	                                            <td><?php echo $name_list[$i]; ?></td>
+	                                            <td><?php echo $month_contri_list[$i]; ?></td>
+	                                            <td><?php echo $month_salary_list[$i]; ?></td>
+	                                            <td><?php echo $card_list[$i]; ?></td>
+	                                            <td><?php echo $phone_list[$i]; ?></td>
+	                                            <td><?php echo $total_contri_list[$i]; ?></td>
+	                                            <td><?php echo $total_salary_list[$i]; ?></td>
+	                                        </tr>
+	                                    <?php } ?>
+	                                </tbody>
+	                            </table>
 	                        </div>
 	                    </div>
 	                </div>
@@ -159,9 +117,9 @@
     <!-- nav item active -->
 	<script>
 		$(document).ready(function () {
-			$("#active-journal").addClass("active");
-			$("#active-readJournal").addClass("active");
-			$("#mini").attr("href", "readJournal#");
+			$("#active-timeStatistics").addClass("active");
+			$("#active-allmembers").addClass("active");
+			$("#mini").attr("href", "allWorkingTime#");
 		});
 	</script>
 
@@ -198,6 +156,8 @@
     <script>
         $(document).ready(function () {
            
+        	$('.users-dataTable').dataTable();
+
             /* Calendar */
             $('#calendar_date .input-group.date').datepicker({
                 todayBtn: "linked",
@@ -211,8 +171,7 @@
 
         /* Chosen */
         var config = {
-                '.chosen-select': {
-                },
+                '.chosen-select': {},
                 '.chosen-select-deselect': {
                     allow_single_deselect: true
                 },

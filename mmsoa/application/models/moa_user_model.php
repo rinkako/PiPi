@@ -114,6 +114,28 @@ class moa_user_model extends CI_Model {
 			return false;
 		}
 	}
+	
+	/**
+	 * 取多个级别某状态所有用户
+	 * @param level_arr - 级别
+	 * @param state - 状态
+	 */
+	public function get_by_multiple_level($level_arr, $state) {
+		if (isset($level_arr) && isset($state)) {
+			$this->db->group_start();
+			for ($i = 0; $i < count($level_arr); $i++) {
+				$this->db->or_where('level', $level_arr[$i]);
+			}
+			$this->db->group_end();
+			$this->db->where('state', $state);
+			$this->db->order_by('level', 'DESC');
+			$this->db->order_by('indate', 'ASC');
+			return $this->db->get('MOA_User')->result();
+		}
+		else {
+			return false;
+		}
+	}
 
     /**
 	 * 取指定用户名的有效记录

@@ -80,7 +80,7 @@
 	                                            	</div>
 						                            <h5>周检情况：&nbsp;<small>请在有问题的课室后面填写好记录，无问题的课室无需填写</small></h5>
 						                            <div class="ibox-content" style="margin-bottom: 0px; padding-bottom: 0px;">
-						                                <div class="form-horizontal" id="week_form">
+						                                <form role="form" class="form-horizontal" id="week_form">
 						                                	<?php for ($i = 0; $i < count($classroom_list); $i++) { ?>
 							                                	<div class="form-group">
 							                                        <label class="col-sm-2 control-label"><?php echo $classroom_list[$i]; ?></label>
@@ -92,7 +92,7 @@
 							                                    <div class="form-group">
 							                                        <div class="col-sm-2 col-sm-offset-2" style="width:150px;">
 							                                            <input type="number" name="<?php echo 'cond_lamp_' . $i; ?>" placeholder="投影仪灯时" disabled="" 
-							                                            id="<?php echo 'lamp_' . $i; ?>" class="form-control" required="">
+							                                            id="<?php echo 'lamp_' . $i; ?>" class="form-control">
 							                                        </div>
 							                                        <h3><small>小时</small></h3>
 							                                    </div>
@@ -104,7 +104,7 @@
 						                                            data-toggle="modal" data-target="#myModal">提交</button>
 						                                        </div>
 						                                    </div>
-						                                </div>
+						                                </form>
 						                            </div>
 	                                            </div>
 	                                        </div>
@@ -164,30 +164,45 @@
     <script src="<?=base_url().'assets/js/plugins/validate/jquery.validate.min.js' ?>"></script>
     <script src="<?=base_url().'assets/js/plugins/validate/messages_zh.min.js' ?>"></script>
     <script>
-        //以下为修改jQuery Validation插件兼容Bootstrap的方法，没有直接写在插件中是为了便于插件升级
-        $.validator.setDefaults({
-            highlight: function (element) {
-                $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-            },
-            success: function (element) {
-                element.closest('.form-group').removeClass('has-error').addClass('has-success');
-            },
-            errorElement: "span",
-            errorClass: "help-block m-b-none",
-            validClass: "help-block m-b-none"
-
-        });
+	  	//以下为修改jQuery Validation插件兼容Bootstrap的方法，没有直接写在插件中是为了便于插件升级
+	    $.validator.setDefaults({
+	        highlight: function (element) {
+	            $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+	        },
+	        success: function (element) {
+	            element.closest('.form-group').removeClass('has-error').addClass('has-success');
+	        },
+	        errorElement: "span",
+	        errorClass: "color-error m-b-none",
+	        validClass: "color-success m-b-none"
+	
+	    });
 
          //以下为官方示例
         $().ready(function () {
             // validate the week form when it is submitted
-            $("#week_form").validate();
+            $("#week_form").validate({
+            	rules: {
+            		cond_lamp_0: {
+                        required: true,
+                        number: true
+                    },
+                    cond_lamp_1: {
+                        required: true,
+                        number: true
+                    },
+                    cond_lamp_2: {
+                        required: true,
+                        number: true
+                    }
+                }
+            });
             
         });
     </script>
     
     <!-- layer javascript -->
-    <script src="<?=base_url().'assets/js/plugins/layer/layer.min.js' ?>"></script>
+    <script src="<?=base_url().'assets/js/plugins/layer/layer.js' ?>"></script>
     <script>
         layer.use('extend/layer.ext.js'); //载入layer拓展模块
     </script>

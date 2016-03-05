@@ -83,27 +83,24 @@
                             </li>
                         </ul>
                     </li>
-                    <li id="active-usermanagement">
+                    <li id="active-userManagement">
                         <a href="homepage#"><i class="fa fa-user"></i> <span class="nav-label">用户管理</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li id="active-adduser"><a href="addUser">添加</a>
+                            <li id="active-addUser"><a href="addUser">添加</a>
                             </li>
-                            <li id="active-searchuser"><a href="searchUser">查看</a>
+                            <li id="active-searchUser"><a href="searchUser">查看</a>
                             </li>
                         </ul>
                     </li>
-                    <!--  
                     <li>
-                        <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">信箱 </span><span class="label label-warning pull-right">16</span></a>
+                        <a href="active-timeStatistics"><i class="fa fa-rmb"></i> <span class="nav-label">工时统计</span><span class="label label-warning pull-right">16</span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="mailbox.html">收件箱</a>
+                            <li id="active-personal"><a href="perWorkingTime">个人</a>
                             </li>
-                            <li><a href="mail_detail.html">查看邮件</a>
-                            </li>
-                            <li><a href="mail_compose.html">写信</a>
-                            </li>
+                            <li id="active-allmembers"><a href="allWorkingTime">全员</a>
                         </ul>
                     </li>
+                <!--
                     <li>
                         <a href="widgets.html"><i class="fa fa-flask"></i> <span class="nav-label">小工具</span></a>
                     </li>

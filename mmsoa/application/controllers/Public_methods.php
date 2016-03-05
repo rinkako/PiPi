@@ -19,6 +19,17 @@ Class Public_methods extends CI_Controller {
 	}
 	
 	/**
+	 * 计算工资
+	 * @param unknown $work_time 工时
+	 * @return number 工资
+	 */
+	public static function cal_salary($work_time) {
+		// 时薪12元人民币
+		$salary_per_hour = 12;
+		return ($work_time * $salary_per_hour);
+	}
+	
+	/**
 	 * 将星期的数据库标识解析为中文
 	 * @param weekday_num 星期的数据库数字标号
 	 * @return 星期对应的中文

@@ -42,27 +42,31 @@ Class User_management extends CI_Controller {
 							$uid = $this->moa_user_model->add($user_paras);
 							
 							if ($uid != FALSE) {
-								// 若为普通助理，还应插入MOA_Worker表
+								// 插入MOA_Worker表
+								$worker_paras['uid'] = $uid;
+								$worker_paras['level'] = $_POST['level'];
+								$worker_paras['group'] = NULL;
+								$worker_paras['classroom'] = NULL;
+								$worker_paras['week_classroom'] = NULL;
+								
+								// 若为普通助理，还应录入组别、常检课室、周检课室
 								if ($_POST['level'] == 0) {
 									if (isset($_POST['group']) && isset($_POST['classroom']) && isset($_POST['week_classroom'])) {
-										$worker_paras['uid'] = $uid;
-										$worker_paras['level'] = 0;
 										$worker_paras['group'] = $_POST['group'];
 										$worker_paras['classroom'] = $_POST['classroom'];
 										$worker_paras['week_classroom'] = $_POST['week_classroom'];
-										$wid = $this->moa_worker_model->add($worker_paras);
-										
-										if ($wid != FALSE) {
-											echo json_encode(array("status" => TRUE, "msg" => "添加成功"));
-											return;
-										} else {
-											echo json_encode(array("status" => FALSE, "msg" => "添加失败"));
-											return;
-										}
 									}
-									
+								// 非普通助理用户的组别为N
 								} else {
+									$worker_paras['group'] = 0;
+								}
+								$wid = $this->moa_worker_model->add($worker_paras);
+										
+								if ($wid != FALSE) {
 									echo json_encode(array("status" => TRUE, "msg" => "添加成功"));
+									return;
+								} else {
+									echo json_encode(array("status" => FALSE, "msg" => "添加失败"));
 									return;
 								}
 								

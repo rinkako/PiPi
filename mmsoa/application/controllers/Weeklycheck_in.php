@@ -59,7 +59,10 @@ Class Weeklycheck_in extends CI_Controller {
 					// 课室情况
 					$prob_description = $_POST['cond_week'][$i];
 					// 灯时
-					$check_paras['light'] = $_POST['cond_lamp'][$i];
+					$check_paras['light'] = 0;
+					if (!empty($_POST['cond_lamp'][$i])) {
+						$check_paras['light'] = $_POST['cond_lamp'][$i];
+					}
 					
 					// 课室正常
 					if ($prob_description == "" || $prob_description == "正常") {
@@ -116,8 +119,9 @@ Class Weeklycheck_in extends CI_Controller {
 					// 更新工时
 					$contrib = Public_methods::get_weekly_working_hours($room_count);
 					$affected_rows = $this->moa_worker_model->update_worktime($wid, $contrib);
+					$affected_rows_u = $this->moa_user_model->update_contribution($uid, $contrib);
 					
-					if (!($attend_id) || $affected_rows == 0) {
+					if (!($attend_id) || $affected_rows == 0 || $affected_rows_u == 0) {
 						echo json_encode(array("status" => FALSE, "msg" => "登记失败"));
 						return;
 					}

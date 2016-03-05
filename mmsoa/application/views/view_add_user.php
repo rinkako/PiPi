@@ -208,9 +208,9 @@
     <!-- nav item active -->
 	<script>
 		$(document).ready(function () {
-			$("#active-usermanagement").addClass("active");
-			$("#active-adduser").addClass("active");
-			$("#mini").attr("href", "adduser#");
+			$("#active-userManagement").addClass("active");
+			$("#active-addUser").addClass("active");
+			$("#mini").attr("href", "addUser#");
 		});
 	</script>
 

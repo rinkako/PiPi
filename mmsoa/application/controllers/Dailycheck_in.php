@@ -116,8 +116,9 @@ Class Dailycheck_in extends CI_Controller {
 					// 更新工时
 					$contrib = Public_methods::get_daily_working_hours($type);
 					$affected_rows = $this->moa_worker_model->update_worktime($wid, $contrib);
+					$affected_rows_u = $this->moa_user_model->update_contribution($uid, $contrib);
 					
-					if (!($attend_id)  || $affected_rows == 0) {
+					if (!($attend_id)  || $affected_rows == 0 || $affected_rows_u == 0) {
 						echo json_encode(array("status" => FALSE, "msg" => "登记失败"));
 						return;
 					}
@@ -228,8 +229,9 @@ Class Dailycheck_in extends CI_Controller {
 					// 更新工时
 					$contrib = Public_methods::get_daily_working_hours($type);
 					$affected_rows = $this->moa_worker_model->update_worktime($wid, $contrib);
+					$affected_rows_u = $this->moa_user_model->update_contribution($uid, $contrib);
 					
-					if (!($attend_id) || $affected_rows == 0) {
+					if (!($attend_id) || $affected_rows == 0 || $affected_rows_u == 0) {
 						echo json_encode(array("status" => FALSE, "msg" => "登记失败"));
 						return;
 					}
@@ -340,8 +342,9 @@ Class Dailycheck_in extends CI_Controller {
 					// 更新工时
 					$contrib = Public_methods::get_daily_working_hours($type);
 					$affected_rows = $this->moa_worker_model->update_worktime($wid, $contrib);
+					$affected_rows_u = $this->moa_user_model->update_contribution($uid, $contrib);
 					
-					if (!($attend_id) || $affected_rows == 0) {
+					if (!($attend_id) || $affected_rows == 0 || $affected_rows_u == 0) {
 						echo json_encode(array("status" => FALSE, "msg" => "登记失败"));
 						return;
 					}

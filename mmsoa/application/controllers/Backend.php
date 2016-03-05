@@ -88,7 +88,7 @@ Class Backend extends CI_Controller {
 			$data['name_list'] = $name_list;
 			$data['wid_list'] = $wid_list;
 			// 传入wid列表用于选择被代班助理
-			$this->load->view('view_on_duty', $data);
+			$this->load->view('view_duty', $data);
 		} else {
 			// 未登录的用户请先登录
 			$this->requireLogin();
@@ -630,6 +630,67 @@ Class Backend extends CI_Controller {
 			$this->requireLogin();
 		}
 	}
+	
+	/**
+	 * 全员（办公室负责人及管理员除外）工时统计
+	 */
+	public function allWorkingTime() {
+		if (isset($_SESSION['user_id'])) {
+			// level: 0-普通助理 1-组长 2-负责人助理 3-助理负责人
+			$level_arr = array('0', '1', '2', '3');
+			// 正常有效记录
+			$state = 0;
+			$u_obj_list = $this->moa_user_model->get_by_multiple_level($level_arr, $state);
+			
+			$u_name_list = array();
+			$u_card_list = array();
+			$u_phone_list = array();
+			$u_total_contri_list = array();
+			$u_total_salary_list = array();
+			$w_month_contri_list = array();
+			$w_month_salary_list = array();
+			$count = 0;
+			
+			if ($u_obj_list != FALSE) {
+				for ($count = 0; $count < count($u_obj_list); $count++) {
+					$u_name_list[$count] = $u_obj_list[$count]->name;
+					$tmp_uid = $u_obj_list[$count]->uid;
+					$u_card_list[$count] = $u_obj_list[$count]->creditcard;
+					$u_phone_list[$count] = $u_obj_list[$count]->phone;
+					$tmp_total_contri = $u_obj_list[$count]->contribution;
+					$tmp_total_penalty = $u_obj_list[$count]->totalPenalty;
+					// 历史总实际工时 = 历史总工时 - 历史总扣除工时
+					$tmp_total_real_contri = $tmp_total_contri - $tmp_total_penalty;
+					$u_total_contri_list[$count] = $tmp_total_real_contri;
+					$u_total_salary_list[$count] = Public_methods::cal_salary($tmp_total_real_contri);
+					// 从Worker表获取本月工时
+					$tmp_wid = $this->moa_worker_model->get_wid_by_uid($tmp_uid);
+					$tmp_worker_obj = $this->moa_worker_model->get($tmp_wid);
+					$tmp_month_contri = $tmp_worker_obj->worktime;
+					$tmp_month_penalty = $tmp_worker_obj->penalty;
+					// 本月实际工时 = 本月总工时 - 本月总扣除工时
+					$tmp_month_real_contri = $tmp_month_contri - $tmp_month_penalty;
+					$w_month_contri_list[$count] = $tmp_month_real_contri;
+					$w_month_salary_list[$count] = Public_methods::cal_salary($tmp_month_real_contri);
+				}
+			}
+			
+			$data['count'] = $count;
+			$data['name_list'] = $u_name_list;
+			$data['card_list'] = $u_card_list;
+			$data['phone_list'] = $u_phone_list;
+			$data['total_contri_list'] = $u_total_contri_list;
+			$data['total_salary_list'] = $u_total_salary_list;
+			$data['month_contri_list'] = $w_month_contri_list;
+			$data['month_salary_list'] = $w_month_salary_list;
+			
+			$this->load->view('view_all_time', $data);
+		} else {
+			// 未登录的用户请先登录
+			$this->requireLogin();
+		}
+	}
+	
 	
 	
 	
