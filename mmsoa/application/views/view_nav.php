@@ -100,10 +100,15 @@
                             <li id="active-allmembers"><a href="allWorkingTime">全员</a>
                         </ul>
                     </li>
-                <!--
-                    <li>
-                        <a href="widgets.html"><i class="fa fa-flask"></i> <span class="nav-label">小工具</span></a>
+                    <li id="active-scheduleManagement">
+                        <a href="homepage#"><i class="fa fa-flask"></i> <span class="nav-label">值班安排</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li id="active-dutySignUp"><a href="dutySignUp">报名</a>
+                            </li>
+                            <li id="active-dutyTable"><a href="dutyTable">值班表</a>
+                        </ul>
                     </li>
+                <!--
                     <li>
                         <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">表单</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">

@@ -90,7 +90,7 @@
                                     </div>
                                     
                                     <div class="form-group" id="radio_group">
-	                                    <label class="col-sm-3 col-sm-11 col-sm-offset-1 control-label">组别</label>
+	                                    <label class="col-sm-3 col-sm-offset-1 control-label">组别</label>
 										<div class="col-sm-7">
 										    <label class="radio-inline" style="font-size: 14px;">
 										        <input type="radio" checked="" value="1" id="group_A" name="group_radio"> A 组</label>

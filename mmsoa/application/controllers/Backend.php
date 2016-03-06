@@ -27,7 +27,12 @@ Class Backend extends CI_Controller {
 	}
 	
 	public function homepage() {
-		$this->load->view('view_homepage');
+		if (isset($_SESSION['user_id'])) {
+			$this->load->view('view_homepage');
+		} else {
+			// 未登录的用户请先登录
+			$this->requireLogin();
+		}
 	}
 	
 	/**
@@ -753,6 +758,17 @@ Class Backend extends CI_Controller {
 		}
 	}
 	
+	/**
+	 * 值班报名
+	 */
+	public function dutySignUp() {
+		if (isset($_SESSION['user_id'])) {
+			$this->load->view('view_duty_signup');
+		} else {
+			// 未登录的用户请先登录
+			$this->requireLogin();
+		}
+	}
 	
 	
 	
