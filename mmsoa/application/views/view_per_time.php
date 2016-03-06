@@ -67,8 +67,8 @@
 			                    </div>
 			                    <img src="<?=base_url().'assets/images/a4.jpg' ?>" class="img-circle circle-border m-b-md" alt="profile">
 			                    <div>
-			                        <span>2011-03-07 加入</span> |
-			                        <span>已在职 3 年 77 天</span>
+			                        <span><?php echo $indate; ?> 加入</span> |
+			                        <span>已在职 <?php echo $working_age; ?></span>
 			                    </div>
 			                </div>
 			            </div>
@@ -80,7 +80,7 @@
 			                        </div>
 			                        <div class="col-xs-9 text-right">
 			                            <span> 本月工时 </span>
-			                            <h2 class="font-bold" style="font-size: 40px;">26</h2>
+			                            <h2 class="font-bold month-font-size"><?php echo $month_contri; ?></h2>
 			                        </div>
 			                    </div>
 			                </div>
@@ -93,7 +93,7 @@
 			                        </div>
 			                        <div class="col-xs-8 text-right">
 			                            <span> 本月工资 </span>
-			                            <h2 class="font-bold" style="font-size: 40px;">234</h2>
+			                            <h2 class="font-bold month-font-size"><?php echo $month_salary; ?></h2>
 			                        </div>
 			                    </div>
 			                </div>
@@ -102,11 +102,11 @@
 			                <div class="widget style1 lazur-bg">
 			                    <div class="row">
 			                    	<div class="col-xs-2">
-			                            <i class="fa fa-history fa-4x" style="margin-left: 7px;"></i>
+			                            <i class="fa fa-history fa-4x fa-margin"></i>
 			                        </div>
 			                        <div class="col-xs-10 text-right">
 			                            <span> 历史累计工时 </span>
-			                            <h2 class="font-bold"  style="font-size: 25px;">26666</h2>
+			                            <h2 class="font-bold other-font-size"><?php echo $total_contri; ?></h2>
 			                        </div>
 			                    </div>
 			                </div>
@@ -119,7 +119,7 @@
 			                        </div>
 			                        <div class="col-xs-10 text-right">
 			                            <span> 历史累计工资 </span>
-			                            <h2 class="font-bold"  style="font-size: 25px;">256734</h2>
+			                            <h2 class="font-bold other-font-size"><?php echo $total_salary; ?></h2>
 			                        </div>
 			                    </div>
 			                </div>
@@ -128,11 +128,18 @@
 			                <div class="widget style1 gray-bg">
 			                    <div class="row">
 			                    	<div class="col-xs-2">
-			                            <i class="fa fa-minus-square-o fa-4x"></i>
+			                            <i class="fa fa-minus-square-o fa-4x fa-margin"></i>
 			                        </div>
 			                        <div class="col-xs-10 text-right">
 			                            <span> 本月被扣工时 </span>
-			                            <h2 class="font-bold"  style="font-size: 25px;">-0</h2>
+			                            <h2 class="font-bold other-font-size">
+			                            	<?php 
+			                            		if ($month_penalty > 0) {
+			                            			echo '- ';
+			                            	}
+			                            	echo $month_penalty; 
+			                            	?>
+			                           	</h2>
 			                        </div>
 			                    </div>
 			                </div>
@@ -145,7 +152,14 @@
 			                        </div>
 			                        <div class="col-xs-10 text-right">
 			                            <span> 累计被扣工时 </span>
-			                            <h2 class="font-bold"  style="font-size: 25px;">-23</h2>
+			                            <h2 class="font-bold other-font-size">
+			                            	<?php 
+			                            		if ($total_penalty > 0) {
+			                            			echo '- ';
+			                            	}
+			                            	echo $total_penalty; 
+			                            	?>
+			                           	</h2>
 			                        </div>
 			                    </div>
 			                </div>
@@ -154,10 +168,10 @@
 			                <div class="widget style1 red-bg">
 			                    <div class="row vertical-align">
 			                        <div class="col-xs-2">
-			                            <i class="fa fa-credit-card-alt fa-3x"></i>
+			                            <i class="fa fa-credit-card-alt fa-3x fa-margin"></i>
 			                        </div>
 			                        <div class="col-xs-10 text-right">
-			                            <h2 class="font-bold">6216 6119 0001 0780 565</h2>
+			                            <h2 class="font-bold"><?php echo $card; ?></h2>
 			                        </div>
 			                    </div>
 			                </div>

@@ -6443,3 +6443,15 @@ body.skin-3 {
 .tr-height {
 	height: 150px;
 }
+
+.month-font-size {
+	font-size: 40px !important;
+}
+
+.other-font-size {
+	font-size: 25px !important;
+}
+
+.fa-margin {
+	margin-left: 7px;
+}

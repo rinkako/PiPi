@@ -722,8 +722,18 @@ Class Backend extends CI_Controller {
 				$indate = $user_obj->indate;
 				$working_age = Public_methods::cal_working_age($indate);
 				$card = $user_obj->creditcard;
-				//$tmp_total_contri = $user_obj->
-				
+				// 历史累计
+				$tmp_total_contri = $user_obj->contribution;
+				$total_penalty = $user_obj->totalPenalty;
+				$total_contri = $tmp_total_contri - $total_penalty;
+				$total_salary = Public_methods::cal_salary($total_contri);
+				// 本月
+				$wid = $this->moa_worker_model->get_wid_by_uid($uid);
+				$worker_obj = $this->moa_worker_model->get($wid);
+				$tmp_month_contri = $worker_obj->worktime;
+				$month_penalty = $worker_obj->penalty;
+				$month_contri = $tmp_month_contri - $month_penalty;
+				$month_salary = Public_methods::cal_salary($month_contri);
 			}
 			
 			$data['indate'] = substr($indate, 0, 10);
@@ -734,9 +744,9 @@ Class Backend extends CI_Controller {
 			$data['total_contri'] = $total_contri;
 			$data['total_penalty'] = $total_penalty;
 			$data['total_salary'] = $total_salary;
-			$data['card'] = $card;
+			$data['card'] = Public_methods::creditcard_format($card);
 			
-			$this->load->view('view_per_time');
+			$this->load->view('view_per_time', $data);
 		} else {
 			// 未登录的用户请先登录
 			$this->requireLogin();

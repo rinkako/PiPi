@@ -30,7 +30,7 @@ Class Public_methods extends CI_Controller {
 	}
 	
 	/**
-	 * 计算入职距今的时间
+	 * 计算工龄
 	 * @param unknown $indate 入职日期
 	 * @return number 工龄
 	 */
@@ -39,8 +39,24 @@ Class Public_methods extends CI_Controller {
 		$service_days =  (strtotime($now)-strtotime($indate)) / (60 * 60 * 24);
 		$year = intval($service_days / 365);
 		$day = intval($service_days % 365);
-		$service_time =  $year . '年' . $day . '天';
+		$service_time =  $year . ' 年 ' . $day . ' 天';
 		return $service_time;
+	}
+	
+	/**
+	 * 银行卡格式转换，每4个数字之间用1个空格相隔
+	 * @param string $creditcard 转换之前的银行卡号
+	 * @return string 转换之后的银行卡号
+	 */
+	public static function creditcard_format($creditcard) {
+		$i = 0;
+		$len = strlen($creditcard);
+		for ($i = 0; ($i < $len) && ($i <= $len - 4); $i += 4) {
+			$sub_card[] = substr($creditcard, $i, 4);
+		}
+		$sub_card[] = substr($creditcard, $i);
+		$formated_creditcard = implode(' ', $sub_card);
+		return $formated_creditcard;
 	}
 	
 	/**
