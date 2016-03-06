@@ -92,10 +92,10 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="active-timeStatistics"><i class="fa fa-rmb"></i> <span class="nav-label">工时统计</span><span class="label label-warning pull-right">16</span></a>
+                    <li id="active-timeStatistics">
+                        <a href="homepage#"><i class="fa fa-rmb"></i> <span class="nav-label">工时统计</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li id="active-personal"><a href="perWorkingTime">个人</a>
+                            <li id="active-personal"><a href="perWorkingTime">个人<span class="label label-warning pull-right">26</span></a>
                             </li>
                             <li id="active-allmembers"><a href="allWorkingTime">全员</a>
                         </ul>

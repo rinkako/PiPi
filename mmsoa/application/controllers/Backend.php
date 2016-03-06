@@ -691,6 +691,58 @@ Class Backend extends CI_Controller {
 		}
 	}
 	
+	/**
+	 * 个人工时详情
+	 */
+	public function perWorkingTime() {
+		if (isset($_SESSION['user_id'])) {
+			// 入职日期
+			$indate = '';
+			// 在职年数
+			$working_age = '';
+			// 银行卡号
+			$card = '';
+			// 本月实际工时
+			$month_contri = 0;
+			// 本月被扣工时
+			$month_penalty = 0;
+			// 本月工资
+			$month_salary = 0;
+			// 历史累计实际工时
+			$total_contri = 0;
+			// 历史累计被扣工时
+			$total_penalty = 0;
+			// 历史累计工资
+			$total_salary = 0;
+			
+			$uid = $_SESSION['user_id'];
+			$user_obj = $this->moa_user_model->get($uid);
+			
+			if ($user_obj != FALSE) {
+				$indate = $user_obj->indate;
+				$working_age = Public_methods::cal_working_age($indate);
+				$card = $user_obj->creditcard;
+				//$tmp_total_contri = $user_obj->
+				
+			}
+			
+			$data['indate'] = substr($indate, 0, 10);
+			$data['working_age'] = $working_age;
+			$data['month_contri'] = $month_contri;
+			$data['month_penalty'] = $month_penalty;
+			$data['month_salary'] = $month_salary;
+			$data['total_contri'] = $total_contri;
+			$data['total_penalty'] = $total_penalty;
+			$data['total_salary'] = $total_salary;
+			$data['card'] = $card;
+			
+			$this->load->view('view_per_time');
+		} else {
+			// 未登录的用户请先登录
+			$this->requireLogin();
+		}
+	}
+	
 	
 	
 	

@@ -66,10 +66,9 @@
                     <div class="col-lg-12">
                         <div class="ibox float-e-margins ">
                             <div class="ibox-title">
-                                <h5>查看坐班日志</h5>
+                                <h2 class="col-sm-offset-5">组长坐班日志</h2>
                             </div>
-                            <div class="ibox-content col-sm-12">
-                            	<h1 class="col-sm-offset-5">组长坐班日志</h1>
+                            <div class="ibox-content col-sm-12" style="padding-top: 0px; margin-bottom: 25px;">
                             	<div class="col-sm-1"></div>
                             	<div class="col-sm-10">
 	                                <table class="table table-striped table-bordered table-hover users-dataTable">
@@ -130,8 +129,8 @@
 					                                        	</p>
 						                                    	<?php echo $body_list[4]; ?>
 						                                    </td>
-					                                    </tr class="tr-height">
-					                                    <tr>
+					                                    </tr>
+					                                    <tr style="height: 60px;">
 						                                    <td class="col-sm-2"><strong>总结</strong></td>
 						                                    <td class="td-left td-font-size"><?php echo $body_list[5]; ?></td>
 					                                    </tr>

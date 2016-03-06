@@ -30,6 +30,20 @@ Class Public_methods extends CI_Controller {
 	}
 	
 	/**
+	 * 计算入职距今的时间
+	 * @param unknown $indate 入职日期
+	 * @return number 工龄
+	 */
+	public static function cal_working_age($indate) {
+		$now = date('Y-m-d H:i:s');
+		$service_days =  (strtotime($now)-strtotime($indate)) / (60 * 60 * 24);
+		$year = intval($service_days / 365);
+		$day = intval($service_days % 365);
+		$service_time =  $year . '年' . $day . '天';
+		return $service_time;
+	}
+	
+	/**
 	 * 将星期的数据库标识解析为中文
 	 * @param weekday_num 星期的数据库数字标号
 	 * @return 星期对应的中文

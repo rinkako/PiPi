@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="renderer" content="webkit">
 
-    <title>MOA-工时统计</title>
+    <title>MOA-全员工时统计</title>
     <?php $this->load->view('view_keyword'); ?>
     
     <link href="<?=base_url().'assets/images/moa.ico' ?>" rel="shortcut icon">
@@ -75,10 +75,10 @@
                                         <tr>
                                         	<th>序号</th>
                                             <th>姓名</th>
-                                            <th>本月工时</th>
-                                            <th>本月工资</th>
-                                            <th>银行卡号</th>
-                                            <th>联系电话</th>
+                                            <th><i class="fa fa-clock-o"></i><span> 本月工时</span></th>
+                                            <th><i class="fa fa-rmb"></i><span> 本月工资</span></th>
+                                            <th><i class="fa fa-credit-card"></i><span> 银行卡号</span></th>
+                                            <th><i class="fa fa-phone"></i><span> 联系电话</span></th>
                                             <th>历史累计工时</th>
                                             <th>历史累计工资</th>
                                         </tr>
@@ -88,8 +88,8 @@
 	                                        <tr>
 	                                        	<td><?php echo $i + 1; ?></td>
 	                                            <td><?php echo $name_list[$i]; ?></td>
-	                                            <td><?php echo $month_contri_list[$i]; ?></td>
-	                                            <td><?php echo $month_salary_list[$i]; ?></td>
+	                                            <td><strong><?php echo $month_contri_list[$i]; ?></strong></td>
+	                                            <td><strong><?php echo $month_salary_list[$i]; ?></strong></td>
 	                                            <td><?php echo $card_list[$i]; ?></td>
 	                                            <td><?php echo $phone_list[$i]; ?></td>
 	                                            <td><?php echo $total_contri_list[$i]; ?></td>
