@@ -115,15 +115,30 @@ Class Duty_sign_up extends CI_Controller {
 				// 增加新记录
 				$nsid = $this->moa_nschedule_model->add($ns_paras);
 				if ($nsid == FALSE) {
-					$data['status'] = FALSE;
+					$this->signup_failure();
+					return;
 				} else {
-					$data['status'] = TRUE;
+					$this->signup_success();
+					return;
 				}
-				
-				$this->load->view('view_signup_result', $data);
-				return;
 			}
 		}
+	}
+	
+	/**
+	 * 值班报名成功页面
+	 */
+	private function signup_success() {
+		$data['status'] = TRUE;
+		$this->load->view('view_signup_result', $data);
+	}
+	
+	/**
+	 * 值班报名失败页面
+	 */
+	private function signup_failure() {
+		$data['status'] = FALSE;
+		$this->load->view('view_signup_result', $data);
 	}
 	
 }

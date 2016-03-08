@@ -6302,7 +6302,7 @@ body.skin-3 {
   #page-wrapper {
     position: inherit;
     margin: 0 0 0 220px;
-    min-height: 700px;
+    min-height: 667px;
   }
   .navbar-static-side {
     z-index: 2001;
@@ -6455,3 +6455,4 @@ body.skin-3 {
 .fa-margin {
 	margin-left: 7px;
 }
+

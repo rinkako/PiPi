@@ -62,10 +62,40 @@
                             <div class="ibox-title">
                                 <h5>报名结果</h5>
                             </div>
-                            <div class="ibox-content">
-                            	<div class="form-group">
-                            		<i class="fa fa-check-square-o fa-5x"></i><span></samp><h1>报名成功，请留意新值班表的发布！</h1></span>
-                            	</div>
+                            <div class="ibox-content" style="padding: 105px 0px 105px 0px;">
+                            	<div class="row">
+	                            	<div class="form-group col-sm-6 col-sm-offset-3">
+	                            		<?php if ($status == TRUE) { ?>
+		                            		<div class="row">
+				                            	<div class="col-sm-3 col-sm-offset-2" style="color: #1AB394; text-align: right;">
+				                            		<i class="fa fa-check-square-o fa-5x"></i>
+				                            	</div>
+				                            	<div class="col-sm-7" style="padding-left: 0px;">
+				                            		<h1 style="margin-top: 14px; text-align: left;">报名成功</h1>
+				                            	</div>
+				                            </div>
+				                            <div class="row">
+				                            	<div class="form-group col-sm-12" style="text-align: center;  font-size: 17px;">
+				                            		<h1 style="padding-right: 50px;"><small>-请留意<a href="<?php echo site_url('Backend/dutyTable'); ?>" >新值班表</a>的发布-</small></h1>
+				                            	</div>
+				                            </div>
+				                        <?php } else { ?>
+				                        	<div class="row">
+				                            	<div class="col-sm-3 col-sm-offset-2" style="color: #ED5565; text-align: right;">
+				                            		<i class="fa fa-times-circle fa-5x"></i>
+				                            	</div>
+				                            	<div class="col-sm-7" style="padding-left: 0px;">
+				                            		<h1 style="margin-top: 14px; text-align: left;">报名失败</h1>
+				                            	</div>
+				                            </div>
+				                            <div class="row">
+				                            	<div class="form-group col-sm-12" style="text-align: center;  font-size: 17px;">
+				                            		<h1 style="padding-right: 40px;"><small>- 请再次尝试<a href="<?php echo site_url('Backend/dutySignUp'); ?>" >报名</a> -</small></h1>
+				                            	</div>
+				                            </div>
+				                        <?php } ?>
+	                            	</div>
+		                        </div>
 	                        </div>
 	                    </div>
 	                </div>
