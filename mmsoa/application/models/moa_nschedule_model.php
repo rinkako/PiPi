@@ -20,12 +20,12 @@ class moa_nschedule_model extends CI_Model {
 	}
 
 	/**
-	 * 取空余时间表
-	 * @param id - 空余时间段id
+	 * 获取指定wid的空余时间记录
+	 * @param wid - 助理wid
 	 */
-	public function get($id) {
-		if (isset($id)) {
-			$this->db->where(array('logid'=>$id));
+	public function get($wid) {
+		if (isset($wid)) {
+			$this->db->where(array('wid'=>$wid));
 			return $this->db->get('MOA_nschedule')->result();
 		}
 		else {
@@ -38,7 +38,7 @@ class moa_nschedule_model extends CI_Model {
 	 * @param id - 空余时间段id
 	 */
 	public function get_by_period($period) {
-		if (isset($id)) {
+		if (isset($period)) {
 			$sb = 'SELECT * FROM MOA_nschedule WHERE CHARINDEX(\'' . $period . '\', period) > 0';
 			$sqlquery = $this->db->query($sb);
 			return $sqlquery->result();
@@ -52,9 +52,9 @@ class moa_nschedule_model extends CI_Model {
 	 * 删除空余时间表记录
 	 * @param id - 空余时间段id
 	 */
-	public function delete($id) {
-		if (isset($id)) {
-			$sb = 'DELETE FROM MOA_nschedule WHERE nsid = ' . $id;
+	public function delete($nsid) {
+		if (isset($nsid)) {
+			$sb = 'DELETE FROM MOA_nschedule WHERE nsid = ' . $nsid;
 			$sqlquery = $this->db->query($sb);
 			return $this->db->affected_rows();
 		}
