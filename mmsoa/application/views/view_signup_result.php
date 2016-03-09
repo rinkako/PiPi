@@ -71,7 +71,7 @@
 				                            		<i class="fa fa-check-square-o fa-5x"></i>
 				                            	</div>
 				                            	<div class="col-sm-7" style="padding-left: 0px;">
-				                            		<h1 style="margin-top: 14px; text-align: left;">报名成功</h1>
+				                            		<h1 style="margin-top: 14px; text-align: left; color: #1AB394;">报名成功</h1>
 				                            	</div>
 				                            </div>
 				                            <div class="row">
@@ -85,7 +85,7 @@
 				                            		<i class="fa fa-times-circle fa-5x"></i>
 				                            	</div>
 				                            	<div class="col-sm-7" style="padding-left: 0px;">
-				                            		<h1 style="margin-top: 14px; text-align: left;">报名失败</h1>
+				                            		<h1 style="margin-top: 14px; text-align: left; color: #ED5565;">报名失败</h1>
 				                            	</div>
 				                            </div>
 				                            <div class="row">

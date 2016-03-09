@@ -98,6 +98,7 @@
                             <li id="active-personal"><a href="<?php echo site_url('Backend/perWorkingTime'); ?>">个人<span class="label label-warning pull-right">26</span></a>
                             </li>
                             <li id="active-allmembers"><a href="<?php echo site_url('Backend/allWorkingTime'); ?>">全员</a>
+                            </li>
                         </ul>
                     </li>
                     <li id="active-scheduleManagement">
@@ -105,7 +106,10 @@
                         <ul class="nav nav-second-level">
                             <li id="active-dutySignUp"><a href="<?php echo site_url('Backend/dutySignUp'); ?>">报名</a>
                             </li>
+                            <li id="active-dutyArrange"><a href="<?php echo site_url('Backend/dutyArrange'); ?>">排班</a>
+                            </li>
                             <li id="active-dutyTable"><a href="<?php echo site_url('Backend/dutyTable'); ?>">值班表</a>
+                            </li>
                         </ul>
                     </li>
                 <!--

@@ -126,10 +126,10 @@
 										<div class="col-sm-7">
 											<div class="input-group">
 												<select id="select_best" data-placeholder="请选择优秀助理" class="chosen-select" multiple style="width:594px;" tabindex="4">
-												<?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-													<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
-												<?php } ?>
-	                                        </select>
+													<?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+														<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+													<?php } ?>
+	                                        	</select>
 											</div>
 											<div>
 											    <textarea name="journal_best" id="text_best" class="form-control" placeholder="请输入优秀助理的表现" style="height: 100px;"></textarea>
@@ -148,10 +148,10 @@
 										<div class="col-sm-7">
 											<div class="input-group">
 												<select id="select_bad" data-placeholder="请选择异常助理" class="chosen-select" multiple style="width:594px;" tabindex="4">
-	                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-													<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
-												<?php } ?>
-	                                        </select>
+		                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+														<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+													<?php } ?>
+	                                        	</select>
 											</div>
 											<div>
 											    <textarea name="journal_bad" id="text_bad" class="form-control" placeholder="请输入异常助理的表现" style="height: 100px;"></textarea>
