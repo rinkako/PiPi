@@ -83,49 +83,49 @@
 					                                <tr>
 					                                    <th scope="row">07:30-10:30</th>
 					                                    <td>
-					                                    	<select id="select_" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+					                                    	<select id="select_MON1" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 					                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
 																	<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																<?php } ?>
 				                                        	</select>
 					                                    </td>
 					                                    <td>
-					                                    	<select id="select_" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+					                                    	<select id="select_TUE1" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 					                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
 																	<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																<?php } ?>
 				                                        	</select>
 					                                    </td>
 					                                    <td>
-					                                    	<select id="select_" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+					                                    	<select id="select_WED1" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 					                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
 																	<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																<?php } ?>
 				                                        	</select>
 					                                    </td>
 					                                    <td>
-					                                    	<select id="select_" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+					                                    	<select id="select_THU1" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 					                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
 																	<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																<?php } ?>
 				                                        	</select>
 					                                    </td>
 					                                    <td>
-					                                    	<select id="select_" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+					                                    	<select id="select_FRI1" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 					                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
 																	<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																<?php } ?>
 				                                        	</select>
 					                                    </td>
 					                                    <td rowspan="2">
-					                                    	<select id="select_" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+					                                    	<select id="select_SAT1" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 					                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
 																	<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																<?php } ?>
 				                                        	</select>
 					                                    </td>
 					                                    <td rowspan="2">
-					                                    	<select id="select_" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+					                                    	<select id="select_SUN1" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 					                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
 																	<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																<?php } ?>
@@ -135,76 +135,220 @@
 						                                <tr>
 						                                    <th scope="row">10:30-12:30</th>
 						                                    <td>
-						                                    	<select id="select_" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                    	<select id="select_MON2" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
 																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
-						                                    <td><input type="checkbox" name="TUE2" id="TUE2" class="checkbox i-checks" /><label for="TUE2"></label></td>
-						                                    <td><input type="checkbox" name="WED2" id="WED2" class="checkbox i-checks" /><label for="WED2"></label></td>
-						                                    <td><input type="checkbox" name="THU2" id="THU2" class="checkbox i-checks" /><label for="THU2"></label></td>
-						                                    <td><input type="checkbox" name="FRI2" id="FRI2" class="checkbox i-checks" /><label for="FRI2"></label></td>
+						                                    <td>
+						                                    	<select id="select_TUE2" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td>
+						                                    	<select id="select_WED2" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td>
+						                                    	<select id="select_THU2" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td>
+						                                    	<select id="select_FRI2" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
 						                                </tr>
 						                                <tr>
 						                                    <th scope="row">12:30-14:00</th>
 						                                    <td>
-						                                    	<select id="select_" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                    	<select id="select_MON3" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
 																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
-						                                    <td><input type="checkbox" name="TUE3" id="TUE3" class="checkbox i-checks" /><label for="TUE3"></label></td>
-						                                    <td><input type="checkbox" name="WED3" id="WED3" class="checkbox i-checks" /><label for="WED3"></label></td>
-						                                    <td><input type="checkbox" name="THU3" id="THU3" class="checkbox i-checks" /><label for="THU3"></label></td>
-						                                    <td><input type="checkbox" name="FRI3" id="FRI3" class="checkbox i-checks" /><label for="FRI3"></label></td>
-						                                    <td rowspan="3"><input type="checkbox" name="SAT2" id="SAT2" class="checkbox i-checks" /><label for="SAT2"></label></td>
-						                                    <td rowspan="3"><input type="checkbox" name="SUN2" id="SUN2" class="checkbox i-checks" /><label for="SUN2"></label></td>
+						                                    <td>
+						                                    	<select id="select_TUE3" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td>
+						                                    	<select id="select_WED3" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td>
+						                                    	<select id="select_THU3" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td>
+						                                    	<select id="select_FRI3" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td rowspan="3">
+						                                    	<select id="select_SAT2" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td rowspan="3">
+						                                    	<select id="select_SUN2" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
 						                                </tr>
 						                                <tr>
 						                                    <th scope="row">14:00-16:00</th>
 						                                    <td>
-						                                    	<select id="select_" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                    	<select id="select_MON4" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
 																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
-						                                    <td><input type="checkbox" name="TUE4" id="TUE4" class="checkbox i-checks" /><label for="TUE4"></label></td>
-						                                    <td><input type="checkbox" name="WED4" id="WED4" class="checkbox i-checks" /><label for="WED4"></label></td>
-						                                    <td><input type="checkbox" name="THU4" id="THU4" class="checkbox i-checks" /><label for="THU4"></label></td>
-						                                    <td><input type="checkbox" name="FRI4" id="FRI4" class="checkbox i-checks" /><label for="FRI4"></label></td>
+						                                    <td>
+						                                    	<select id="select_TUE4" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td>
+						                                    	<select id="select_WED4" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td>
+						                                    	<select id="select_THU4" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td>
+						                                    	<select id="select_FRI4" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
 						                                </tr>
 						                                <tr>
 						                                    <th scope="row">16:00-18:00</th>
 						                                    <td>
-						                                    	<select id="select_" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                    	<select id="select_MON5" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
 																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
-						                                    <td><input type="checkbox" name="TUE5" id="TUE5" class="checkbox i-checks" /><label for="TUE5"></label></td>
-						                                    <td><input type="checkbox" name="WED5" id="WED5" class="checkbox i-checks" /><label for="WED5"></label></td>
-						                                    <td><input type="checkbox" name="THU5" id="THU5" class="checkbox i-checks" /><label for="THU5"></label></td>
-						                                    <td><input type="checkbox" name="FRI5" id="FRI5" class="checkbox i-checks"/><label for="FRI5"></label></td>
+						                                    <td>
+						                                    	<select id="select_TUE5" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td>
+						                                    	<select id="select_WED5" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td>
+						                                    	<select id="select_THU5" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td>
+						                                    	<select id="select_FRI5" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
 						                                </tr>
 						                                <tr>
 						                                    <th scope="row">18:00-22:00</th>
 						                                    <td>
-						                                    	<select id="select_" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                    	<select id="select_MON6" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
 																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
-						                                    <td><input type="checkbox" name="TUE6" id="TUE6" class="checkbox i-checks" /><label for="TUE6"></label></td>
-						                                    <td><input type="checkbox" name="WED6" id="WED6" class="checkbox i-checks" /><label for="WED6"></label></td>
-						                                    <td><input type="checkbox" name="THU6" id="THU6" class="checkbox i-checks" /><label for="THU6"></label></td>
-						                                    <td><input type="checkbox" name="FRI6" id="FRI6" class="checkbox i-checks" /><label for="FRI6"></label></td>
-						                                    <td><input type="checkbox" name="SAT3" id="SAT3" class="checkbox i-checks" /><label for="SAT3"></label></td>
-						                                    <td><input type="checkbox" name="SUN3" id="SUN3" class="checkbox i-checks" /><label for="SUN3"></label></td>
+						                                    <td>
+						                                    	<select id="select_TUE6" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td>
+						                                    	<select id="select_WED6" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td>
+						                                    	<select id="select_THU6" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td>
+						                                    	<select id="select_FRI6" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td>
+						                                    	<select id="select_SAT3" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
+						                                    <td>
+						                                    	<select id="select_SUN3" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
+						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
+																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<?php } ?>
+					                                        	</select>
+						                                    </td>
 						                                </tr>
 						                            </tbody>
 						                        </table>
@@ -215,8 +359,8 @@
 						            <div class="row">
 	                                    <div class="form-group">
 	                                        <div class="col-sm-4 col-sm-offset-5">
-	                                            <input id="submit_signup" class="btn btn-primary" type="submit" 
-	                                             value="报名"></input>
+	                                            <button id="submit_duty" class="btn btn-primary" type="submit" 
+	                                             data-toggle="modal" data-target="#myModal">发布</button>
 	                                        </div>
 	                                    </div>
                                     </div>
@@ -250,7 +394,7 @@
     <script src="<?=base_url().'assets/js/bootstrap.min.js?v=3.4.0' ?>"></script>
     <script src="<?=base_url().'assets/js/plugins/metisMenu/jquery.metisMenu.js' ?>"></script>
     <script src="<?=base_url().'assets/js/plugins/slimscroll/jquery.slimscroll.min.js' ?>"></script>
-   <!--  <script src="<?=base_url().'assets/js/duty-sign-up.js' ?>"></script> -->
+    <script src="<?=base_url().'assets/js/duty-arrange.js' ?>"></script>
     
     <!-- nav item active -->
 	<script>
