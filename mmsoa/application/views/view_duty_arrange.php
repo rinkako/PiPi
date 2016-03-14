@@ -55,7 +55,7 @@
 
                 </div>
             </div>
-            <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="wrapper wrapper-content animated fadeInRight" style="position: relative; z-index: 9;">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="ibox float-e-margins">
@@ -85,49 +85,49 @@
 					                                    <td>
 					                                    	<select id="select_MON1" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 					                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																	<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[1][1]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																<?php } ?>
 				                                        	</select>
 					                                    </td>
 					                                    <td>
 					                                    	<select id="select_TUE1" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 					                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																	<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[2][1]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																<?php } ?>
 				                                        	</select>
 					                                    </td>
 					                                    <td>
 					                                    	<select id="select_WED1" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 					                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																	<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[3][1]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																<?php } ?>
 				                                        	</select>
 					                                    </td>
 					                                    <td>
 					                                    	<select id="select_THU1" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 					                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																	<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[4][1]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																<?php } ?>
 				                                        	</select>
 					                                    </td>
 					                                    <td>
 					                                    	<select id="select_FRI1" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 					                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																	<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[5][1]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																<?php } ?>
 				                                        	</select>
 					                                    </td>
 					                                    <td rowspan="2">
 					                                    	<select id="select_SAT1" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 					                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																	<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[6][7]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																<?php } ?>
 				                                        	</select>
 					                                    </td>
 					                                    <td rowspan="2">
 					                                    	<select id="select_SUN1" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 					                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																	<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																	<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[7][7]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																<?php } ?>
 				                                        	</select>
 						                                    </td>
@@ -137,35 +137,35 @@
 						                                    <td>
 						                                    	<select id="select_MON2" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[1][2]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_TUE2" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[2][2]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_WED2" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[3][2]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_THU2" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[4][2]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_FRI2" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[5][2]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
@@ -175,49 +175,49 @@
 						                                    <td>
 						                                    	<select id="select_MON3" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[1][3]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_TUE3" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[2][3]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_WED3" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[3][3]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_THU3" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[4][3]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_FRI3" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[5][3]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td rowspan="3">
 						                                    	<select id="select_SAT2" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[6][8]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td rowspan="3">
 						                                    	<select id="select_SUN2" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[7][8]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
@@ -227,35 +227,35 @@
 						                                    <td>
 						                                    	<select id="select_MON4" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[1][4]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_TUE4" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[2][4]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_WED4" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[3][4]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_THU4" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[4][4]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_FRI4" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[5][4]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
@@ -265,35 +265,35 @@
 						                                    <td>
 						                                    	<select id="select_MON5" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[1][5]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_TUE5" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[2][5]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_WED5" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[3][5]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_THU5" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[4][5]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_FRI5" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[5][5]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
@@ -303,49 +303,49 @@
 						                                    <td>
 						                                    	<select id="select_MON6" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[1][6]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_TUE6" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[2][6]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_WED6" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[3][6]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_THU6" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[4][6]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_FRI6" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[5][6]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_SAT3" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[6][9]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
 						                                    <td>
 						                                    	<select id="select_SUN3" data-placeholder="选择助理" class="chosen-select" multiple tabindex="4">
 						                                            <?php for ($i = 0; $i < count($wid_list); $i++) { ?>
-																		<option value="<?php echo $wid_list[$i]; ?>" hassubinfo="true"><?php echo $name_list[$i]; ?></option>
+																		<option value="<?php echo $wid_list[$i]; ?>" <?php if (in_array($wid_list[$i], $schedule[7][9]) !== FALSE) { echo 'selected'; } ?> hassubinfo="true"><?php echo $name_list[$i]; ?></option>
 																	<?php } ?>
 					                                        	</select>
 						                                    </td>
@@ -373,7 +373,7 @@
 	    </div>
 	</div>
 	
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="z-index: 10;">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -432,6 +432,7 @@
             '.chosen-select': {
                 // 实现中间字符的模糊查询
             	search_contains: true,
+            	no_results_text: "没有找到",
             	width: "80px"
             },
             '.chosen-select-deselect': {

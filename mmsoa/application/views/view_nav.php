@@ -104,11 +104,11 @@
                     <li id="active-scheduleManagement">
                         <a href="homepage#"><i class="fa fa-calendar"></i> <span class="nav-label">值班安排</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li id="active-dutySignUp"><a href="<?php echo site_url('Backend/dutySignUp'); ?>">报名</a>
+                            <li id="active-dutySignUp"><a href="<?php echo site_url('Duty_arrange/dutySignUp'); ?>">报名</a>
                             </li>
-                            <li id="active-dutyArrange"><a href="<?php echo site_url('Backend/dutyArrange'); ?>">排班</a>
+                            <li id="active-dutyArrange"><a href="<?php echo site_url('Duty_arrange/dutyArrange'); ?>">排班</a>
                             </li>
-                            <li id="active-dutyTable"><a href="<?php echo site_url('Backend/dutyTable'); ?>">值班表</a>
+                            <li id="active-dutySchedule"><a href="<?php echo site_url('Duty_arrange/dutySchedule'); ?>">值班表</a>
                             </li>
                         </ul>
                     </li>

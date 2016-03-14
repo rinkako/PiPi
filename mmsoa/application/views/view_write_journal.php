@@ -265,7 +265,8 @@
         var config = {
                 '.chosen-select': {
                     // 实现中间字符的模糊查询
-                	search_contains: true
+                	search_contains: true,
+                	no_results_text: "没有找到"
                 },
                 '.chosen-select-deselect': {
                     allow_single_deselect: true

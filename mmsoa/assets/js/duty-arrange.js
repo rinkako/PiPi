@@ -42,7 +42,7 @@ $("#submit_duty").click(function() {
 	
 	$.ajax({
 		type: "POST", 
-		url: "../Duty_arrange/dutyArrange",
+		url: "../Duty_arrange/dutyArrangeIn",
 		data: {
 			"MON1_list": MON1,
 			"MON2_list": MON2,

@@ -100,7 +100,7 @@
 														</div>
 				                                    </div>
 				                                    
-				                                    <div class="form-group" id="chosen_replaced"  style="height: 30px; position: relative; z-index: 999999;">
+				                                    <div class="form-group" id="chosen_replaced" style="height: 30px; position: relative; z-index: 999999;">
 				                                        <label class="col-sm-2 control-label" style="padding: 8px 0px 0px 0px; margin-right: -82px; "><h5>原值班助理：</h5></label>
 				                                        <div class="col-sm-3">
 				                                        	<select id="select_replaced" name="replaced_colleague" data-placeholder="请选择原值班助理" class="chosen-select col-sm-12" tabindex="4">
@@ -266,6 +266,7 @@
                 '.chosen-select': {
                 	// 实现中间字符的模糊查询
                 	search_contains: true,
+                	no_results_text: "没有找到",
                 	disable_search_threshold: 10
                 },
                 '.chosen-select-deselect': {

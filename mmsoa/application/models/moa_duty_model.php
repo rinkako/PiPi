@@ -18,6 +18,15 @@ class moa_duty_model extends CI_Model {
 			return false;
 		}
 	}
+	
+	/**
+	 * 取全部记录
+	 */
+	public function get_all() {
+		$this->db->order_by('weekday', 'ASC');
+		$this->db->order_by('period', 'ASC');
+		return $this->db->get('MOA_Duty')->result();
+	}
 
 	/**
 	 * 获得某个时间段的排班记录
