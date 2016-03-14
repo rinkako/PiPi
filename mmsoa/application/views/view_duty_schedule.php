@@ -89,56 +89,56 @@
 					                                    <td><?php echo $schedule[5][1]; ?></td>
 					                                    <td rowspan="2"><?php echo $schedule[6][7]; ?></td>
 					                                    <td rowspan="2"><?php echo $schedule[6][7]; ?></td>
-						                                </tr>
-						                                <tr>
-						                                    <th scope="row">10:30-12:30</th>
-						                                    <td><?php echo $schedule[1][2]; ?></td>
-						                                    <td><?php echo $schedule[2][2]; ?></td>
-						                                    <td><?php echo $schedule[3][2]; ?></td>
-						                                    <td><?php echo $schedule[4][2]; ?></td>
-						                                    <td><?php echo $schedule[5][2]; ?></td>
-						                                </tr>
-						                                <tr>
-						                                    <th scope="row">12:30-14:00</th>
-						                                    <td><?php echo $schedule[1][3]; ?></td>
-						                                    <td><?php echo $schedule[2][3]; ?></td>
-						                                    <td><?php echo $schedule[3][3]; ?></td>
-						                                    <td><?php echo $schedule[4][3]; ?></td>
-						                                    <td><?php echo $schedule[5][3]; ?></td>
-						                                    <td rowspan="3"><?php echo $schedule[6][8]; ?></td>
-						                                    <td rowspan="3"><?php echo $schedule[7][8]; ?></td>
-						                                </tr>
-						                                <tr>
-						                                    <th scope="row">14:00-16:00</th>
-						                                    <td><?php echo $schedule[1][4]; ?></td>
-						                                    <td><?php echo $schedule[2][4]; ?></td>
-						                                    <td><?php echo $schedule[3][4]; ?></td>
-						                                    <td><?php echo $schedule[4][4]; ?></td>
-						                                    <td><?php echo $schedule[5][4]; ?></td>
-						                                </tr>
-						                                <tr>
-						                                    <th scope="row">16:00-18:00</th>
-						                                    <td><?php echo $schedule[1][5]; ?></td>
-						                                    <td><?php echo $schedule[2][5]; ?></td>
-						                                    <td><?php echo $schedule[3][5]; ?></td>
-						                                    <td><?php echo $schedule[4][5]; ?></td>
-						                                    <td><?php echo $schedule[5][5]; ?></td>
-						                                </tr>
-						                                <tr>
-						                                    <th scope="row">18:00-22:00</th>
-						                                    <td><?php echo $schedule[1][6]; ?></td>
-						                                    <td><?php echo $schedule[2][6]; ?></td>
-						                                    <td><?php echo $schedule[3][6]; ?></td>
-						                                    <td><?php echo $schedule[4][6]; ?></td>
-						                                    <td><?php echo $schedule[5][6]; ?></td>
-						                                    <td><?php echo $schedule[6][9]; ?></td>
-						                                    <td><?php echo $schedule[7][9]; ?></td>
-						                                </tr>
-						                            </tbody>
-						                        </table>
-									        </div>
+					                                </tr>
+					                                <tr>
+					                                    <th scope="row">10:30-12:30</th>
+					                                    <td><?php echo $schedule[1][2]; ?></td>
+					                                    <td><?php echo $schedule[2][2]; ?></td>
+					                                    <td><?php echo $schedule[3][2]; ?></td>
+					                                    <td><?php echo $schedule[4][2]; ?></td>
+					                                    <td><?php echo $schedule[5][2]; ?></td>
+					                                </tr>
+					                                <tr>
+					                                    <th scope="row">12:30-14:00</th>
+					                                    <td><?php echo $schedule[1][3]; ?></td>
+					                                    <td><?php echo $schedule[2][3]; ?></td>
+					                                    <td><?php echo $schedule[3][3]; ?></td>
+					                                    <td><?php echo $schedule[4][3]; ?></td>
+					                                    <td><?php echo $schedule[5][3]; ?></td>
+					                                    <td rowspan="3"><?php echo $schedule[6][8]; ?></td>
+					                                    <td rowspan="3"><?php echo $schedule[7][8]; ?></td>
+					                                </tr>
+					                                <tr>
+					                                    <th scope="row">14:00-16:00</th>
+					                                    <td><?php echo $schedule[1][4]; ?></td>
+					                                    <td><?php echo $schedule[2][4]; ?></td>
+					                                    <td><?php echo $schedule[3][4]; ?></td>
+					                                    <td><?php echo $schedule[4][4]; ?></td>
+					                                    <td><?php echo $schedule[5][4]; ?></td>
+					                                </tr>
+					                                <tr>
+					                                    <th scope="row">16:00-18:00</th>
+					                                    <td><?php echo $schedule[1][5]; ?></td>
+					                                    <td><?php echo $schedule[2][5]; ?></td>
+					                                    <td><?php echo $schedule[3][5]; ?></td>
+					                                    <td><?php echo $schedule[4][5]; ?></td>
+					                                    <td><?php echo $schedule[5][5]; ?></td>
+					                                </tr>
+					                                <tr>
+					                                    <th scope="row">18:00-22:00</th>
+					                                    <td><?php echo $schedule[1][6]; ?></td>
+					                                    <td><?php echo $schedule[2][6]; ?></td>
+					                                    <td><?php echo $schedule[3][6]; ?></td>
+					                                    <td><?php echo $schedule[4][6]; ?></td>
+					                                    <td><?php echo $schedule[5][6]; ?></td>
+					                                    <td><?php echo $schedule[6][9]; ?></td>
+					                                    <td><?php echo $schedule[7][9]; ?></td>
+					                                </tr>
+					                            </tbody>
+					                        </table>
 								        </div>
-								    </div>
+							        </div>
+							    </div>
 	                        </div>
 	                    </div>
 	                </div>
