@@ -6551,3 +6551,20 @@ body.skin-3 {
 .social-comment textarea {
 	font-size:12px;
 }
+
+/* prevent body hidden */
+.modal-open {
+  overflow: initial !important;
+}
+
+/* shadow */
+.div-shadow {
+	height:auto;
+	border:#909090 1px;
+	background:#fff;
+	color:#333;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#909090,direction=120,strength=3);/*ie*/
+	-moz-box-shadow: 2px 2px 10px #909090;/*firefox*/
+	-webkit-box-shadow: 2px 2px 10px #909090;/*safari»òchrome*/
+	box-shadow:2px 2px 10px #909090;/*opera»òie9*/
+}

@@ -24,6 +24,8 @@
     
     <link href="<?=base_url().'assets/css/plugins/datepicker/datepicker3.css' ?>" rel="stylesheet">
     
+    <link href="<?=base_url().'assets/css/plugins/dialog/bootstrap-dialog.min.css' ?>" rel="stylesheet">
+    
     <!-- Data Tables -->
     <link href="<?=base_url().'assets/css/plugins/dataTables/dataTables.bootstrap.css' ?>" rel="stylesheet">
         
@@ -235,6 +237,9 @@
 
     <!-- Date picker -->
     <script src="<?=base_url().'assets/js/plugins/datepicker/bootstrap-datepicker.js' ?>"></script>
+    
+    <!-- Dialog -->
+    <script src="<?=base_url().'assets/js/plugins/dialog/bootstrap-dialog.min.js' ?>"></script>
     
     <!-- Data Tables -->
     <script src="<?=base_url().'assets/js/plugins/dataTables/jquery.dataTables.js' ?>"></script>

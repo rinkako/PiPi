@@ -24,12 +24,13 @@
     <div id="wrapper">
         <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
-                    <?php $this->load->view('view_nav'); ?>
+                <?php $this->load->view('view_nav'); ?>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="gray-bg sidebar-content">
+        <div id="page-wrapper" class="gray-bg dashbard-1">
             <?php $this->load->view('view_header'); ?>
+            
             <div class="sidebard-panel">
                 <div>
                     <h4>消息 <span class="badge badge-info pull-right">16</span></h4>
@@ -112,10 +113,13 @@
             </div>
             <div class="wrapper wrapper-content animated fadeInDown">
                 <!-- 评论区 -->
-                <div class="row">
-	                <div class="col-sm-12" style="margin-bottom: 20px;">
-		                <div class="ibox-content">
-			                <div class="full-height-scroll">
+                
+                <div class="row col-sm-10">
+                
+	            	<div class="ibox">
+	                	
+			            <div class="ibox-content" style="padding-bottom: 20px;">
+			                <div id="scroll-content" class="div-shadow">
 				                <div class="social-feed-separated">
 				
 				                    <div class="social-avatar">
@@ -320,12 +324,14 @@
 				
 				                    </div>
 				                    </div>
+                                    <button id="more_posts" class="btn btn-block btn-outline btn-primary col-sm-11" type="button">更多</button>
+				                    <!-- paginator
 								<div style="margin-left: 150px;">
 				            		<ul id="paginator" class="pagination"></ul>
 				            	</div>
+				            	 -->
 				            </div>
-				            
-						</div>
+				        </div>
 		            </div>
 	         	</div>
 	         	<!-- 评论区 -->
@@ -338,7 +344,6 @@
     <script src="<?=base_url().'assets/js/jquery-2.1.1.min.js' ?>"></script>
     <script src="<?=base_url().'assets/js/bootstrap.min.js?v=3.4.0' ?>"></script>
     <script src="<?=base_url().'assets/js/plugins/metisMenu/jquery.metisMenu.js' ?>"></script>
-    <script src="<?=base_url().'assets/js/plugins/slimscroll/jquery.slimscroll.min.js' ?>"></script>
 
     <!-- Custom and plugin javascript -->
     <script src="<?=base_url().'assets/js/hplus.js?v=2.2.0' ?>"></script>
@@ -350,10 +355,20 @@
     <!-- jqPaginator -->
     <script src="<?=base_url().'assets/js/plugins/jqPaginator/jqPaginator.min.js' ?>"></script>
     
+    <!-- slimscroll -->
+    <script src="<?=base_url().'assets/js/plugins/slimscroll/jquery.slimscroll.min.js' ?>"></script>
+    
     <!-- nav item active -->
 	<script>
 		$(document).ready(function () {
 			$("#active-homepage").addClass("active");
+
+			/* slimScroll */
+	        $(function(){
+	            $('#scroll-content').slimScroll({
+	                height: '500px'
+	            });
+	        });
 		});
 	</script>
 	
@@ -369,7 +384,7 @@
             last: '<li class="last"><a href="javascript:void(0);">末页<\/a><\/li>',
             page: '<li class="page"><a href="javascript:void(0);">{{page}}<\/a><\/li>',
             onPageChange: function (page) {
-            	location.href = "list.aspx?id=" + page;
+            	//location.href = "homepage?id=" + page;
             	getDataByPage(page); //这个是获取指定页码数据的函数
                 $("#page_info").html("当前第" + page + "页");
                 $("#pagetxt").load("article.php?id="+page);
@@ -387,13 +402,7 @@
 		$("#pagetxt").ajaxSend(function(event, request, settings){
 	        $(this).html("<img src='loading.gif' /> 正在读取。。。");
 	    });
-
-		/* slimScroll */
-        $(function(){
-            $(".full-height-scroll").slimScroll({
-                height:"100%"
-            })
-        });
+		
     </script>
 
 </body>
