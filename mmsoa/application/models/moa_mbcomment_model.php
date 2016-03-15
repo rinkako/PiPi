@@ -95,7 +95,7 @@ class moa_mbcomment_model extends CI_Model {
      * 删除某用户的所有评论
      * @param uid - 用户uid
      */
-    public function delete_all_by_bpid($uid) {
+    public function delete_all_by_uid($uid) {
         if (isset($uid)) {
             $sb = 'UPDATE MOA_MMSBoard SET state = 1 WHERE uid = ' . $uid;
             $sqlquery = $this->db->query($sb);

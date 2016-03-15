@@ -443,28 +443,52 @@
 				                    </div>
 				                </div>				                    
 				          
-				                    
-				                    
 				                <!-- paginator
 								<div style="margin-left: 150px;">
 				            		<ul id="paginator" class="pagination"></ul>
 				            	</div>
 				            	 -->
+				            	 
 				            </div>
 				            </div>
 				        </div>
 		            </div>
+		            <div id="small-chat">
+			            <button class="open-small-chat div-shadow" data-toggle="modal" data-target="#myModal">
+			                <i class="fa fa-plus"></i>
+			            </button>
+			        </div>
 	         	</div>
 	         	<!-- 评论区 -->
             </div>
+            
             <?php $this->load->view('view_footer'); ?>
         </div>
     </div>
-
+    
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="z-index: 10;">
+	    <div class="modal-dialog" style="margin-top: 430px; margin-left: 266px;">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <h4 class="modal-title" id="myModalLabel">我的留言</h4>
+	            </div>
+	            <div class="modal-body">
+	                <div class="input-group input-group-sm">
+	                    <textarea id="new-post" class="form-control" placeholder="请输入留言内容" style="height: 50px;"></textarea>
+                    	<span class="input-group-btn">
+                    		<button id="post-btn" class="btn btn-primary" type="button" style="height: 50px;">留言</button>
+                    	</span>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+    
     <!-- Mainly scripts -->
     <script src="<?=base_url().'assets/js/jquery-2.1.1.min.js' ?>"></script>
     <script src="<?=base_url().'assets/js/bootstrap.min.js?v=3.4.0' ?>"></script>
     <script src="<?=base_url().'assets/js/plugins/metisMenu/jquery.metisMenu.js' ?>"></script>
+    <script src="<?=base_url().'assets/js/homepage.js' ?>"></script>
 
     <!-- Custom and plugin javascript -->
     <script src="<?=base_url().'assets/js/hplus.js?v=2.2.0' ?>"></script>
