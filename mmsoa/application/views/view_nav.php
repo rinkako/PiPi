@@ -46,10 +46,10 @@
 
                     </li>
 					<li id="active-homepage">
-                        <a class="J_menuItem" href="<?php echo site_url('Backend/homepage'); ?>"><i class="fa fa-home"></i> <span class="nav-label">个人主页</span><span class="label label-danger pull-right">2.0</span></a>
+                        <a class="J_menuItem" href="<?php echo site_url('Backend/homepage'); ?>"><i class="fa fa-home"></i> <span class="nav-label">我的主页</span><span class="label label-danger pull-right">2.0</span></a>
                     </li>  
                     <li id="active-workrecord">
-                        <a href="homepage#"><i class="fa fa-edit"></i> <span class="nav-label">工作记录</span> <span class="fa arrow"></span></a>
+                        <a href="homepage#"><i class="fa fa-edit"></i> <span class="nav-label"> 工作记录</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li id="active-dailycheck"><a class="J_menuItem" href="<?php echo site_url('Backend/dailyCheck'); ?>">常检</a>
                             </li>
@@ -62,7 +62,7 @@
                         </ul>
                     </li>
                     <li id="active-workReview">
-                        <a href="homepage#"><i class="fa fa-calendar-check-o"></i> <span class="nav-label">工作审查</span><span class="fa arrow"></span></a>
+                        <a href="homepage#"><i class="fa fa-calendar-check-o"></i> <span class="nav-label"> 工作审查</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li id="active-dailyReview"><a href="<?php echo site_url('Backend/dailyReview'); ?>">常检</a>
                             </li>
@@ -73,7 +73,7 @@
                         </ul>
                     </li>
                     <li id="active-journal">
-                        <a href="homepage#"><i class="fa fa-file-text"></i> <span class="nav-label">坐班日志</span> <span class="fa arrow"></span></a>
+                        <a href="homepage#"><i class="fa fa-file-text"></i> <span class="nav-label"> 坐班日志</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li id="active-writeJournal"><a href="<?php echo site_url('Backend/writeJournal'); ?>">发布</a>
                             </li>
@@ -82,7 +82,7 @@
                         </ul>
                     </li>
                     <li id="active-userManagement">
-                        <a href="homepage#"><i class="fa fa-user"></i> <span class="nav-label">用户管理</span><span class="fa arrow"></span></a>
+                        <a href="homepage#"><i class="fa fa-user"></i> <span class="nav-label"> 用户管理</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li id="active-addUser"><a href="<?php echo site_url('Backend/addUser'); ?>">添加</a>
                             </li>
@@ -91,7 +91,7 @@
                         </ul>
                     </li>
                     <li id="active-timeStatistics">
-                        <a href="homepage#"><i class="fa fa-rmb"></i> <span class="nav-label">工时统计</span><span class="fa arrow"></span></a>
+                        <a href="homepage#"><i class="fa fa-rmb"></i> <span class="nav-label"> &nbsp;工时统计</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li id="active-personal"><a href="<?php echo site_url('Backend/perWorkingTime'); ?>">个人<span class="label label-warning pull-right">26</span></a>
                             </li>
@@ -100,7 +100,7 @@
                         </ul>
                     </li>
                     <li id="active-scheduleManagement">
-                        <a href="homepage#"><i class="fa fa-calendar"></i> <span class="nav-label">值班安排</span><span class="fa arrow"></span></a>
+                        <a href="homepage#"><i class="fa fa-calendar"></i> <span class="nav-label"> 值班安排</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li id="active-dutySignUp"><a href="<?php echo site_url('Duty_arrange/dutySignUp'); ?>">报名</a>
                             </li>
