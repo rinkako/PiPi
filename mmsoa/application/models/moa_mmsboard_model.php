@@ -36,6 +36,27 @@ class moa_mmsboard_model extends CI_Model {
         }
         return false;   
     }
+    
+    /**
+     * 取指定状态、数目、时间段的帖子
+     * @param unknown $time 该时间之前
+     * @param unknown $state 帖子状态
+     * @param string $nums 最大数目
+     * @param number $offset 偏移量
+     */
+    public function get_by_date($date, $state, $nums = NULL, $offset = 0) {
+    	if (isset($date) && isset($state)) {
+    		$this->db->where(array('state' => $state, 'bptimestamp <' => $date));
+    		$this->db->order_by('bptimestamp', 'DESC');
+    		if (!is_null($nums)) {
+    			$this->db->limit($nums, $offset);
+    		}
+    		return $this->db->get('MOA_MMSBoard')->result();
+    	}
+    	else {
+    		return false;
+    	}
+    }
 
     /**
      * 删除/恢复一个帖子

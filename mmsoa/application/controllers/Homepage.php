@@ -83,4 +83,71 @@ Class Homepage extends CI_Controller {
 		}
 	}
 	
+	/**
+	 * 取留言与对应的评论
+	 */
+	public function getPostComment() {
+		if (isset($_SESSION['user_id'])) {
+			if (isset($_GET['base_date'])) {
+				$base_date = $_GET['base_date'];
+				// 0表示当前时间
+				if ($_GET['base_date'] == '0') {
+					$base_date = date('Y-m-d H:i:s');
+				}
+				$post_state = 0;
+				$post_num = 10;
+				// 每次最多取指定时间之前的10条留言
+				$post_obj_list = $this->moa_mmsboard_model->get_by_date($base_date, $post_state, $post_num);
+				
+				if (empty($post_obj_list)) {
+					echo json_encode(array("status" => FALSE, "msg" => "获取留言失败"));
+					return;
+				}
+				
+				$post_list = array();
+				$comment_list = array();
+				
+				for ($i = 0; $i < count($post_obj_list); $i++) {
+					$tmp_post_bpid = $post_obj_list[$i]->bpid;
+					$tmp_post_uid = $post_obj_list[$i]->uid;
+					$tmp_post_bptimestamp = $post_obj_list[$i]->bptimestamp;
+					$tmp_post_body = $post_obj_list[$i]->body;
+					$tmp_post_name = $this->moa_user_model->get($tmp_post_uid)->name;
+					
+					// 前端渲染所用数据
+					$post_list[$i]['bpid'] = $tmp_post_bpid;
+					$post_list[$i]['bptimestamp'] = $tmp_post_bptimestamp;
+					$post_list[$i]['body'] = $tmp_post_body;
+					$post_list[$i]['name'] = $tmp_post_name;
+					$post_list[$i]['splited_date'] = Public_methods::splitDate($tmp_post_bptimestamp);
+					
+					// 取该留言对应的所有评论
+					$comment_state = 0;
+					$comment_obj_list = $this->moa_mbcomment_model->get_by_bpid($tmp_post_bpid, $comment_state);
+					
+					//评论为空
+					if (empty($comment_obj_list)) {
+						$comment_list[$i] = NULL;
+					} else {
+						for ($j = 0; $j < count($comment_obj_list); $j++) {
+							$tmp_comment_uid = $comment_obj_list[$j]->uid;
+							$tmp_comment_mbctimestamp = $comment_obj_list[$j]->mbctimestamp;
+							$tmp_comment_body = $comment_obj_list[$j]->body;
+							$tmp_comment_name = $this->moa_user_model->get($tmp_comment_uid)->name;
+						
+							// 前端渲染所用数据
+							$comment_list[$i][$j]['body'] = $tmp_comment_body;
+							$comment_list[$i][$j]['name'] = $tmp_comment_name;
+							$comment_list[$i][$j]['splited_date'] = Public_methods::splitDate($tmp_comment_mbctimestamp);
+						
+						}
+					}
+				}
+				echo json_encode(array("status" => TRUE, "msg" => "获取留言与评论成功", "base_url" => base_url(), 
+						"post_list" => $post_list, "comment_list" => $comment_list));
+				return;
+			}
+		}
+	}
+	
 }
