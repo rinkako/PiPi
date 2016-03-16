@@ -35,14 +35,16 @@ Class Homepage extends CI_Controller {
 				// state：0-正常  1-已删除
 				$board_paras['state'] = 0;
 				$board_paras['uid'] = $uid;
-				$board_paras['bptimestamp'] = date('Y-m-d H:i:s');
+				$timestamp = date('Y-m-d H:i:s');
+				$board_paras['bptimestamp'] = $timestamp;
 				$board_paras['body'] = $_POST['post_content'];
 				$bpid = $this->moa_mmsboard_model->add($board_paras);
 				if ($bpid == FALSE) {
 					echo json_encode(array("status" => FALSE, "msg" => "留言失败"));
 					return;
 				} else {
-					echo json_encode(array("status" => TRUE, "msg" => "留言成功", "name" => $name));
+					$splited_date = Public_methods::splitDate($timestamp);
+					echo json_encode(array("status" => TRUE, "msg" => "留言成功", "name" => $name, "splited_date" => $splited_date,  "base_url" => base_url()));
 					return;
 				}
 			}

@@ -18,6 +18,21 @@ Class Public_methods extends CI_Controller {
 	}
 	
 	/**
+	 * 提取日期格式中的年月日时分秒
+	 * @param string $timestamp
+	 * @return obj 年月日时分秒 对象
+	 */
+	public static function splitDate($timestamp) {
+		$splited_date['year'] = intval(substr($timestamp, 0, 4));
+		$splited_date['month'] = intval(substr($timestamp, 5, 2));
+		$splited_date['day'] = intval(substr($timestamp, 8, 2));
+		$splited_date['hour'] = intval(substr($timestamp, 11, 2));
+		$splited_date['minute'] = intval(substr($timestamp, 14, 2));
+		$splited_date['second'] = intval(substr($timestamp, 17, 2));
+		return $splited_date;
+	}
+	
+	/**
 	 *  计算当前周数
 	 */
 	public static function cal_week() {

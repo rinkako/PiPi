@@ -120,7 +120,7 @@
 	                	
 			            <div class="ibox-content white-bg" style="border-width: 0;">
 			            	<div id="scroll-content">
-			                <div style="margin-right: 8px;">
+			                <div id="post-circle" style="margin-right: 8px;">
 				                <div class="social-feed-separated">
 				
 				                    <div class="social-avatar">
