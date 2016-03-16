@@ -515,6 +515,7 @@
 	        $(function(){
 	            $('#scroll-content').slimScroll({
 	                height: '520px',
+	                railVisible:true,
 	                allowPageScroll: true
 	            });
 	        });

@@ -43,7 +43,7 @@ $("#post-btn").click(function() {
 														"<div class='media-body'>" +
 															"<textarea class='form-control' placeholder='填写评论...'></textarea>" +
 															"<div class='btn-group' style='margin-top: 4px;'>" +
-																"<button class='btn btn-primary btn-xs'><i class='fa fa-send-o'></i> 发送</button>" +
+																"<button id='comment_on_" + ret['bpid'] + "' class='comment-btn btn btn-primary btn-xs'><i class='fa fa-send-o'></i> 发送</button>" +
 															"</div>" +
 														"</div>" +
 													"</div>" +
@@ -83,3 +83,29 @@ var scrollToTop = function(){
     	scrollTo: '0px'
     });
 }
+
+/**
+ * 发送评论
+ */
+$("body").on("click", ".comment-btn", function(){
+	
+	var btn_id = $(this)[0].id.split("_");
+	var post_id = btn_id[btn_id.length - 1];
+	var comment_content = $(this).parent().siblings("textarea").val();
+		
+	$.ajax({
+		type: 'post',
+		url: '../Homepage/addAndGetComment',
+		data: {
+			"comment_content": comment_content,
+			"post_id": post_id,
+		},
+		success: function(msg) {
+			ret = JSON.parse(msg);
+			if (ret['status'] === true) {
+				alert(ret['msg']);
+			}
+		}
+		
+	});
+});

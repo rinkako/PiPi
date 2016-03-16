@@ -44,13 +44,43 @@ Class Homepage extends CI_Controller {
 					return;
 				} else {
 					$splited_date = Public_methods::splitDate($timestamp);
-					echo json_encode(array("status" => TRUE, "msg" => "留言成功", "name" => $name, "splited_date" => $splited_date,  "base_url" => base_url()));
+					echo json_encode(array("status" => TRUE, "msg" => "留言成功", "name" => $name, "splited_date" => $splited_date,
+							"bpid" => $bpid, "base_url" => base_url()));
 					return;
 				}
 			}
 		}
 	}
 	
-	
+	/**
+	 * 添加新评论
+	 */
+	public function addAndGetComment() {
+		if (isset($_SESSION['user_id'])) {
+			$uid = $_SESSION['user_id'];
+			$name = $this->moa_user_model->get($uid)->name;
+				
+			// 添加新评论
+			if (isset($_POST['comment_content']) && isset($_POST['post_id'])) {
+				// state：0-正常  1-已删除
+				$comment_paras['state'] = 0;
+				$comment_paras['uid'] = $uid;
+				$comment_paras['bpid'] = $_POST['post_id'];
+				$timestamp = date('Y-m-d H:i:s');
+				$comment_paras['mbctimestamp'] = $timestamp;
+				$comment_paras['body'] = $_POST['comment_content'];
+				$mbcid = $this->moa_mbcomment_model->add($comment_paras);
+				if ($mbcid == FALSE) {
+					echo json_encode(array("status" => FALSE, "msg" => "评论失败"));
+					return;
+				} else {
+					$splited_date = Public_methods::splitDate($timestamp);
+					echo json_encode(array("status" => TRUE, "msg" => "评论成功", "name" => $name, "splited_date" => $splited_date,
+							"mbcid" => $mbcid, "base_url" => base_url()));
+					return;
+				}
+			}
+		}
+	}
 	
 }
