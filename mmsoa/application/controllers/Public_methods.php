@@ -27,7 +27,7 @@ Class Public_methods extends CI_Controller {
 		$splited_date['month'] = intval(substr($timestamp, 5, 2));
 		$splited_date['day'] = intval(substr($timestamp, 8, 2));
 		$splited_date['hour'] = intval(substr($timestamp, 11, 2));
-		$splited_date['minute'] = intval(substr($timestamp, 14, 2));
+		$splited_date['minute'] = substr($timestamp, 14, 2);    // 保留前置“0”
 		$splited_date['second'] = intval(substr($timestamp, 17, 2));
 		return $splited_date;
 	}

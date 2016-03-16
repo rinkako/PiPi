@@ -19,37 +19,37 @@ $("#post-btn").click(function() {
 		
 	$.ajax({
 		type: 'post',
-		url: '../Homepage/addAndGetPost',
+		url: '../Homepage/addPost',
 		data: {
 			"post_content": post_content,
 		},
 		success: function(msg) {
 			ret = JSON.parse(msg);
 			if (ret['status'] === true) {
-				$("#post-circle").prepend("<div class='social-feed-separated'>" +
-											"<div class='social-avatar'><a href=''><img alt='image' src='" + ret['base_url'] + "assets/images/a5.jpg'></a></div>" +
-											"<div class='social-feed-box'>" +
-												"<div class='social-avatar'>" +
-													"<a href='#'>" + ret['name'] + "</a>" +
-													"<small class='text-muted'> " + ret['splited_date']['month'] + "月" + ret['splited_date']['day'] + "日 " +
-													ret['splited_date']['hour'] + ":" + ret['splited_date']['minute'] + " </small>" +
-												"</div>" +
-												"<div class='social-body'>" +
-													post_content +
-												"</div>" +
-												"<div class='social-footer'>" +
-													"<div class='social-comment' id='my-comment'>" +
-														"<a href='' class='pull-left'><img alt='image' src='" + ret['base_url'] + "assets/images/a3.jpg'></a>" +
-														"<div class='media-body'>" +
-															"<textarea class='form-control' placeholder='填写评论...'></textarea>" +
-															"<div class='btn-group' style='margin-top: 4px;'>" +
-																"<button id='comment_on_" + ret['bpid'] + "' class='comment-btn btn btn-primary btn-xs'><i class='fa fa-send-o'></i> 发送</button>" +
+				$("#post-circle").prepend(	"<div class='social-feed-separated'>" +
+												"<div class='social-avatar'><a href=''><img alt='image' src='" + ret['base_url'] + "assets/images/a5.jpg'></a></div>" +
+												"<div class='social-feed-box'>" +
+													"<div class='social-avatar'>" +
+														"<a href='#'>" + ret['name'] + "</a>" +
+														"<small class='text-muted'> " + ret['splited_date']['month'] + "月" + ret['splited_date']['day'] + "日 " +
+														ret['splited_date']['hour'] + ":" + ret['splited_date']['minute'] + " </small>" +
+													"</div>" +
+													"<div class='social-body'>" +
+														post_content +
+													"</div>" +
+													"<div class='social-footer'>" +
+														"<div class='social-comment' id='write_comment_" + ret['bpid'] + "'>" +
+															"<a href='' class='pull-left'><img alt='image' src='" + ret['base_url'] + "assets/images/a3.jpg'></a>" +
+															"<div class='media-body'>" +
+																"<textarea id='comment_textarea_" + ret['bpid'] + "' class='form-control' placeholder='填写评论...'></textarea>" +
+																"<div class='btn-group' style='margin-top: 4px;'>" +
+																	"<button id='comment_on_" + ret['bpid'] + "' class='comment-btn btn btn-primary btn-xs'><i class='fa fa-send-o'></i> 发送</button>" +
+																"</div>" +
 															"</div>" +
 														"</div>" +
 													"</div>" +
 												"</div>" +
-											"</div>" +
-										"</div>");
+											"</div>");
 				$("#new-post").val("");
 				$("#submit_result").attr("style", "color:#1AB394; text-align:center; margin-top: 14px;");
 				$("#submit_result").html(ret["msg"]);
@@ -58,8 +58,6 @@ $("#post-btn").click(function() {
 				$("#submit_result").attr("style", "color:#ED5565; text-align:center; margin-top: 14px;");
 				$("#submit_result").html(ret["msg"]);
 			}
-			
-			//$("#post-circle").animate({scrollTop: $("#post-circle")[0].scrollHeight}, '500', 'swing', function() {});
 		},
 		error: function(){
 		    alert(arguments[1]);
@@ -92,10 +90,12 @@ $("body").on("click", ".comment-btn", function(){
 	var btn_id = $(this)[0].id.split("_");
 	var post_id = btn_id[btn_id.length - 1];
 	var comment_content = $(this).parent().siblings("textarea").val();
+	var write_comment_id_selector = "#write_comment_" + post_id;
+	var comment_textarea_selector = "#comment_textarea_" + post_id;
 		
 	$.ajax({
 		type: 'post',
-		url: '../Homepage/addAndGetComment',
+		url: '../Homepage/addComment',
 		data: {
 			"comment_content": comment_content,
 			"post_id": post_id,
@@ -103,8 +103,18 @@ $("body").on("click", ".comment-btn", function(){
 		success: function(msg) {
 			ret = JSON.parse(msg);
 			if (ret['status'] === true) {
-				alert(ret['msg']);
+				$(write_comment_id_selector).before(	"<div class='social-comment'>" +
+																	"<a href='' class='pull-left'>" +
+																		"<img alt='image' src='" + ret['base_url'] + "assets/images/a7.jpg'>" +
+																	"</a>" +
+																	"<div class='media-body'>" +
+																		"<a href='#'>" + ret['name'] + "</a> " + comment_content + "<br/>" +
+																		"<small class='text-muted'> " + ret['splited_date']['month'] + "月" + ret['splited_date']['day'] + "日 " +
+																		ret['splited_date']['hour'] + ":" + ret['splited_date']['minute'] + "</small>" +
+																	"</div>" +
+																"</div>");
 			}
+			$(comment_textarea_selector).val("");
 		}
 		
 	});

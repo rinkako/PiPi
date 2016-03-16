@@ -477,7 +477,7 @@
 	                <div id="input-post" class="input-group input-group-sm">
 	                    <textarea id="new-post" class="form-control" placeholder="请输入留言内容" style="height: 50px;"></textarea>
                     	<span class="input-group-btn">
-                    		<button id="post-btn" class="btn btn-primary" type="button" style="height: 50px;">留言</button>
+                    		<button id="post-btn" class="btn btn-primary" type="button" data-dismiss="modal" style="height: 50px;">留言</button>
                     	</span>
 	                </div>
 	            </div>

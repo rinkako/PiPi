@@ -25,7 +25,7 @@ Class Homepage extends CI_Controller {
 	/*
 	 * 添加、获取留言
 	 */
-	public function addAndGetPost() {
+	public function addPost() {
 		if (isset($_SESSION['user_id'])) {
 			$uid = $_SESSION['user_id'];
 			$name = $this->moa_user_model->get($uid)->name;
@@ -55,7 +55,7 @@ Class Homepage extends CI_Controller {
 	/**
 	 * 添加新评论
 	 */
-	public function addAndGetComment() {
+	public function addComment() {
 		if (isset($_SESSION['user_id'])) {
 			$uid = $_SESSION['user_id'];
 			$name = $this->moa_user_model->get($uid)->name;
