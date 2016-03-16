@@ -473,7 +473,8 @@
 	                <h4 class="modal-title" id="myModalLabel">我的留言</h4>
 	            </div>
 	            <div class="modal-body">
-	                <div class="input-group input-group-sm">
+	            	<h2 id="submit_result" style="text-align:center;"><i class="fa fa-spin fa-spinner"></i></h2>
+	                <div id="input-post" class="input-group input-group-sm">
 	                    <textarea id="new-post" class="form-control" placeholder="请输入留言内容" style="height: 50px;"></textarea>
                     	<span class="input-group-btn">
                     		<button id="post-btn" class="btn btn-primary" type="button" style="height: 50px;">留言</button>
@@ -507,6 +508,8 @@
 	<script>
 		$(document).ready(function () {
 			$("#active-homepage").addClass("active");
+
+			$("#submit_result").hide();
 
 			/* slimScroll */
 	        $(function(){

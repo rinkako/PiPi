@@ -2,7 +2,13 @@
  * 主页留言、评论、通知
  */
 
+/**
+ * 发送留言
+ */
 $("#post-btn").click(function() {
+	$("#input-post").hide();
+	$("#submit_result").show();
+	
 	var post_content = $("#new-post").val();
 	
 	// 在文本首末分别添加字符串“<p>”和“</p>”,并将回车替换为“</p><p>”
@@ -44,16 +50,36 @@ $("#post-btn").click(function() {
 												"</div>" +
 											"</div>" +
 										"</div>");
+				$("#new-post").val("");
+				$("#submit_result").attr("style", "color:#1AB394; text-align:center; margin-top: 14px;");
+				$("#submit_result").html(ret["msg"]);
+				scrollToTop();
+			} else {
+				$("#submit_result").attr("style", "color:#ED5565; text-align:center; margin-top: 14px;");
+				$("#submit_result").html(ret["msg"]);
 			}
-			//$("#new-post").val("");
-			$(".modal-body").empty();
-			$(".modal-body").append("<h2 id='submit_result' style='text-align:center;'><i class='fa fa-spin fa-spinner'></i></h2>");
-			$("#submit_result").attr("style", "color:#1AB394; text-align:center; margin-top: 8px;");
-			$("#submit_result").html(ret["msg"]);
-			$("#post-circle").animate({scrollTop: $("#post-circle")[0].scrollHeight}, '500', 'swing', function() {});
+			
+			//$("#post-circle").animate({scrollTop: $("#post-circle")[0].scrollHeight}, '500', 'swing', function() {});
 		},
 		error: function(){
 		    alert(arguments[1]);
 		}
 	});
 });
+
+$(function() {
+	// 模态窗口关闭后的动作
+	$('#myModal').on('hidden.bs.modal', function() {
+		$("#submit_result").hide();
+		$("#input-post").show();
+	});
+ });
+
+/**
+ * 成功发送留言后，滚动至留言区顶部查看新留言
+ */
+var scrollToTop = function(){
+    $('#scroll-content').slimScroll({
+    	scrollTo: '0px'
+    });
+}
