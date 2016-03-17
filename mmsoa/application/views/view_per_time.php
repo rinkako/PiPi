@@ -42,12 +42,20 @@
                         <li>
                             MOA
                         </li>
-                        <li>
-                        	工时统计
-                        </li>
-                        <li>
-                            <strong>个人</strong>
-                        </li>	
+                        <?php 
+	                        if ($_SESSION['level'] == 2 || $_SESSION['level'] == 3 || $_SESSION['level'] == 6) { echo 
+			                    '<li>' . 
+		                        	'工时统计' . 
+		                        '</li>' . 
+		                        '<li>' . 
+		                            '<strong>个人</strong>' . 
+		                        '</li>';
+		                    } else if ($_SESSION['level'] == 0 || $_SESSION['level'] == 1) { echo
+			                    '<li>' . 
+		                            '<strong>我的工时</strong>' . 
+		                        '</li>';
+		                    }
+	                    ?>
                     </ol>
                 </div>
                 <div class="col-lg-2">

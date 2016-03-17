@@ -49,12 +49,20 @@
                         <li>
                             MOA
                         </li>
-                        <li>
-                        	工时统计
-                        </li>
-                        <li>
-                            <strong>全员</strong>
-                        </li>	
+                        <?php 
+	                        if ($_SESSION['level'] == 2 || $_SESSION['level'] == 3 || $_SESSION['level'] == 6) { echo 
+			                    '<li>' . 
+		                        	'工时统计' . 
+		                        '</li>' . 
+		                        '<li>' . 
+		                            '<strong>全员</strong>' . 
+		                        '</li>';
+		                    }  else if ($_SESSION['level'] == 5) { echo
+			                    '<li>' . 
+		                            '<strong>工时统计</strong>' . 
+		                        '</li>';
+		                    } 
+	                    ?>	
                     </ol>
                 </div>
                 <div class="col-lg-2">

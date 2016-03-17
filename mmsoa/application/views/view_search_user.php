@@ -51,11 +51,15 @@
                         <li>
                             MOA
                         </li>
+                        <?php 
+	                        if ($_SESSION['level'] >= 3) { echo 
+		                        '<li>' . 
+		                        	'用户管理' . 
+		                        '</li>';
+	                        } 
+                        ?>
                         <li>
-                        	用户管理
-                        </li>
-                        <li>
-                            <strong>查看</strong>
+                            <strong>通讯录</strong>
                         </li>	
                     </ol>
                 </div>
@@ -68,7 +72,7 @@
                     <div class="col-lg-12">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
-                                <h5>查看用户列表</h5>
+                                <h5>通讯录</h5>
                             </div>
                             <div class="ibox-content">
                                 
@@ -99,6 +103,7 @@
 	                                            			case 3: echo '助理负责人'; break;
 	                                            			case 4: echo '管理员'; break;
 	                                            			case 5: echo '办公室负责人'; break;
+	                                            			case 6: echo '超级管理员'; break;
 	                                            		}
 	                                            	 ?>
 	                                            </td>

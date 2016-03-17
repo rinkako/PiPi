@@ -6572,7 +6572,7 @@ body.skin-3 {
 /* small chat */
 #small-chat {
 	position:absolute;
-	bottom:18px;
+	bottom:23px;
 	left:0px;
 	z-index:100;
 }

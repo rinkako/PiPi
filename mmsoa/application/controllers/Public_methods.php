@@ -85,6 +85,25 @@ Class Public_methods extends CI_Controller {
 	}
 	
 	/**
+	 * 将职级的数据库标识解析为职务名称
+	 * @param $level 职级
+	 * @return 对应的职务名称
+	 */
+	public static function translate_level($level) {
+		$level_name = '';
+		switch ($level) {
+			case 0: $level_name = '普通助理'; break;
+			case 1: $level_name = '组长'; break;
+			case 2: $level_name = '负责人助理'; break;
+			case 3: $level_name = '助理负责人'; break;
+			case 4: $level_name = '管理员'; break;
+			case 5: $level_name = '办公室负责人'; break;
+			case 6: $level_name = '超级管理员'; break;
+		}
+		return $level_name;
+	}
+	
+	/**
 	 * 将星期的数据库标识解析为中文
 	 * @param weekday_num 星期的数据库数字标号
 	 * @return 星期对应的中文
