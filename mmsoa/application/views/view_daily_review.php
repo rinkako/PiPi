@@ -84,7 +84,7 @@
 	                                        </div>
 	                                    </div>
 	
-	                                    <div class="panel-body">
+	                                    <div class="panel-body my-panel-body">
 	                                        <div class="tab-content">
 	                                            <div id="base" class="tab-pane active">
 					                                <table class="table table-striped table-bordered table-hover users-dataTable">

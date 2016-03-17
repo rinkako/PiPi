@@ -33,13 +33,13 @@
             
             <div class="sidebard-panel">
                 <div>
-                    <h4>消息 <span class="badge badge-info pull-right">16</span></h4>
+                    <h4>通知 <span class="badge badge-info pull-right">16</span></h4>
                     <div class="feed-element">
                         <a href="index_3.html#" class="pull-left">
                             <img alt="image" class="img-circle" src="<?=base_url().'assets/images/a1.jpg' ?>" >
                         </a>
                         <div class="media-body">
-                            跑步呐，最重要的是要有动力
+                            【排班结果】2016春多媒体3-17周排班结果
                             <br>
                             <small class="text-muted">Today 4:21 pm</small>
                         </div>
@@ -49,7 +49,7 @@
                             <img alt="image" class="img-circle" src="<?=base_url().'assets/images/a2.jpg' ?>">
                         </a>
                         <div class="media-body">
-                            V信已经提前恢复，也算是个好消息吧
+                            【值班报名】2015-2016学年第三学期空余时间表
                             <br>
                             <small class="text-muted">Yesterday 2:45 pm</small>
                         </div>
@@ -59,7 +59,7 @@
                             <img alt="image" class="img-circle" src="<?=base_url().'assets/images/a3.jpg' ?>">
                         </a>
                         <div class="media-body">
-                            是你对不对
+                            【通讯录核对】多媒体最新版通讯录信息核对
                             <br>
                             <small class="text-muted">Yesterday 1:10 pm</small>
                         </div>
@@ -69,7 +69,7 @@
                             <img alt="image" class="img-circle" src="<?=base_url().'assets/images/a4.jpg' ?>">
                         </a>
                         <div class="media-body">
-                            发布了一篇文章
+                            【排班】2016学年春季学期第1-2周排班结果公布
                             <br>
                             <small class="text-muted">Monday 8:37 pm</small>
                         </div>

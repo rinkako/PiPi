@@ -43,7 +43,7 @@ $("#post-btn").click(function() {
 			ret = JSON.parse(msg);
 			if (ret['status'] === true) {
 				$("#post-circle").prepend(
-					"<div class='social-feed-separated'>" +
+					"<div class='social-feed-separated' id='separated_" + ret['bpid'] + "'>" +
 						"<div class='social-avatar'><a href=''><img alt='image' src='" + ret['base_url'] + "assets/images/a5.jpg'></a></div>" +
 						"<div class='social-feed-box'>" +
 							"<div class='social-avatar'>" +
@@ -88,7 +88,6 @@ $("#post-btn").click(function() {
  */
 var scrollToTop = function(){
     $('#scroll-content').slimScroll({
-    	scrollTo: '0px'
     });
 }
 
@@ -158,7 +157,7 @@ $("#more_posts").bind("getPostComment", function(event, base_date) {
 				// 每次最多添加10条留言
 				for (var i = 0; i < ret['post_list'].length; i++) {
 					$("#more-btn").before(
-						"<div class='social-feed-separated'>" +
+						"<div class='social-feed-separated' id='separated_" + ret['post_list'][i]['bpid'] + "'>" +
 							"<div class='social-avatar'><a href=''><img alt='image' src='" + ret['base_url'] + "assets/images/a5.jpg'></a></div>" +
 							"<div class='social-feed-box'>" +
 								"<div class='social-avatar'>" +

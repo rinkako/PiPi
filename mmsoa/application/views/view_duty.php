@@ -77,7 +77,7 @@
 	                                        </div>
 	                                    </div>
 	
-	                                    <div class="panel-body">
+	                                    <div class="panel-body my-panel-body">
 	                                        <div class="tab-content">
 	                                            <div id="base" class="tab-pane active">
 	                                            	<div class="form-group"  style="height: 38px;">
