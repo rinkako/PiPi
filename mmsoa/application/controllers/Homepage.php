@@ -18,8 +18,16 @@ Class Homepage extends CI_Controller {
 		$this->load->helper('cookie');
 	}
 	
+	/**
+	 * 进入主页
+	 */
 	public function index() {
-		
+		if (isset($_SESSION['user_id'])) {
+			$this->load->view('view_homepage');
+		} else {
+			// 未登录的用户请先登录
+			Public_methods::requireLogin();
+		}
 	}
 	
 	/*

@@ -18,6 +18,14 @@ Class Public_methods extends CI_Controller {
 	}
 	
 	/**
+	 * 权限要求
+	 */
+	public static function permissionDenied() {
+		echo "<script language=javascript>alert('Sorry, 你没有权限访问！');</script>";
+		echo '<script language=javascript>window.location.href="../Homepage"</script>';
+	}
+	
+	/**
 	 * 提取日期格式中的年月日时分秒
 	 * @param string $timestamp
 	 * @return obj 年月日时分秒 对象

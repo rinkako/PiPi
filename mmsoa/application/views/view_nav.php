@@ -46,12 +46,12 @@
 
                     </li>
 					<li id="active-homepage">
-                        <a href="<?php echo site_url('Backend/homepage'); ?>"><i class="fa fa-home"></i> <span class="nav-label">我的主页</span><span class="label label-danger pull-right">2.0</span></a>
+                        <a href="<?php echo site_url('Homepage'); ?>"><i class="fa fa-home"></i> <span class="nav-label">我的主页</span><span class="label label-danger pull-right">2.0</span></a>
                     </li>
                     <?php 
 	                    if ($_SESSION['level'] == 0 || $_SESSION['level'] == 6) { echo 
 		                    '<li id="active-workrecord">' . 
-		                        '<a href="homepage#"><i class="fa fa-edit"></i> <span class="nav-label"> 工作记录</span> <span class="fa arrow"></span></a>' . 
+		                        '<a href="Homepage#"><i class="fa fa-edit"></i> <span class="nav-label"> 工作记录</span> <span class="fa arrow"></span></a>' . 
 		                        '<ul class="nav nav-second-level">' . 
 		                            '<li id="active-dailycheck"><a href="'. site_url('Backend/dailyCheck') . '">常检</a>' . 
 		                            '</li>' . 
@@ -68,7 +68,7 @@
                     <?php 
 	                    if ($_SESSION['level'] >= 1) { echo 
 		                    '<li id="active-workReview">' . 
-		                        '<a href="homepage#"><i class="fa fa-calendar-check-o"></i> <span class="nav-label"> 工作审查</span><span class="fa arrow"></span></a>' . 
+		                        '<a href="Homepage#"><i class="fa fa-calendar-check-o"></i> <span class="nav-label"> 工作审查</span><span class="fa arrow"></span></a>' . 
 		                        '<ul class="nav nav-second-level">' . 
 		                            '<li id="active-dailyReview"><a href="'. site_url('Backend/dailyReview') . '">常检</a>' . 
 		                            '</li>' . 
@@ -83,7 +83,7 @@
                     <?php 
 	                    if ($_SESSION['level'] >= 1) { echo 
 		                    '<li id="active-journal">' . 
-		                        '<a href="homepage#"><i class="fa fa-file-text"></i> <span class="nav-label"> 坐班日志</span> <span class="fa arrow"></span></a>' . 
+		                        '<a href="Homepage#"><i class="fa fa-file-text"></i> <span class="nav-label"> 坐班日志</span> <span class="fa arrow"></span></a>' . 
 		                        '<ul class="nav nav-second-level">' . 
 		                            '<li id="active-writeJournal"><a href="'. site_url('Backend/writeJournal') . '">发布</a>' . 
 		                            '</li>' . 
@@ -96,7 +96,7 @@
                     <?php 
 	                    if ($_SESSION['level'] >= 3) { echo 
 		                    '<li id="active-userManagement">' . 
-		                        '<a href="homepage#"><i class="fa fa-user"></i> <span class="nav-label"> 用户管理</span><span class="fa arrow"></span></a>' . 
+		                        '<a href="Homepage#"><i class="fa fa-user"></i> <span class="nav-label"> 用户管理</span><span class="fa arrow"></span></a>' . 
 		                        '<ul class="nav nav-second-level">' . 
 		                            '<li id="active-addUser"><a href="'. site_url('Backend/addUser') . '">添加</a>' . 
 		                            '</li>' . 
@@ -113,7 +113,7 @@
                     <?php 
 	                    if ($_SESSION['level'] == 2 || $_SESSION['level'] == 3 || $_SESSION['level'] == 6) { echo 
 		                    '<li id="active-timeStatistics">' . 
-		                        '<a href="homepage#"><i class="fa fa-rmb"></i> <span class="nav-label"> &nbsp;工时统计</span><span class="fa arrow"></span></a>' . 
+		                        '<a href="Homepage#"><i class="fa fa-rmb"></i> <span class="nav-label"> &nbsp;工时统计</span><span class="fa arrow"></span></a>' . 
 		                        '<ul class="nav nav-second-level">' . 
 		                            '<li id="active-personal"><a href="'. site_url('Backend/perWorkingTime') . '">个人<span class="label label-warning pull-right">26</span></a>' . 
 		                            '</li>' . 
@@ -132,7 +132,7 @@
 	                    } 
                     ?>
                     <li id="active-scheduleManagement">
-                        <a href="homepage#"><i class="fa fa-calendar"></i> <span class="nav-label"> 值班安排</span><span class="fa arrow"></span></a>
+                        <a href="Homepage#"><i class="fa fa-calendar"></i> <span class="nav-label"> 值班安排</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                         	<?php 
 	                        	if ($_SESSION['level'] == 0 || $_SESSION['level'] == 3 || $_SESSION['level'] == 6) { echo

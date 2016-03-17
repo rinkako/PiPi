@@ -35,7 +35,7 @@ $("#post-btn").click(function() {
 		
 	$.ajax({
 		type: 'post',
-		url: '../Homepage/addPost',
+		url: 'Homepage/addPost',
 		data: {
 			"post_content": post_content,
 		},
@@ -103,7 +103,7 @@ $("body").on("click", ".comment-btn", function(){
 		
 	$.ajax({
 		type: 'post',
-		url: '../Homepage/addComment',
+		url: 'Homepage/addComment',
 		data: {
 			"comment_content": comment_content,
 			"post_id": post_id,
@@ -147,7 +147,7 @@ $("#more_posts").bind("getPostComment", function(event, base_date) {
 	
 	$.ajax({
 		type: 'get',
-		url: '../Homepage/getPostComment',
+		url: 'Homepage/getPostComment',
 		data: {
 			"base_date": base_date,
 		},

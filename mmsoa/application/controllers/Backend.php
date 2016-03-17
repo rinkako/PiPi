@@ -23,16 +23,7 @@ Class Backend extends CI_Controller {
 	}
 
 	public function index() {
-		$this->load->view('view_homepage');
-	}
-	
-	public function homepage() {
-		if (isset($_SESSION['user_id'])) {
-			$this->load->view('view_homepage');
-		} else {
-			// 未登录的用户请先登录
-			$this->requireLogin();
-		}
+		
 	}
 	
 	/**
@@ -41,6 +32,12 @@ Class Backend extends CI_Controller {
 	 */
 	public function dailyCheck() {
 		if (isset($_SESSION['user_id'])) {
+			// 检查权限: 0-普通助理  6-超级管理员
+			if ($_SESSION['level'] != 0 && $_SESSION['level'] != 6) {
+				// 提示权限不够
+				Public_methods::permissionDenied();
+			}
+			
 			// 获取常检课室
 			$uid = $_SESSION['user_id'];
 			$wid = $this->moa_worker_model->get_wid_by_uid($uid);
@@ -50,7 +47,7 @@ Class Backend extends CI_Controller {
 			$this->load->view('view_daily_check', $data);
 		} else {
 			// 未登录的用户请先登录
-			$this->requireLogin();
+			Public_methods::requireLogin();
 		}
 	}
 	
@@ -60,6 +57,12 @@ Class Backend extends CI_Controller {
 	 */
 	public function weeklyCheck() {
 		if (isset($_SESSION['user_id'])) {
+			// 检查权限: 0-普通助理  6-超级管理员
+			if ($_SESSION['level'] != 0 && $_SESSION['level'] != 6) {
+				// 提示权限不够
+				Public_methods::permissionDenied();
+			}
+			
 			// 获取周检课室
 			$uid = $_SESSION['user_id'];
 			$wid = $this->moa_worker_model->get_wid_by_uid($uid);
@@ -69,7 +72,7 @@ Class Backend extends CI_Controller {
 			$this->load->view('view_weekly_check', $data);
 		} else {
 			// 未登录的用户请先登录
-			$this->requireLogin();
+			Public_methods::requireLogin();
 		}
 	}
 	
@@ -78,6 +81,12 @@ Class Backend extends CI_Controller {
 	 */
 	public function onDuty() {
 		if (isset($_SESSION['user_id'])) {
+			// 检查权限: 0-普通助理  6-超级管理员
+			if ($_SESSION['level'] != 0 && $_SESSION['level'] != 6) {
+				// 提示权限不够
+				Public_methods::permissionDenied();
+			}
+			
 			// 取所有普通助理的wid与name, level: 0-普通助理  1-组长  2-负责人助理  3-助理负责人  4-管理员  5-办公室负责人
 			$level = 0;
 			$common_worker = $this->moa_user_model->get_by_level($level);
@@ -96,7 +105,7 @@ Class Backend extends CI_Controller {
 			$this->load->view('view_duty', $data);
 		} else {
 			// 未登录的用户请先登录
-			$this->requireLogin();
+			Public_methods::requireLogin();
 		}
 	}
 	
@@ -105,10 +114,16 @@ Class Backend extends CI_Controller {
 	 */
 	public function filming() {
 		if (isset($_SESSION['user_id'])) {
+			// 检查权限: 0-普通助理  6-超级管理员
+			if ($_SESSION['level'] != 0 && $_SESSION['level'] != 6) {
+				// 提示权限不够
+				Public_methods::permissionDenied();
+			}
+			
 			$this->load->view('view_filming');
 		} else {
 			// 未登录的用户请先登录
-			$this->requireLogin();
+			Public_methods::requireLogin();
 		}
 	}
 	
@@ -117,6 +132,12 @@ Class Backend extends CI_Controller {
 	 */
 	public function writeJournal() {
 		if (isset($_SESSION['user_id'])) {
+			// 检查权限: 1-组长 2-负责人助理 3-助理负责人 4-管理员 5-办公室负责人 6-超级管理员
+			if ($_SESSION['level'] <= 0) {
+				// 提示权限不够
+				Public_methods::permissionDenied();
+			}
+			
 			// 取所有普通助理的wid与name, level: 0-普通助理  1-组长  2-负责人助理  3-助理负责人  4-管理员  5-办公室负责人
 			$level = 0;
 			$common_worker = $this->moa_user_model->get_by_level($level);
@@ -131,7 +152,7 @@ Class Backend extends CI_Controller {
 			$this->load->view('view_write_journal', $data);
 		} else {
 			// 未登录的用户请先登录
-			$this->requireLogin();
+			Public_methods::requireLogin();
 		}
 	}
 	
@@ -140,6 +161,12 @@ Class Backend extends CI_Controller {
 	 */
 	public function readJournal() {
 		if (isset($_SESSION['user_id'])) {
+			// 检查权限: 1-组长 2-负责人助理 3-助理负责人 4-管理员 5-办公室负责人 6-超级管理员
+			if ($_SESSION['level'] <= 0) {
+				// 提示权限不够
+				Public_methods::permissionDenied();
+			}
+			
 			// 获取最近的一篇坐班日志
 			$data['leader_name'] = '';
 			$data['group'] = '';
@@ -198,7 +225,7 @@ Class Backend extends CI_Controller {
 			$this->load->view('view_read_journal', $data);
 		} else {
 			// 未登录的用户请先登录
-			$this->requireLogin();
+			Public_methods::requireLogin();
 		}
 	}
 	
@@ -214,24 +241,9 @@ Class Backend extends CI_Controller {
 			//$this->load->view('view_personal_data');
 		} else {
 			// 未登录的用户请先登录
-			$this->requireLogin();
+			Public_methods::requireLogin();
 		}
 	}
-
-	/*
-	public function new_ui() {
-		if (isset($_SESSION['user_id'])) {
-			// 获取个人信息
-			$obj = $this->moa_user_model->get($_SESSION['user_id']);
-			$data['personal_data'] = $obj;
-			//$this->load->view('view_personal_data', $data);
-			$this->load->view('new_ui_test', $data);
-		} else {
-			// 未登录的用户请先登录
-			$this->requireLogin();
-		}
-	}
-	*/
 	
 	/**
 	 * 修改密码
@@ -244,7 +256,7 @@ Class Backend extends CI_Controller {
 			$this->load->view('view_change_password', $data);
 		} else {
 			// 未登录的用户请先登录
-			$this->requireLogin();
+			Public_methods::requireLogin();
 		}
 	}
 	
@@ -253,12 +265,18 @@ Class Backend extends CI_Controller {
 	 */
 	public function addUser() {
 		if (isset($_SESSION['user_id'])) {
+			// 检查权限: 3-助理负责人 4-管理员 5-办公室负责人 6-超级管理员
+			if ($_SESSION['level'] <= 2) {
+				// 提示权限不够
+				Public_methods::permissionDenied();
+			}
+			
 			$data['daily_classrooms'] = Public_methods::get_daily_classrooms();
 			$data['weekly_classrooms'] = Public_methods::get_weekly_classrooms();
 			$this->load->view('view_add_user', $data);
 		} else {
 			// 未登录的用户请先登录
-			$this->requireLogin();
+			Public_methods::requireLogin();
 		}
 	}
 	
@@ -284,7 +302,7 @@ Class Backend extends CI_Controller {
 			$this->load->view('view_search_user', $data);
 		} else {
 			// 未登录的用户请先登录
-			$this->requireLogin();
+			Public_methods::requireLogin();
 		}
 	}
 	
@@ -293,6 +311,12 @@ Class Backend extends CI_Controller {
 	 */
 	public function dailyReview() {
 		if (isset($_SESSION['user_id'])) {
+			// 检查权限: 1-组长 2-负责人助理 3-助理负责人 4-管理员 5-办公室负责人 6-超级管理员
+			if ($_SESSION['level'] <= 0) {
+				// 提示权限不够
+				Public_methods::permissionDenied();
+			}
+			
 			// 周一为一周的第一天
 			$weekcount = Public_methods::cal_week();
 			
@@ -493,7 +517,7 @@ Class Backend extends CI_Controller {
 			$this->load->view('view_daily_review', $data);
 		} else {
 			// 未登录的用户请先登录
-			$this->requireLogin();
+			Public_methods::requireLogin();
 		}
 	}
 	
@@ -502,6 +526,12 @@ Class Backend extends CI_Controller {
 	 */
 	public function weeklyReview() {
 		if (isset($_SESSION['user_id'])) {
+			// 检查权限: 1-组长 2-负责人助理 3-助理负责人 4-管理员 5-办公室负责人 6-超级管理员
+			if ($_SESSION['level'] <= 0) {
+				// 提示权限不够
+				Public_methods::permissionDenied();
+			}
+			
 			// 周一为一周的第一天
 			$weekcount = Public_methods::cal_week();
 				
@@ -558,7 +588,7 @@ Class Backend extends CI_Controller {
 			$this->load->view('view_weekly_review', $data);
 		} else {
 			// 未登录的用户请先登录
-			$this->requireLogin();
+			Public_methods::requireLogin();
 		}
 	}
 	
@@ -567,6 +597,12 @@ Class Backend extends CI_Controller {
 	 */
 	public function dutyReview() {
 		if (isset($_SESSION['user_id'])) {
+			// 检查权限: 1-组长 2-负责人助理 3-助理负责人 4-管理员 5-办公室负责人 6-超级管理员
+			if ($_SESSION['level'] <= 0) {
+				// 提示权限不够
+				Public_methods::permissionDenied();
+			}
+			
 			// 周一为一周的第一天
 			$weekcount = Public_methods::cal_week();
 			
@@ -632,7 +668,7 @@ Class Backend extends CI_Controller {
 			$this->load->view('view_duty_review', $data);
 		} else {
 			// 未登录的用户请先登录
-			$this->requireLogin();
+			Public_methods::requireLogin();
 		}
 	}
 	
@@ -641,6 +677,12 @@ Class Backend extends CI_Controller {
 	 */
 	public function allWorkingTime() {
 		if (isset($_SESSION['user_id'])) {
+			// 检查权限: 2-负责人助理 3-助理负责人 5-办公室负责人 6-超级管理员
+			if ($_SESSION['level'] != 2 && $_SESSION['level'] != 3 && $_SESSION['level'] != 5 && $_SESSION['level'] != 6) {
+				// 提示权限不够
+				Public_methods::permissionDenied();
+			}
+			
 			// level: 0-普通助理 1-组长 2-负责人助理 3-助理负责人
 			$level_arr = array('0', '1', '2', '3');
 			// 正常有效记录
@@ -692,7 +734,7 @@ Class Backend extends CI_Controller {
 			$this->load->view('view_all_time', $data);
 		} else {
 			// 未登录的用户请先登录
-			$this->requireLogin();
+			Public_methods::requireLogin();
 		}
 	}
 	
@@ -701,6 +743,13 @@ Class Backend extends CI_Controller {
 	 */
 	public function perWorkingTime() {
 		if (isset($_SESSION['user_id'])) {
+			// 检查权限: 0-普通助理 1-组长 2-负责人助理 3-助理负责人  6-超级管理员                            
+			if ($_SESSION['level'] != 0 && $_SESSION['level'] != 1 && 
+					$_SESSION['level'] != 2 && $_SESSION['level'] != 3 && $_SESSION['level'] != 6) {
+				// 提示权限不够
+				Public_methods::permissionDenied();
+			}
+			
 			// 入职日期
 			$indate = '';
 			// 在职年数
@@ -754,21 +803,9 @@ Class Backend extends CI_Controller {
 			$this->load->view('view_per_time', $data);
 		} else {
 			// 未登录的用户请先登录
-			$this->requireLogin();
+			Public_methods::requireLogin();
 		}
 	}
-	
-	
-	/**
-	 * 登录要求
-	 */
-	private function requireLogin() {
-		// 未登录的用户请先登录
-		echo "<script language=javascript>alert('要访问的页面需要先登录！');</script>";
-		$_SESSION['user_url'] = $_SERVER['REQUEST_URI'];
-		echo '<script language=javascript>window.location.href="../Login"</script>';
-	}
-	
 	
 	
 	/**

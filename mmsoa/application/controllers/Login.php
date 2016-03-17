@@ -68,17 +68,12 @@ Class Login extends CI_Controller {
 					// echo "<meta http-equiv=\"refresh\" content=\"0.5;url=".$url."\"/>";
 					return;
 				} else {
-					$url = "Backend/homepage";
+					$url = "Homepage";
 					echo json_encode(array("status" => TRUE, "msg" => $success, "url" => $url));
 					return;
 				}
 			}
 		}
 	}
-	
-	public function showHomepage() {
-		$this->load->view('view_homepage');
-	}
-	
 	
 }
