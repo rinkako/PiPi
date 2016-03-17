@@ -7,7 +7,7 @@ require_once('Public_methods.php');
  * 值班登记控制类
  * @author 伟
  */
-Class Onduty_in extends CI_Controller {
+Class Onduty extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('moa_user_model');
@@ -18,8 +18,37 @@ Class Onduty_in extends CI_Controller {
 		$this->load->helper('cookie');
 	}
 	
+	/**
+	 * 进入值班登记页面
+	 */
 	public function index() {
+		if (isset($_SESSION['user_id'])) {
+			// 检查权限: 0-普通助理  6-超级管理员
+			if ($_SESSION['level'] != 0 && $_SESSION['level'] != 6) {
+				// 提示权限不够
+				Public_methods::permissionDenied();
+			}
+				
+			// 取所有普通助理的wid与name, level: 0-普通助理  1-组长  2-负责人助理  3-助理负责人  4-管理员  5-办公室负责人
+			$level = 0;
+			$common_worker = $this->moa_user_model->get_by_level($level);
 		
+			for ($i = 0; $i < count($common_worker); $i++) {
+				$uid_list[$i] = $common_worker[$i]->uid;
+				$name_list[$i] = $common_worker[$i]->name;
+				$wid_list[$i] = $this->moa_worker_model->get_wid_by_uid($uid_list[$i]);
+			}
+				
+			$wid = $this->moa_worker_model->get_wid_by_uid($_SESSION['user_id']);
+			$data['wid'] = $wid;
+			$data['name_list'] = $name_list;
+			$data['wid_list'] = $wid_list;
+			// 传入wid列表用于选择被代班助理
+			$this->load->view('view_duty', $data);
+		} else {
+			// 未登录的用户请先登录
+			Public_methods::requireLogin();
+		}
 	}
 	
 	/*

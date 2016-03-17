@@ -7,7 +7,7 @@ require_once('Public_methods.php');
  * 常检录入控制类
  * @author 伟
  */
-Class Dailycheck_in extends CI_Controller {
+Class Dailycheck extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('moa_user_model');
@@ -19,12 +19,33 @@ Class Dailycheck_in extends CI_Controller {
 		$this->load->helper('cookie');
 	}
 	
+	/**
+	 * 常检签到、课室情况登记页面
+	 * 常检课室列表加载
+	 */
 	public function index() {
+		if (isset($_SESSION['user_id'])) {
+			// 检查权限: 0-普通助理  6-超级管理员
+			if ($_SESSION['level'] != 0 && $_SESSION['level'] != 6) {
+				// 提示权限不够
+				Public_methods::permissionDenied();
+			}
 		
+			// 获取常检课室
+			$uid = $_SESSION['user_id'];
+			$wid = $this->moa_worker_model->get_wid_by_uid($uid);
+			$classrooms = $this->moa_worker_model->get($wid)->classroom;
+			$classroom_list = explode(',', $classrooms);
+			$data['classroom_list'] = $classroom_list;
+			$this->load->view('view_daily_check', $data);
+		} else {
+			// 未登录的用户请先登录
+			Public_methods::requireLogin();
+		}
 	}
 	
 	/*
-	 * 早检
+	 * 早检（录入）
 	 */
 	public function dailyCheckMorning() {
 		if (isset($_SESSION['user_id'])) {
@@ -137,7 +158,7 @@ Class Dailycheck_in extends CI_Controller {
 	}
 	
 	/*
-	 * 午检
+	 * 午检（录入）
 	 */
 	public function dailyCheckNoon() {
 		if (isset($_SESSION['user_id'])) {
@@ -250,7 +271,7 @@ Class Dailycheck_in extends CI_Controller {
 	}
 	
 	/*
-	 * 晚检
+	 * 晚检（录入）
 	 */
 	public function dailyCheckEvening() {
 		if (isset($_SESSION['user_id'])) {

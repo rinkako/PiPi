@@ -53,11 +53,11 @@
 		                    '<li id="active-workrecord">' . 
 		                        '<a href="Homepage#"><i class="fa fa-edit"></i> <span class="nav-label"> 工作记录</span> <span class="fa arrow"></span></a>' . 
 		                        '<ul class="nav nav-second-level">' . 
-		                            '<li id="active-dailycheck"><a href="'. site_url('Backend/dailyCheck') . '">常检</a>' . 
+		                            '<li id="active-dailycheck"><a href="'. site_url('Dailycheck') . '">常检</a>' . 
 		                            '</li>' . 
-		                            '<li id="active-weeklycheck"><a href="'. site_url('Backend/weeklyCheck') . '">周检</a>' . 
+		                            '<li id="active-weeklycheck"><a href="'. site_url('Weeklycheck') . '">周检</a>' . 
 		                            '</li>' . 
-		                            '<li id="active-onduty"><a href="'. site_url('Backend/onDuty') . '">值班</a>' . 
+		                            '<li id="active-onduty"><a href="'. site_url('Onduty') . '">值班</a>' . 
 		                            '</li>' . 
 		                            '<li id="active-filming"><a href="'. site_url('Backend/filming') . '">拍摄</a>' . 
 		                            '</li>' . 
