@@ -13,7 +13,7 @@
                     <ul class="nav navbar-top-links navbar-right">
 
                         <li>
-                            <a href="../Login">
+                            <a href="<?php echo site_url('Login'); ?>">
                                 <i class="fa fa-sign-out"></i> 退出
                             </a>
                         </li>

@@ -4,10 +4,10 @@ header("Content-type: text/html; charset=utf-8");
 require_once('Public_methods.php');
 
 /**
- * 坐班日志控制类
+ * 个人信息控制类
  * @author 伟
  */
-Class Personaldata_in extends CI_Controller {
+Class Personal_data extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('moa_user_model');
@@ -17,12 +17,23 @@ Class Personaldata_in extends CI_Controller {
 		$this->load->helper('cookie');
 	}
 	
+	/**
+	 * 查看/修改个人资料
+	 */
 	public function index() {
-		
+		if (isset($_SESSION['user_id'])) {
+			// 获取个人信息
+			$obj = $this->moa_user_model->get($_SESSION['user_id']);
+			$data['personal_data'] = $obj;
+			$this->load->view('view_personal_data', $data);
+		} else {
+			// 未登录的用户请先登录
+			Public_methods::requireLogin();
+		}
 	}
 	
 	/*
-	 * 发布坐班日志
+	 * 个人信息（录入 更新）
 	 */
 	public function personalDataUpdate() {
 		if (isset($_SESSION['user_id'])) {

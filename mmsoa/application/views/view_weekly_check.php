@@ -134,7 +134,7 @@
 		$(document).ready(function () {
 			$("#active-workrecord").addClass("active");
 			$("#active-weeklycheck").addClass("active");
-			$("#mini").attr("href", "weeklycheck#");
+			$("#mini").attr("href", "Weekly_check#");
 		});
 	</script>
 

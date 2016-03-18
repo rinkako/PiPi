@@ -102,7 +102,7 @@ $("#submit_morning").click(function() {
 	
 	$.ajax({
 		type: "POST", 
-		url: "Dailycheck/dailyCheckMorning",
+		url: "Daily_check/dailyCheckMorning",
 		data: {
 			"cond_morning": desc_list,
 		},
@@ -159,7 +159,7 @@ $("#submit_noon").click(function() {
 	
 	$.ajax({
 		type: "POST", 
-		url: "Dailycheck/dailyCheckNoon",
+		url: "Daily_check/dailyCheckNoon",
 		data: {
 			"cond_noon": desc_list,
 		},
@@ -216,7 +216,7 @@ $("#submit_evening").click(function() {
 	
 	$.ajax({
 		type: "POST", 
-		url: "Dailycheck/dailyCheckEvening",
+		url: "Daily_check/dailyCheckEvening",
 		data: {
 			"cond_evening": desc_list,
 		},

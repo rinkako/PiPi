@@ -7,7 +7,7 @@ require_once('Public_methods.php');
  * 周检录入控制类
  * @author 伟
  */
-Class Weeklycheck extends CI_Controller {
+Class Weekly_check extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('moa_user_model');

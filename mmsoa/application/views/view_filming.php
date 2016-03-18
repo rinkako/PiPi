@@ -128,7 +128,7 @@
 		$(document).ready(function () {
 			$("#active-workrecord").addClass("active");
 			$("#active-filming").addClass("active");
-			$("#mini").attr("href", "filming#");
+			$("#mini").attr("href", "Filming#");
 		});
 	</script>
 

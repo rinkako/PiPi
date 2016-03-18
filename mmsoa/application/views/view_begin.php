@@ -22,7 +22,7 @@
 </head>
 <body>
     <div class="logo">
-        <a href="index.html"><img src="<?=base_url().'assets/images/150.png' ?>" width="150" align="center"></a>
+        <a href="index.html"><img src="<?=base_url().'assets/images/m.png' ?>" width="150" align="center"></a>
     </div>
 	<!-- Fixed navbar -->
 	<div class="navbar navbar-inverse">

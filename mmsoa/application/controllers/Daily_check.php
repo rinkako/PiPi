@@ -7,7 +7,7 @@ require_once('Public_methods.php');
  * 常检录入控制类
  * @author 伟
  */
-Class Dailycheck extends CI_Controller {
+Class Daily_check extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('moa_user_model');

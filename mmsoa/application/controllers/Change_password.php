@@ -16,8 +16,19 @@ Class Change_password extends CI_Controller {
 		$this->load->helper('cookie');
 	}
 	
+	/*
+	 * 进入修改密码页面
+	 */
 	public function index() {
-		
+		if (isset($_SESSION['user_id'])) {
+			// 获取个人信息
+			$obj = $this->moa_user_model->get($_SESSION['user_id']);
+			$data['username'] = $obj->username;
+			$this->load->view('view_change_password', $data);
+		} else {
+			// 未登录的用户请先登录
+			Public_methods::requireLogin();
+		}
 	}
 	
 	/*

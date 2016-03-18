@@ -21,6 +21,52 @@ Class User_management extends CI_Controller {
 		
 	}
 	
+	/**
+	 * 添加新用户
+	 */
+	public function addUser() {
+		if (isset($_SESSION['user_id'])) {
+			// 检查权限: 3-助理负责人 4-管理员 5-办公室负责人 6-超级管理员
+			if ($_SESSION['level'] <= 2) {
+				// 提示权限不够
+				Public_methods::permissionDenied();
+			}
+				
+			$data['daily_classrooms'] = Public_methods::get_daily_classrooms();
+			$data['weekly_classrooms'] = Public_methods::get_weekly_classrooms();
+			$this->load->view('view_add_user', $data);
+		} else {
+			// 未登录的用户请先登录
+			Public_methods::requireLogin();
+		}
+	}
+	
+	/**
+	 * 查看用户列表
+	 */
+	public function searchUser() {
+		if (isset($_SESSION['user_id'])) {
+			// state: 0-正常  1-锁定  2-已删除
+			$state = 0;
+			// 取状态为正常的所有用户
+			$users = $this->moa_user_model->get_by_state($state);
+			// 获取普通助理的常检周检课室列表
+			$workers = array();
+			for ($i = 0; $i < count($users); $i++) {
+				if ($users[$i]->level == 0) {
+					$tmp_wid = $this->moa_worker_model->get_wid_by_uid($users[$i]->uid);
+					$workers[$i] = $this->moa_worker_model->get($tmp_wid);
+				}
+			}
+			$data['users'] = $users;
+			$data['workers'] = $workers;
+			$this->load->view('view_search_user', $data);
+		} else {
+			// 未登录的用户请先登录
+			Public_methods::requireLogin();
+		}
+	}
+	
 	/*
 	 * 添加新用户
 	 */

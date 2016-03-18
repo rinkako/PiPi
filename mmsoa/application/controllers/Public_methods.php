@@ -14,15 +14,15 @@ Class Public_methods extends CI_Controller {
 		// 未登录的用户请先登录
 		echo "<script language=javascript>alert('要访问的页面需要先登录！');</script>";
 		$_SESSION['user_url'] = $_SERVER['REQUEST_URI'];
-		echo '<script language=javascript>window.location.href="../Login"</script>';
+		echo '<script language=javascript>window.location.href="' . site_url('Login') . '"</script>';
 	}
 	
 	/**
 	 * 权限要求
 	 */
 	public static function permissionDenied() {
-		echo "<script language=javascript>alert('Sorry, 你没有权限访问！');</script>";
-		echo '<script language=javascript>window.location.href="../Homepage"</script>';
+		echo "<script language=javascript>alert('Sorry, 你没有权限访问！将跳转到主页');</script>";
+		echo '<script language=javascript>window.location.href="' . site_url('Homepage') . '"</script>';
 	}
 	
 	/**

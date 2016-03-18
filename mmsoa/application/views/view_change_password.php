@@ -123,7 +123,7 @@
     <!-- nav item active -->
 	<script>
 		$(document).ready(function () {
-			$("#mini").attr("href", "changePassword#");
+			$("#mini").attr("href", "Change_Password#");
 		});
 	</script>
 
