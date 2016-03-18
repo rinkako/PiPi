@@ -27,6 +27,8 @@
                 </li>
                 <li><a href="<?php echo site_url('Change_password'); ?>">修改密码</a>
                 </li>
+                <li><a href="<?php echo site_url('Change_avatar'); ?>">修改头像</a>
+                </li>
                 <li><a href="contacts.html">联系我们</a>
                 </li>
                 <li class="divider"></li>
