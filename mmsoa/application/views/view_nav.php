@@ -14,7 +14,7 @@
 
         <div class="dropdown profile-element">
         	<span>
-            	<img alt="image" class="img-circle" src="<?=base_url().'assets/images/profile_small.jpg' ?>" />
+            	<img alt="image" id="nav-avatar" class="img-circle" src="<?=base_url() . 'upload/avatar/sm_' . $_SESSION['avatar'] ?>" />
             </span>
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
                 <span class="clear">

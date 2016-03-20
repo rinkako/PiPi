@@ -73,7 +73,7 @@
 			                            </h2>
 			                        <small><?php echo $_SESSION['level_name']; ?></small>
 			                    </div>
-			                    <img src="<?=base_url().'assets/images/a4.jpg' ?>" class="img-circle circle-border m-b-md" alt="profile">
+			                    <img src="<?=base_url() . 'upload/avatar/' . $_SESSION['avatar'] ?>" class="img-circle circle-border m-b-md per-time-avatar" alt="profile">
 			                    <div>
 			                        <span><?php echo $indate; ?> 加入</span> |
 			                        <span>已在职 <?php echo $working_age; ?></span>
@@ -133,8 +133,8 @@
 			                </div>
 			            </div>
 			            <div class="col-sm-3">
-			                <div class="widget style1 gray-bg">
-			                    <div class="row">
+			                <div class="widget style1 penalty-bg">
+			                    <div class="row penalty-text-color">
 			                    	<div class="col-xs-2">
 			                            <i class="fa fa-minus-square-o fa-4x fa-margin"></i>
 			                        </div>
@@ -153,8 +153,8 @@
 			                </div>
 			            </div>
 			            <div class="col-sm-3">
-			                <div class="widget style1 gray-bg">
-			                    <div class="row">
+			                <div class="widget style1 penalty-bg">
+			                    <div class="row penalty-text-color">
 			                    	<div class="col-xs-2">
 			                            <i class="fa fa-frown-o fa-4x"></i>
 			                        </div>

@@ -6692,3 +6692,25 @@ body.skin-3 {
 .my-panel-body {
 	padding-bottom: 0px !important;
 }
+
+#nav-avatar {
+	width: 64px;
+	height: 64px;
+}
+
+.avatar-view-now {
+	border-radius: 50%;
+}
+
+.per-time-avatar {
+	width: 232px;
+	height: 232px;
+}
+
+.penalty-bg {
+	background-color: #9A9898;
+}
+
+.penalty-text-color {
+	color: #ffffff;
+}

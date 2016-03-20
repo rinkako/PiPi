@@ -54,8 +54,9 @@ Class Login extends CI_Controller {
 				set_cookie('username', $username, time() + (60 * 60 * 24 * 30));  // expires in 30 days
 				$success = "登录成功";
 				
-				// 获取姓名与用户级别，存入session会话
+				// 获取头像、姓名与用户级别，存入session会话
 				$obj = $this->moa_user_model->get($_SESSION['user_id']);
+				$_SESSION['avatar'] = $obj->avatar;
 				$_SESSION['name'] = $obj->name;
 				$_SESSION['level'] = $obj->level;
 				$_SESSION['level_name'] = Public_methods::translate_level($obj->level);

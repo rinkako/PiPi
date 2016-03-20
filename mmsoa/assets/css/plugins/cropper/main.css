@@ -4,7 +4,7 @@ body {
 
 .avatar-view {
   display: block;
-  margin: 0 auto;
+  margin: 20px auto;
   height: 220px;
   width: 220px;
   border: 3px solid #fff;
@@ -126,4 +126,13 @@ body {
   opacity: .75;
   filter: alpha(opacity=75);
   z-index: 20140628;
+}
+
+.my-container {
+	width: inherit !important;
+	padding: 30px 0 45px !important;
+}
+
+.my-ibox {
+	height: 375px !important;
 }

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="renderer" content="webkit">
 
-    <title>MOA-修改头像</title>
+    <title>MOA-更换头像</title>
     <?php $this->load->view('view_keyword'); ?>
     
     <link href="<?=base_url().'assets/images/moa.ico' ?>" rel="shortcut icon">
@@ -40,7 +40,7 @@
                             MOA
                         </li>
                         <li>
-                            <strong>修改头像</strong>
+                            <strong>更换头像</strong>
                         </li>	
                     </ol>
                 </div>
@@ -53,17 +53,18 @@
                     <div class="col-lg-12">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
-                                <h5>修改头像 </h5>
+                                <h5>更换头像 </h5>
                             </div>
                             <div class="ibox-content">
                             	 
-                            	<div class="container" id="crop-avatar">
-            
-						            <!-- Current avatar -->
-						            <div class="avatar-view" title="点击更换头像">
-						                <img src="<?=base_url().'assets/images/picture.jpg' ?>" alt="Avatar"/>
+                            	<div class="container my-container" id="crop-avatar">
+                            	
+                            		<div class="row">
+							            <!-- Current avatar -->
+							            <div class="avatar-view avatar-view-now" title="点击更换头像">
+							                <img class="avatar-view-now" src="<?=base_url() . 'upload/avatar/' . $_SESSION['avatar'] ?>" alt="Avatar"/>
+							            </div>
 						            </div>
-						            <button class="btn btn-primary" id="submit_changepassword" style="visibility: hidden;">修改</button>
 						
 						            <!-- Cropping modal -->
 						            <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
@@ -142,6 +143,13 @@
     <script src="<?=base_url().'assets/js/jquery-2.1.1.min.js' ?>"></script>
 	<script src="<?=base_url().'assets/js/bootstrap.min.js?v=3.4.0' ?>"></script>
     <script src="<?=base_url().'assets/js/plugins/metisMenu/jquery.metisMenu.js' ?>"></script>
+    
+    <!-- nav item active -->
+	<script>
+		$(document).ready(function () {
+			$("#mini").attr("href", "Change_avatar#");
+		});
+	</script>
     
     <!-- Cropper -->
     <script src="<?=base_url().'assets/js/plugins/cropper/cropper.min.js' ?>"></script>
