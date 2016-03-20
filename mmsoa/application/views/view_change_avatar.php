@@ -69,7 +69,7 @@
 						            <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
 						                <div class="modal-dialog modal-lg">
 						                    <div class="modal-content">
-						                    	<form class="avatar-form" action="<?php echo site_url('Change_avatar/uploadAvatar'); ?>" enctype="multipart/form-data" method="post">
+						                    	<form class="avatar-form" action="Change_avatar/uploadAvatar" enctype="multipart/form-data" method="post">
 						                        
 						                            <div class="modal-header">
 						                                <button class="close" data-dismiss="modal" type="button">&times;</button>
@@ -125,7 +125,7 @@
 						            </div><!-- /.modal -->
 						
 						            <!-- Loading state -->
-						            <div class="loading" aria-label="Loading" role="img" tabindex="-1" 
+						            <div class="loading col-md-9" aria-label="Loading" role="img" tabindex="-1" 
 						            style="background: #fff url('<?=base_url().'assets/images/loading.gif' ?>') no-repeat center center;"></div>
 						        </div>
                             	

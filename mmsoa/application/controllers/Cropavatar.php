@@ -1,5 +1,6 @@
-<?php
-  class CropAvatar {
+<?php //defined('BASEPATH') OR exit('No direct script access allowed');
+	
+  class Cropavatar {
     private $src;
     private $data;
     private $file;
@@ -9,6 +10,9 @@
     private $msg;
 
     function __construct($src, $data, $file) {
+//       $CI =& get_instance();
+//       $CI->load->helper(array('form', 'url'));
+//       $CI->load->library('session');
       $this -> setSrc($src);
       $this -> setData($data);
       $this -> setFile($file);
@@ -42,7 +46,7 @@
 
         if ($type) {
           $extension = image_type_to_extension($type);
-          $src = 'upload/' . date('YmdHis') . '.original' . $extension;
+          $src = 'upload/avatar/' . date('YmdHis') . '.original' . $extension;
 
           if ($type == IMAGETYPE_GIF || $type == IMAGETYPE_JPEG || $type == IMAGETYPE_PNG) {
 
@@ -72,7 +76,7 @@
     }
 
     private function setDst() {
-      $this -> dst = 'upload/' . date('YmdHis') . '.png';
+      $this -> dst = 'upload/avatar/' . date('YmdHis') . '.png';
     }
 
     private function crop($src, $dst, $data) {
