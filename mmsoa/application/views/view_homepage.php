@@ -147,7 +147,7 @@
 		            </div>
 		            <div id="small-chat">
 			            <button class="open-small-chat div-shadow" data-toggle="modal" data-target="#myModal">
-			                <i class="fa fa-plus"></i>
+			                <i class="fa fa-plus" style="font-size: 18px;"></i>
 			            </button>
 			        </div>
 	         	</div>

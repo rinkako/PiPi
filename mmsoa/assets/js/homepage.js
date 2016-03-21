@@ -44,7 +44,7 @@ $("#post-btn").click(function() {
 			if (ret['status'] === true) {
 				$("#post-circle").prepend(
 					"<div class='social-feed-separated' id='separated_" + ret['bpid'] + "'>" +
-						"<div class='social-avatar'><a href=''><img alt='image' src='" + ret['base_url'] + "assets/images/a5.jpg'></a></div>" +
+						"<div class='social-avatar'><a href=''><img alt='image' src='" + ret['base_url'] + "upload/avatar/sm_" + ret['avatar'] + "'></a></div>" +
 						"<div class='social-feed-box'>" +
 							"<div class='social-avatar'>" +
 								"<a href='#'>" + ret['name'] + "</a>" +
@@ -56,7 +56,7 @@ $("#post-btn").click(function() {
 							"</div>" +
 							"<div class='social-footer'>" +
 								"<div class='social-comment' id='write_comment_" + ret['bpid'] + "'>" +
-									"<a href='' class='pull-left'><img alt='image' src='" + ret['base_url'] + "assets/images/a3.jpg'></a>" +
+									"<a href='' class='pull-left'><img alt='image' src='" + ret['base_url'] + "upload/avatar/sm_" + ret['avatar'] + "'></a>" +
 									"<div class='media-body'>" +
 										"<textarea id='comment_textarea_" + ret['bpid'] + "' class='form-control' placeholder='填写评论...'></textarea>" +
 										"<div class='btn-group' style='margin-top: 4px;'>" +
@@ -114,7 +114,7 @@ $("body").on("click", ".comment-btn", function(){
 				$(write_comment_id_selector).before(
 					"<div class='social-comment'>" +
 						"<a href='' class='pull-left'>" +
-							"<img alt='image' src='" + ret['base_url'] + "assets/images/a7.jpg'>" +
+							"<img alt='image' src='" + ret['base_url'] + "upload/avatar/sm_" + ret['avatar'] + "'>" +
 						"</a>" +
 						"<div class='media-body'>" +
 							"<a href='#'>" + ret['name'] + "</a>： " + comment_content + "<br/>" +
@@ -158,7 +158,7 @@ $("#more_posts").bind("getPostComment", function(event, base_date) {
 				for (var i = 0; i < ret['post_list'].length; i++) {
 					$("#more-btn").before(
 						"<div class='social-feed-separated' id='separated_" + ret['post_list'][i]['bpid'] + "'>" +
-							"<div class='social-avatar'><a href=''><img alt='image' src='" + ret['base_url'] + "assets/images/a5.jpg'></a></div>" +
+							"<div class='social-avatar'><a href=''><img alt='image' src='" + ret['base_url'] + "upload/avatar/sm_" + ret['post_list'][i]['avatar'] + "'></a></div>" +
 							"<div class='social-feed-box'>" +
 								"<div class='social-avatar'>" +
 									"<a href='#'>" + ret['post_list'][i]['name'] + "</a>" +
@@ -170,7 +170,7 @@ $("#more_posts").bind("getPostComment", function(event, base_date) {
 								"</div>" +
 								"<div class='social-footer'>" +
 									"<div class='social-comment' id='write_comment_" + ret['post_list'][i]['bpid'] + "'>" +
-										"<a href='' class='pull-left'><img alt='image' src='" + ret['base_url'] + "assets/images/a3.jpg'></a>" +
+										"<a href='' class='pull-left'><img alt='image' src='" + ret['base_url'] + "upload/avatar/sm_" + ret['cur_avatar'] + "'></a>" +
 										"<div class='media-body'>" +
 											"<textarea id='comment_textarea_" + ret['post_list'][i]['bpid'] + "' class='form-control' placeholder='填写评论...'></textarea>" +
 											"<div class='btn-group' style='margin-top: 4px;'>" +
@@ -190,7 +190,7 @@ $("#more_posts").bind("getPostComment", function(event, base_date) {
 							$(write_comment_id_selector).before(
 								"<div class='social-comment'>" +
 									"<a href='' class='pull-left'>" +
-										"<img alt='image' src='" + ret['base_url'] + "assets/images/a7.jpg'>" +
+										"<img alt='image' src='" + ret['base_url'] + "upload/avatar/sm_" + ret['comment_list'][i][j]['avatar'] + "'>" +
 									"</a>" +
 									"<div class='media-body'>" +
 										"<a href='#'>" + ret['comment_list'][i][j]['name'] + "</a>： " + ret['comment_list'][i][j]['body'] + "<br/>" +

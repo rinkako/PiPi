@@ -36,7 +36,9 @@ Class Homepage extends CI_Controller {
 	public function addPost() {
 		if (isset($_SESSION['user_id'])) {
 			$uid = $_SESSION['user_id'];
-			$name = $this->moa_user_model->get($uid)->name;
+			$user_obj = $this->moa_user_model->get($uid);
+			$name = $user_obj->name;
+			$avatar = $user_obj->avatar;
 			
 			// 添加新留言
 			if (isset($_POST['post_content'])) {
@@ -52,8 +54,8 @@ Class Homepage extends CI_Controller {
 					return;
 				} else {
 					$splited_date = Public_methods::splitDate($timestamp);
-					echo json_encode(array("status" => TRUE, "msg" => "留言成功", "name" => $name, "splited_date" => $splited_date,
-							"bpid" => $bpid, "base_url" => base_url()));
+					echo json_encode(array("status" => TRUE, "msg" => "留言成功", "name" => $name, "avatar" => $avatar, 
+							"splited_date" => $splited_date, "bpid" => $bpid, "base_url" => base_url()));
 					return;
 				}
 			}
@@ -66,7 +68,9 @@ Class Homepage extends CI_Controller {
 	public function addComment() {
 		if (isset($_SESSION['user_id'])) {
 			$uid = $_SESSION['user_id'];
-			$name = $this->moa_user_model->get($uid)->name;
+			$user_obj = $this->moa_user_model->get($uid);
+			$name = $user_obj->name;
+			$avatar = $user_obj->avatar;
 				
 			// 添加新评论
 			if (isset($_POST['comment_content']) && isset($_POST['post_id'])) {
@@ -83,8 +87,8 @@ Class Homepage extends CI_Controller {
 					return;
 				} else {
 					$splited_date = Public_methods::splitDate($timestamp);
-					echo json_encode(array("status" => TRUE, "msg" => "评论成功", "name" => $name, "splited_date" => $splited_date,
-							"mbcid" => $mbcid, "base_url" => base_url()));
+					echo json_encode(array("status" => TRUE, "msg" => "评论成功", "name" => $name, "avatar" => $avatar, 
+							"splited_date" => $splited_date, "mbcid" => $mbcid, "base_url" => base_url()));
 					return;
 				}
 			}
@@ -96,6 +100,8 @@ Class Homepage extends CI_Controller {
 	 */
 	public function getPostComment() {
 		if (isset($_SESSION['user_id'])) {
+			// 获取当前用户的头像，用于评论区
+			$cur_avatar = $this->moa_user_model->get($_SESSION['user_id'])->avatar;
 			if (isset($_GET['base_date'])) {
 				$base_date = $_GET['base_date'];
 				// 0表示当前时间
@@ -120,13 +126,16 @@ Class Homepage extends CI_Controller {
 					$tmp_post_uid = $post_obj_list[$i]->uid;
 					$tmp_post_bptimestamp = $post_obj_list[$i]->bptimestamp;
 					$tmp_post_body = $post_obj_list[$i]->body;
-					$tmp_post_name = $this->moa_user_model->get($tmp_post_uid)->name;
+					$tmp_post_user_obj = $this->moa_user_model->get($tmp_post_uid);
+					$tmp_post_name = $tmp_post_user_obj->name;
+					$tmp_post_avatar = $tmp_post_user_obj->avatar;
 					
 					// 前端渲染所用数据
 					$post_list[$i]['bpid'] = $tmp_post_bpid;
 					$post_list[$i]['bptimestamp'] = $tmp_post_bptimestamp;
 					$post_list[$i]['body'] = $tmp_post_body;
 					$post_list[$i]['name'] = $tmp_post_name;
+					$post_list[$i]['avatar'] = $tmp_post_avatar;
 					$post_list[$i]['splited_date'] = Public_methods::splitDate($tmp_post_bptimestamp);
 					
 					// 取该留言对应的所有评论
@@ -141,17 +150,20 @@ Class Homepage extends CI_Controller {
 							$tmp_comment_uid = $comment_obj_list[$j]->uid;
 							$tmp_comment_mbctimestamp = $comment_obj_list[$j]->mbctimestamp;
 							$tmp_comment_body = $comment_obj_list[$j]->body;
-							$tmp_comment_name = $this->moa_user_model->get($tmp_comment_uid)->name;
+							$tmp_comment_user_obj = $this->moa_user_model->get($tmp_comment_uid);
+							$tmp_comment_name = $tmp_comment_user_obj->name;
+							$tmp_comment_avatar = $tmp_comment_user_obj->avatar;
 						
 							// 前端渲染所用数据
 							$comment_list[$i][$j]['body'] = $tmp_comment_body;
 							$comment_list[$i][$j]['name'] = $tmp_comment_name;
+							$comment_list[$i][$j]['avatar'] = $tmp_comment_avatar;
 							$comment_list[$i][$j]['splited_date'] = Public_methods::splitDate($tmp_comment_mbctimestamp);
 						
 						}
 					}
 				}
-				echo json_encode(array("status" => TRUE, "msg" => "获取留言与评论成功", "base_url" => base_url(), 
+				echo json_encode(array("status" => TRUE, "msg" => "获取留言与评论成功", "cur_avatar" => $cur_avatar, "base_url" => base_url(), 
 						"post_list" => $post_list, "comment_list" => $comment_list));
 				return;
 			}
