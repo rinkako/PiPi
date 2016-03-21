@@ -1,13 +1,13 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-require_once('Public_methods.php');
+require_once('PublicMethod.php');
 
 /**
  * 排班控制类
  * @author 伟
  */
-Class Duty_arrange extends CI_Controller {
+Class DutyArrange extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('moa_user_model');
@@ -24,24 +24,6 @@ Class Duty_arrange extends CI_Controller {
 	}
 	
 	/**
-	 * 值班报名
-	 */
-	public function dutySignUp() {
-		if (isset($_SESSION['user_id'])) {
-			// 检查权限: 0-普通助理 3-助理负责人 6-超级管理员
-			if ($_SESSION['level'] != 0 && $_SESSION['level'] != 3 && $_SESSION['level'] != 6) {
-				// 提示权限不够
-				Public_methods::permissionDenied();
-			}
-			
-			$this->load->view('view_duty_signup');
-		} else {
-			// 未登录的用户请先登录
-			Public_methods::requireLogin();
-		}
-	}
-	
-	/**
 	 * 排班页面加载
 	 */
 	public function dutyArrange() {
@@ -49,7 +31,7 @@ Class Duty_arrange extends CI_Controller {
 			// 检查权限: 3-助理负责人 6-超级管理员
 			if ($_SESSION['level'] != 3 && $_SESSION['level'] != 6) {
 				// 提示权限不够
-				Public_methods::permissionDenied();
+				PublicMethod::permissionDenied();
 			}
 			
 			// 取所有普通助理的wid与name, level: 0-普通助理  1-组长  2-负责人助理  3-助理负责人  4-管理员  5-办公室负责人
@@ -117,7 +99,7 @@ Class Duty_arrange extends CI_Controller {
 			$this->load->view('view_duty_arrange', $data);
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 	
@@ -727,7 +709,7 @@ Class Duty_arrange extends CI_Controller {
 			
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 	

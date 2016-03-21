@@ -1,13 +1,13 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-require_once('Public_methods.php');
+require_once('PublicMethod.php');
 
 /**
  * 工时控制类
  * @author 伟
  */
-Class Working_time extends CI_Controller {
+Class WorkingTime extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
  		$this->load->model('moa_user_model');
@@ -30,7 +30,7 @@ Class Working_time extends CI_Controller {
 			// 检查权限: 2-负责人助理 3-助理负责人 5-办公室负责人 6-超级管理员
 			if ($_SESSION['level'] != 2 && $_SESSION['level'] != 3 && $_SESSION['level'] != 5 && $_SESSION['level'] != 6) {
 				// 提示权限不够
-				Public_methods::permissionDenied();
+				PublicMethod::permissionDenied();
 			}
 			
 			// level: 0-普通助理 1-组长 2-负责人助理 3-助理负责人
@@ -59,7 +59,7 @@ Class Working_time extends CI_Controller {
 					// 历史总实际工时 = 历史总工时 - 历史总扣除工时
 					$tmp_total_real_contri = $tmp_total_contri - $tmp_total_penalty;
 					$u_total_contri_list[$count] = $tmp_total_real_contri;
-					$u_total_salary_list[$count] = Public_methods::cal_salary($tmp_total_real_contri);
+					$u_total_salary_list[$count] = PublicMethod::cal_salary($tmp_total_real_contri);
 					// 从Worker表获取本月工时
 					$tmp_wid = $this->moa_worker_model->get_wid_by_uid($tmp_uid);
 					$tmp_worker_obj = $this->moa_worker_model->get($tmp_wid);
@@ -68,7 +68,7 @@ Class Working_time extends CI_Controller {
 					// 本月实际工时 = 本月总工时 - 本月总扣除工时
 					$tmp_month_real_contri = $tmp_month_contri - $tmp_month_penalty;
 					$w_month_contri_list[$count] = $tmp_month_real_contri;
-					$w_month_salary_list[$count] = Public_methods::cal_salary($tmp_month_real_contri);
+					$w_month_salary_list[$count] = PublicMethod::cal_salary($tmp_month_real_contri);
 				}
 			}
 			
@@ -84,7 +84,7 @@ Class Working_time extends CI_Controller {
 			$this->load->view('view_all_time', $data);
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 	
@@ -97,7 +97,7 @@ Class Working_time extends CI_Controller {
 			if ($_SESSION['level'] != 0 && $_SESSION['level'] != 1 && 
 					$_SESSION['level'] != 2 && $_SESSION['level'] != 3 && $_SESSION['level'] != 6) {
 				// 提示权限不够
-				Public_methods::permissionDenied();
+				PublicMethod::permissionDenied();
 			}
 			
 			// 入职日期
@@ -124,20 +124,20 @@ Class Working_time extends CI_Controller {
 			
 			if ($user_obj != FALSE) {
 				$indate = $user_obj->indate;
-				$working_age = Public_methods::cal_working_age($indate);
+				$working_age = PublicMethod::cal_working_age($indate);
 				$card = $user_obj->creditcard;
 				// 历史累计
 				$tmp_total_contri = $user_obj->contribution;
 				$total_penalty = $user_obj->totalPenalty;
 				$total_contri = $tmp_total_contri - $total_penalty;
-				$total_salary = Public_methods::cal_salary($total_contri);
+				$total_salary = PublicMethod::cal_salary($total_contri);
 				// 本月
 				$wid = $this->moa_worker_model->get_wid_by_uid($uid);
 				$worker_obj = $this->moa_worker_model->get($wid);
 				$tmp_month_contri = $worker_obj->worktime;
 				$month_penalty = $worker_obj->penalty;
 				$month_contri = $tmp_month_contri - $month_penalty;
-				$month_salary = Public_methods::cal_salary($month_contri);
+				$month_salary = PublicMethod::cal_salary($month_contri);
 			}
 			
 			$data['indate'] = substr($indate, 0, 10);
@@ -148,12 +148,12 @@ Class Working_time extends CI_Controller {
 			$data['total_contri'] = $total_contri;
 			$data['total_penalty'] = $total_penalty;
 			$data['total_salary'] = $total_salary;
-			$data['card'] = Public_methods::creditcard_format($card);
+			$data['card'] = PublicMethod::creditcard_format($card);
 			
 			$this->load->view('view_per_time', $data);
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 

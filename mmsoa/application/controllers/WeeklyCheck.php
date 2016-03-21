@@ -1,13 +1,13 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-require_once('Public_methods.php');
+require_once('PublicMethod.php');
 
 /**
  * 周检录入控制类
  * @author 伟
  */
-Class Weekly_check extends CI_Controller {
+Class WeeklyCheck extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('moa_user_model');
@@ -28,7 +28,7 @@ Class Weekly_check extends CI_Controller {
 			// 检查权限: 0-普通助理  6-超级管理员
 			if ($_SESSION['level'] != 0 && $_SESSION['level'] != 6) {
 				// 提示权限不够
-				Public_methods::permissionDenied();
+				PublicMethod::permissionDenied();
 			}
 				
 			// 获取周检课室
@@ -40,7 +40,7 @@ Class Weekly_check extends CI_Controller {
 			$this->load->view('view_weekly_check', $data);
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 	
@@ -60,7 +60,7 @@ Class Weekly_check extends CI_Controller {
 	
 			if (isset($_POST['cond_week']) && isset($_POST['cond_lamp'])) {
 				// 周一为一周的第一天
-				$check_paras['weekcount'] = Public_methods::cal_week();
+				$check_paras['weekcount'] = PublicMethod::cal_week();
 	
 				// 1-周一  2-周二  ... 6-周六  7-周日
 				$check_paras['weekday'] = date("w") == 0 ? 7 : date("w");
@@ -126,7 +126,7 @@ Class Weekly_check extends CI_Controller {
 					$attend_paras['wid'] = $wid;
 					$attend_paras['timestamp'] = $time;
 					// 周次，周一为一周的第一天
-					$attend_paras['weekcount'] = Public_methods::cal_week();
+					$attend_paras['weekcount'] = PublicMethod::cal_week();
 					// 1-周一  2-周二  ... 6-周六  7-周日
 					$attend_paras['weekday'] = date("w") == 0 ? 7 : date("w");
 					// 签到type: 0-值班  1-早检 2-午检 3-晚检 4-周检
@@ -138,7 +138,7 @@ Class Weekly_check extends CI_Controller {
 					$attend_id = $this->moa_attend_model->add($attend_paras);
 					
 					// 更新工时
-					$contrib = Public_methods::get_weekly_working_hours($room_count);
+					$contrib = PublicMethod::get_weekly_working_hours($room_count);
 					$affected_rows = $this->moa_worker_model->update_worktime($wid, $contrib);
 					$affected_rows_u = $this->moa_user_model->update_contribution($uid, $contrib);
 					

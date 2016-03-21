@@ -1,13 +1,13 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-require_once('Public_methods.php');
+require_once('PublicMethod.php');
 
 /**
  * 修改密码控制类
  * @author 伟
  */
-Class Change_password extends CI_Controller {
+Class ChangePassword extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('moa_user_model');
@@ -27,7 +27,7 @@ Class Change_password extends CI_Controller {
 			$this->load->view('view_change_password', $data);
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 	

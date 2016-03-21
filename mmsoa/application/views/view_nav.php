@@ -23,11 +23,11 @@
                 </span>
             </a>
             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                <li><a href="<?php echo site_url('Personal_data'); ?>">个人资料</a>
+                <li><a href="<?php echo site_url('PersonalData'); ?>">个人资料</a>
                 </li>
-                <li><a href="<?php echo site_url('Change_password'); ?>">修改密码</a>
+                <li><a href="<?php echo site_url('ChangePassword'); ?>">修改密码</a>
                 </li>
-                <li><a href="<?php echo site_url('Change_avatar'); ?>">更换头像</a>
+                <li><a href="<?php echo site_url('ChangeAvatar'); ?>">更换头像</a>
                 </li>
                 <li><a href="contacts.html">联系我们</a>
                 </li>
@@ -49,11 +49,11 @@
             '<li id="active-workrecord">' . 
                 '<a href="Homepage#"><i class="fa fa-edit"></i> <span class="nav-label"> 工作记录</span> <span class="fa arrow"></span></a>' . 
                 '<ul class="nav nav-second-level">' . 
-                    '<li id="active-dailycheck"><a href="'. site_url('Daily_check') . '">常检</a>' . 
+                    '<li id="active-dailycheck"><a href="'. site_url('DailyCheck') . '">常检</a>' . 
                     '</li>' . 
-                    '<li id="active-weeklycheck"><a href="'. site_url('Weekly_check') . '">周检</a>' . 
+                    '<li id="active-weeklycheck"><a href="'. site_url('WeeklyCheck') . '">周检</a>' . 
                     '</li>' . 
-                    '<li id="active-onduty"><a href="'. site_url('Onduty') . '">值班</a>' . 
+                    '<li id="active-onduty"><a href="'. site_url('Duty') . '">值班</a>' . 
                     '</li>' . 
                     '<li id="active-filming"><a href="'. site_url('Filming') . '">拍摄</a>' . 
                     '</li>' . 
@@ -66,11 +66,11 @@
             '<li id="active-workReview">' . 
                 '<a href="Homepage#"><i class="fa fa-calendar-check-o"></i> <span class="nav-label"> 工作审查</span><span class="fa arrow"></span></a>' . 
                 '<ul class="nav nav-second-level">' . 
-                    '<li id="active-dailyReview"><a href="'. site_url('Daily_review/dailyReview') . '">常检</a>' . 
+                    '<li id="active-dailyReview"><a href="'. site_url('DailyReview/dailyReview') . '">常检</a>' . 
                     '</li>' . 
-                    '<li id="active-weeklyReview"><a href="'. site_url('Weekly_review/weeklyReview') . '">周检</a>' . 
+                    '<li id="active-weeklyReview"><a href="'. site_url('WeeklyReview/weeklyReview') . '">周检</a>' . 
                     '</li>' . 
-                    '<li id="active-dutyReview"><a href="'. site_url('Duty_review/dutyReview') . '">值班</a>' . 
+                    '<li id="active-dutyReview"><a href="'. site_url('DutyReview/dutyReview') . '">值班</a>' . 
                     '</li>' . 
                 '</ul>' . 
             '</li>';
@@ -94,15 +94,15 @@
             '<li id="active-userManagement">' . 
                 '<a href="Homepage#"><i class="fa fa-user"></i> <span class="nav-label"> 用户管理</span><span class="fa arrow"></span></a>' . 
                 '<ul class="nav nav-second-level">' . 
-                    '<li id="active-addUser"><a href="'. site_url('User_management/addUser') . '">添加</a>' . 
+                    '<li id="active-addUser"><a href="'. site_url('UserManagement/addUser') . '">添加</a>' . 
                     '</li>' . 
-                    '<li id="active-searchUser"><a href="'. site_url('User_management/searchUser') . '">通讯录</a>' . 
+                    '<li id="active-searchUser"><a href="'. site_url('UserManagement/searchUser') . '">通讯录</a>' . 
                     '</li>' . 
                 '</ul>' . 
             '</li>';
         } else { echo 
             '<li id="active-userManagement">' .
-            	'<a href="'. site_url('Backend/searchUser') . '"><i class="fa fa-user"></i> <span class="nav-label"> 通讯录</span></a>' .
+            	'<a href="'. site_url('User_management/searchUser') . '"><i class="fa fa-user"></i> <span class="nav-label"> 通讯录</span></a>' .
             '</li>';
         } 
     ?>
@@ -111,19 +111,19 @@
             '<li id="active-timeStatistics">' . 
                 '<a href="Homepage#"><i class="fa fa-rmb"></i> <span class="nav-label"> &nbsp;工时统计</span><span class="fa arrow"></span></a>' . 
                 '<ul class="nav nav-second-level">' . 
-                    '<li id="active-personal"><a href="'. site_url('Working_time/perWorkingTime') . '">个人<span class="label label-warning pull-right">26</span></a>' . 
+                    '<li id="active-personal"><a href="'. site_url('WorkingTime/perWorkingTime') . '">个人<span class="label label-warning pull-right">26</span></a>' . 
                     '</li>' . 
-                    '<li id="active-allmembers"><a href="'. site_url('Working_time/allWorkingTime') . '">全员</a>' . 
+                    '<li id="active-allmembers"><a href="'. site_url('WorkingTime/allWorkingTime') . '">全员</a>' . 
                     '</li>' . 
                 '</ul>' . 
             '</li>';
         } else if ($_SESSION['level'] == 0 || $_SESSION['level'] == 1) { echo
             '<li id="active-timeStatistics">' .
-            	'<a href="'. site_url('Working_time/perWorkingTime') . '"><i class="fa fa-rmb"></i> <span class="nav-label"> &nbsp;我的工时</span></a>' .
+            	'<a href="'. site_url('WorkingTime/perWorkingTime') . '"><i class="fa fa-rmb"></i> <span class="nav-label"> &nbsp;我的工时</span></a>' .
             '</li>';
         } else if ($_SESSION['level'] == 5) { echo
             '<li id="active-timeStatistics">' .
-            	'<a href="'. site_url('Working_time/allWorkingTime') . '"><i class="fa fa-rmb"></i> <span class="nav-label"> &nbsp;工时统计</span></a>' .
+            	'<a href="'. site_url('WorkingTime/allWorkingTime') . '"><i class="fa fa-rmb"></i> <span class="nav-label"> &nbsp;工时统计</span></a>' .
             '</li>';
         } 
     ?>
@@ -132,15 +132,15 @@
         <ul class="nav nav-second-level">
         	<?php 
         	if ($_SESSION['level'] == 0 || $_SESSION['level'] == 3 || $_SESSION['level'] == 6) { echo
-                '<li id="active-dutySignUp"><a href="'. site_url('Duty_arrange/dutySignUp') . '">报名</a>' . 
+                '<li id="active-dutySignUp"><a href="'. site_url('DutySignUp') . '">报名</a>' . 
                 '</li>';
         	} 
         	if ($_SESSION['level'] == 3 || $_SESSION['level'] == 6) { echo
-                '<li id="active-dutyArrange"><a href="'. site_url('Duty_arrange/dutyArrange') . '">排班</a>' . 
+                '<li id="active-dutyArrange"><a href="'. site_url('DutyArrange/dutyArrange') . '">排班</a>' . 
                 '</li>';
         	} 
         ?>
-            <li id="active-dutySchedule"><a href="<?php echo site_url('Duty_arrange/dutySchedule'); ?>">值班表</a>
+            <li id="active-dutySchedule"><a href="<?php echo site_url('DutyArrange/dutySchedule'); ?>">值班表</a>
             </li>
         </ul>
     </li>

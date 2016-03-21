@@ -57,7 +57,7 @@ $("#submit_onduty").click(function() {
 	
 	$.ajax({
 		type: "POST", 
-		url: "Onduty/ondutyRecord",
+		url: "Duty/ondutyRecord",
 		data: {
 			"time_from": from,
 			"time_to": to,

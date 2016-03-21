@@ -70,7 +70,7 @@
 						            <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
 						                <div class="modal-dialog modal-lg">
 						                    <div class="modal-content">
-						                    	<form class="avatar-form" action="Change_avatar/uploadAvatar" enctype="multipart/form-data" method="post">
+						                    	<form class="avatar-form" action="ChangeAvatar/uploadAvatar" enctype="multipart/form-data" method="post">
 						                        
 						                            <div class="modal-header">
 						                                <button class="close" data-dismiss="modal" type="button">&times;</button>
@@ -147,7 +147,7 @@
     <!-- nav item active -->
 	<script>
 		$(document).ready(function () {
-			$("#mini").attr("href", "Change_avatar#");
+			$("#mini").attr("href", "ChangeAvatar#");
 		});
 	</script>
     

@@ -1,13 +1,13 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-require_once('Public_methods.php');
+require_once('PublicMethod.php');
 
 /**
  * 后台控制类
  * @author 伟
  */
-Class Backend extends CI_Controller {
+Class BackEnd extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
  		$this->load->model('moa_user_model');

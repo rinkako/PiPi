@@ -1,13 +1,13 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-require_once('Public_methods.php');
+require_once('PublicMethod.php');
 
 /**
  * 周检工作审查控制类
  * @author 伟
  */
-Class Weekly_review extends CI_Controller {
+Class WeeklyReview extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('moa_user_model');
@@ -32,11 +32,11 @@ Class Weekly_review extends CI_Controller {
 			// 检查权限: 1-组长 2-负责人助理 3-助理负责人 4-管理员 5-办公室负责人 6-超级管理员
 			if ($_SESSION['level'] <= 0) {
 				// 提示权限不够
-				Public_methods::permissionDenied();
+				PublicMethod::permissionDenied();
 			}
 				
 			// 周一为一周的第一天
-			$weekcount = Public_methods::cal_week();
+			$weekcount = PublicMethod::cal_week();
 	
 			// 已完成早检助理人数
 			$w_count = 0;
@@ -58,7 +58,7 @@ Class Weekly_review extends CI_Controller {
 				for ($i = 0; $i < count($w_check_obj); $i++) {
 					$w_tmp_wid = $w_check_obj[$i]->actual_wid;
 					$w_wid_list[$w_count] = $w_tmp_wid;
-					$w_day_list[$w_count] = Public_methods::translate_weekday($w_check_obj[$i]->weekday);
+					$w_day_list[$w_count] = PublicMethod::translate_weekday($w_check_obj[$i]->weekday);
 					$w_time_list[$w_count] = $w_check_obj[$i]->timestamp;
 					$w_lamp_list[$w_count] = $w_check_obj[$i]->light;
 					$w_worker_obj = $this->moa_worker_model->get($w_tmp_wid);
@@ -91,7 +91,7 @@ Class Weekly_review extends CI_Controller {
 			$this->load->view('view_weekly_review', $data);
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 	

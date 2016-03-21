@@ -1,13 +1,13 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
-require 'Cropavatar.php';
-require_once('Public_methods.php');
+require 'CropAvatar.php';
+require_once('PublicMethod.php');
 
 /**
  * 更换头像控制类
  * @author 伟
  */
-Class Change_avatar extends CI_Controller {
+Class ChangeAvatar extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('moa_user_model');
@@ -29,13 +29,13 @@ Class Change_avatar extends CI_Controller {
 			$this->load->view('view_change_avatar', $data);
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 	
 	public function uploadAvatar_OOP() {
 		// 面向对象的头像裁剪上传  require 'Cropavatar.php';
-		$crop = new Cropavatar($_POST['avatar_src'], $_POST['avatar_data'], $_FILES['avatar_file']);
+		$crop = new CropAvatar($_POST['avatar_src'], $_POST['avatar_data'], $_FILES['avatar_file']);
 		$response = array(
 				'state'  => 200,
 				'message' => $crop -> getMsg(),

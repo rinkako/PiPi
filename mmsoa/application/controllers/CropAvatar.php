@@ -1,6 +1,6 @@
 <?php //defined('BASEPATH') OR exit('No direct script access allowed');
 	
-  class Cropavatar {
+  class CropAvatar {
     private $src;
     private $data;
     private $file;

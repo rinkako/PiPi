@@ -1,13 +1,13 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-require_once('Public_methods.php');
+require_once('PublicMethod.php');
 
 /**
  * 值班报名控制类
  * @author 伟
  */
-Class Duty_sign_up extends CI_Controller {
+Class DutySignUp extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('moa_user_model');
@@ -18,14 +18,28 @@ Class Duty_sign_up extends CI_Controller {
 		$this->load->helper('cookie');
 	}
 	
+	/**
+	 * 进入值班报名页面
+	 */
 	public function index() {
-		
+		if (isset($_SESSION['user_id'])) {
+			// 检查权限: 0-普通助理 3-助理负责人 6-超级管理员
+			if ($_SESSION['level'] != 0 && $_SESSION['level'] != 3 && $_SESSION['level'] != 6) {
+				// 提示权限不够
+				PublicMethod::permissionDenied();
+			}
+				
+			$this->load->view('view_duty_signup');
+		} else {
+			// 未登录的用户请先登录
+			PublicMethod::requireLogin();
+		}
 	}
 	
 	/*
 	 * 值班报名
 	 */
-	public function dutySignUp() {
+	public function signUp() {
 		if (isset($_SESSION['user_id'])) {
 			$uid = $_SESSION['user_id'];
 			$wid = $this->moa_worker_model->get_wid_by_uid($uid);

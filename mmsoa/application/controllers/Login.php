@@ -1,7 +1,7 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-require_once('Public_methods.php');
+require_once('PublicMethod.php');
 
 Class Login extends CI_Controller {
 	public function __construct() {
@@ -59,7 +59,7 @@ Class Login extends CI_Controller {
 				$_SESSION['avatar'] = $obj->avatar;
 				$_SESSION['name'] = $obj->name;
 				$_SESSION['level'] = $obj->level;
-				$_SESSION['level_name'] = Public_methods::translate_level($obj->level);
+				$_SESSION['level_name'] = PublicMethod::translate_level($obj->level);
 				
 				if (isset($_SESSION['user_url'])) {
 					// Save the url needed to be jumped

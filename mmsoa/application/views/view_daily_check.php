@@ -193,7 +193,7 @@
 		$(document).ready(function () {
 			$("#active-workrecord").addClass("active");
 			$("#active-dailycheck").addClass("active");
-			$("#mini").attr("href", "Daily_check#");
+			$("#mini").attr("href", "DailyCheck#");
 		});
 	</script>
 

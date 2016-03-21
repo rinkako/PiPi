@@ -9,7 +9,7 @@ $("#submit_changepassword").click(function() {
 	
 	$.ajax({
 		type: "POST", 
-		url: "Change_password/changePassword",
+		url: "ChangePassword/changePassword",
 		data: {
 			"password_old": pw_old,
 			"password_new": pw_new,

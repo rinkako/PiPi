@@ -1,7 +1,7 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-Class Public_methods extends CI_Controller {
+Class PublicMethod extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->helper(array('form', 'url'));

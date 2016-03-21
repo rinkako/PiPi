@@ -1,13 +1,13 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-require_once('Public_methods.php');
+require_once('PublicMethod.php');
 
 /**
  * 个人信息控制类
  * @author 伟
  */
-Class Personal_data extends CI_Controller {
+Class PersonalData extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('moa_user_model');
@@ -28,7 +28,7 @@ Class Personal_data extends CI_Controller {
 			$this->load->view('view_personal_data', $data);
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 	

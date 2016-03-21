@@ -1,7 +1,7 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-require_once('Public_methods.php');
+require_once('PublicMethod.php');
 
 /**
  * 坐班日志录入控制类
@@ -26,7 +26,7 @@ Class Homepage extends CI_Controller {
 			$this->load->view('view_homepage');
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 	
@@ -53,7 +53,7 @@ Class Homepage extends CI_Controller {
 					echo json_encode(array("status" => FALSE, "msg" => "留言失败"));
 					return;
 				} else {
-					$splited_date = Public_methods::splitDate($timestamp);
+					$splited_date = PublicMethod::splitDate($timestamp);
 					echo json_encode(array("status" => TRUE, "msg" => "留言成功", "name" => $name, "avatar" => $avatar, 
 							"splited_date" => $splited_date, "bpid" => $bpid, "base_url" => base_url()));
 					return;
@@ -86,7 +86,7 @@ Class Homepage extends CI_Controller {
 					echo json_encode(array("status" => FALSE, "msg" => "评论失败"));
 					return;
 				} else {
-					$splited_date = Public_methods::splitDate($timestamp);
+					$splited_date = PublicMethod::splitDate($timestamp);
 					echo json_encode(array("status" => TRUE, "msg" => "评论成功", "name" => $name, "avatar" => $avatar, 
 							"splited_date" => $splited_date, "mbcid" => $mbcid, "base_url" => base_url()));
 					return;
@@ -136,7 +136,7 @@ Class Homepage extends CI_Controller {
 					$post_list[$i]['body'] = $tmp_post_body;
 					$post_list[$i]['name'] = $tmp_post_name;
 					$post_list[$i]['avatar'] = $tmp_post_avatar;
-					$post_list[$i]['splited_date'] = Public_methods::splitDate($tmp_post_bptimestamp);
+					$post_list[$i]['splited_date'] = PublicMethod::splitDate($tmp_post_bptimestamp);
 					
 					// 取该留言对应的所有评论
 					$comment_state = 0;
@@ -158,7 +158,7 @@ Class Homepage extends CI_Controller {
 							$comment_list[$i][$j]['body'] = $tmp_comment_body;
 							$comment_list[$i][$j]['name'] = $tmp_comment_name;
 							$comment_list[$i][$j]['avatar'] = $tmp_comment_avatar;
-							$comment_list[$i][$j]['splited_date'] = Public_methods::splitDate($tmp_comment_mbctimestamp);
+							$comment_list[$i][$j]['splited_date'] = PublicMethod::splitDate($tmp_comment_mbctimestamp);
 						
 						}
 					}

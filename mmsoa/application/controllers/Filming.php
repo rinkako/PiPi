@@ -1,7 +1,7 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-require_once('Public_methods.php');
+require_once('PublicMethod.php');
 
 /**
  * 拍摄登记控制类
@@ -26,13 +26,13 @@ Class Filming extends CI_Controller {
 			// 检查权限: 0-普通助理  6-超级管理员
 			if ($_SESSION['level'] != 0 && $_SESSION['level'] != 6) {
 				// 提示权限不够
-				Public_methods::permissionDenied();
+				PublicMethod::permissionDenied();
 			}
 			
 			$this->load->view('view_filming');
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 	

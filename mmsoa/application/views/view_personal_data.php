@@ -179,7 +179,7 @@
     <!-- nav item active -->
 	<script>
 		$(document).ready(function () {
-			$("#mini").attr("href", "Personal_data#");
+			$("#mini").attr("href", "PersonalData#");
 		});
 	</script>
 

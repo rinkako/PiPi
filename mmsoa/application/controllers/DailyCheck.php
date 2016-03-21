@@ -1,13 +1,13 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-require_once('Public_methods.php');
+require_once('PublicMethod.php');
 
 /**
  * 常检录入控制类
  * @author 伟
  */
-Class Daily_check extends CI_Controller {
+Class DailyCheck extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('moa_user_model');
@@ -28,7 +28,7 @@ Class Daily_check extends CI_Controller {
 			// 检查权限: 0-普通助理  6-超级管理员
 			if ($_SESSION['level'] != 0 && $_SESSION['level'] != 6) {
 				// 提示权限不够
-				Public_methods::permissionDenied();
+				PublicMethod::permissionDenied();
 			}
 		
 			// 获取常检课室
@@ -40,7 +40,7 @@ Class Daily_check extends CI_Controller {
 			$this->load->view('view_daily_check', $data);
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 	
@@ -60,7 +60,7 @@ Class Daily_check extends CI_Controller {
 				
 			if (isset($_POST['cond_morning'])) {
 				// 周一为一周的第一天
-				$check_paras['weekcount'] = Public_methods::cal_week();
+				$check_paras['weekcount'] = PublicMethod::cal_week();
 	
 				// 1-周一  2-周二  ... 6-周六  7-周日
 				$check_paras['weekday'] = date("w") == 0 ? 7 : date("w");
@@ -122,7 +122,7 @@ Class Daily_check extends CI_Controller {
 					$attend_paras['wid'] = $wid;
 					$attend_paras['timestamp'] = $time;
 					// 周次，周一为一周的第一天
-					$attend_paras['weekcount'] = Public_methods::cal_week();
+					$attend_paras['weekcount'] = PublicMethod::cal_week();
 					// 1-周一  2-周二  ... 6-周六  7-周日
 					$attend_paras['weekday'] = date("w") == 0 ? 7 : date("w");
 					// 签到type: 0-值班  1-早检 2-午检 3-晚检 4-周检
@@ -135,7 +135,7 @@ Class Daily_check extends CI_Controller {
 					$attend_id = $this->moa_attend_model->add($attend_paras);
 					
 					// 更新工时
-					$contrib = Public_methods::get_daily_working_hours($type);
+					$contrib = PublicMethod::get_daily_working_hours($type);
 					$affected_rows = $this->moa_worker_model->update_worktime($wid, $contrib);
 					$affected_rows_u = $this->moa_user_model->update_contribution($uid, $contrib);
 					
@@ -173,7 +173,7 @@ Class Daily_check extends CI_Controller {
 	
 			if (isset($_POST['cond_noon'])) {
 				// 周一为一周的第一天
-				$check_paras['weekcount'] = Public_methods::cal_week();
+				$check_paras['weekcount'] = PublicMethod::cal_week();
 	
 				// 1-周一  2-周二  ... 6-周六  7-周日
 				$check_paras['weekday'] = date("w") == 0 ? 7 : date("w");
@@ -235,7 +235,7 @@ Class Daily_check extends CI_Controller {
 					$attend_paras['wid'] = $wid;
 					$attend_paras['timestamp'] = $time;
 					// 周次，周一为一周的第一天
-					$attend_paras['weekcount'] = Public_methods::cal_week();
+					$attend_paras['weekcount'] = PublicMethod::cal_week();
 					// 1-周一  2-周二  ... 6-周六  7-周日
 					$attend_paras['weekday'] = date("w") == 0 ? 7 : date("w");
 					// 签到type: 0-值班  1-早检 2-午检 3-晚检 4-周检
@@ -248,7 +248,7 @@ Class Daily_check extends CI_Controller {
 					$attend_id = $this->moa_attend_model->add($attend_paras);
 					
 					// 更新工时
-					$contrib = Public_methods::get_daily_working_hours($type);
+					$contrib = PublicMethod::get_daily_working_hours($type);
 					$affected_rows = $this->moa_worker_model->update_worktime($wid, $contrib);
 					$affected_rows_u = $this->moa_user_model->update_contribution($uid, $contrib);
 					
@@ -286,7 +286,7 @@ Class Daily_check extends CI_Controller {
 	
 			if (isset($_POST['cond_evening'])) {
 				// 周一为一周的第一天
-				$check_paras['weekcount'] = Public_methods::cal_week();
+				$check_paras['weekcount'] = PublicMethod::cal_week();
 	
 				// 1-周一  2-周二  ... 6-周六  7-周日
 				$check_paras['weekday'] = date("w") == 0 ? 7 : date("w");
@@ -348,7 +348,7 @@ Class Daily_check extends CI_Controller {
 					$attend_paras['wid'] = $wid;
 					$attend_paras['timestamp'] = $time;
 					// 周次，周一为一周的第一天
-					$attend_paras['weekcount'] = Public_methods::cal_week();
+					$attend_paras['weekcount'] = PublicMethod::cal_week();
 					// 1-周一  2-周二  ... 6-周六  7-周日
 					$attend_paras['weekday'] = date("w") == 0 ? 7 : date("w");
 					// 签到type: 0-值班  1-早检 2-午检 3-晚检 4-周检
@@ -361,7 +361,7 @@ Class Daily_check extends CI_Controller {
 					$attend_id = $this->moa_attend_model->add($attend_paras);
 					
 					// 更新工时
-					$contrib = Public_methods::get_daily_working_hours($type);
+					$contrib = PublicMethod::get_daily_working_hours($type);
 					$affected_rows = $this->moa_worker_model->update_worktime($wid, $contrib);
 					$affected_rows_u = $this->moa_user_model->update_contribution($uid, $contrib);
 					

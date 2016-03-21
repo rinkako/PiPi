@@ -1,7 +1,7 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-require_once('Public_methods.php');
+require_once('PublicMethod.php');
 
 /**
  * 坐班日志录入控制类
@@ -30,7 +30,7 @@ Class Journal extends CI_Controller {
 			// 检查权限: 1-组长 2-负责人助理 3-助理负责人 4-管理员 5-办公室负责人 6-超级管理员
 			if ($_SESSION['level'] <= 0) {
 				// 提示权限不够
-				Public_methods::permissionDenied();
+				PublicMethod::permissionDenied();
 			}
 				
 			// 取所有普通助理的wid与name, level: 0-普通助理  1-组长  2-负责人助理  3-助理负责人  4-管理员  5-办公室负责人
@@ -47,7 +47,7 @@ Class Journal extends CI_Controller {
 			$this->load->view('view_write_journal', $data);
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 	
@@ -59,7 +59,7 @@ Class Journal extends CI_Controller {
 			// 检查权限: 1-组长 2-负责人助理 3-助理负责人 4-管理员 5-办公室负责人 6-超级管理员
 			if ($_SESSION['level'] <= 0) {
 				// 提示权限不够
-				Public_methods::permissionDenied();
+				PublicMethod::permissionDenied();
 			}
 				
 			// 获取最近的一篇坐班日志
@@ -77,10 +77,10 @@ Class Journal extends CI_Controller {
 			$report_obj = $this->moa_leaderreport_model->get_lasted($state);
 			// 正确获取到所需记录
 			if ($report_obj) {
-				$data['group'] = Public_methods::translate_group($report_obj->group);
+				$data['group'] = PublicMethod::translate_group($report_obj->group);
 				$data['timestamp'] = $report_obj->timestamp;
 				$data['weekcount'] = $report_obj->weekcount;
-				$data['weekday'] = Public_methods::translate_weekday($report_obj->weekday);
+				$data['weekday'] = PublicMethod::translate_weekday($report_obj->weekday);
 				$body_list = explode(' ## ', $report_obj->body);
 				$data['body_list'] = $body_list;
 	
@@ -120,7 +120,7 @@ Class Journal extends CI_Controller {
 			$this->load->view('view_read_journal', $data);
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 	
@@ -144,7 +144,7 @@ Class Journal extends CI_Controller {
 				}
 				
 				// 周一为一周的第一天
-				$journal_paras['weekcount'] = Public_methods::cal_week();
+				$journal_paras['weekcount'] = PublicMethod::cal_week();
 	
 				// 1-周一  2-周二  ... 6-周六  7-周日
 				$journal_paras['weekday'] = date("w") == 0 ? 7 : date("w");

@@ -167,7 +167,7 @@
 		$(document).ready(function () {
 			$("#active-workrecord").addClass("active");
 			$("#active-onduty").addClass("active");
-			$("#mini").attr("href", "Onduty#");
+			$("#mini").attr("href", "Duty#");
 		});
 	</script>
 

@@ -1,13 +1,13 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-require_once('Public_methods.php');
+require_once('PublicMethod.php');
 
 /**
  * 值班工作审查控制类
  * @author 伟
  */
-Class Duty_review extends CI_Controller {
+Class DutyReview extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('moa_user_model');
@@ -31,15 +31,15 @@ Class Duty_review extends CI_Controller {
 			// 检查权限: 1-组长 2-负责人助理 3-助理负责人 4-管理员 5-办公室负责人 6-超级管理员
 			if ($_SESSION['level'] <= 0) {
 				// 提示权限不够
-				Public_methods::permissionDenied();
+				PublicMethod::permissionDenied();
 			}
 				
 			// 周一为一周的第一天
-			$weekcount = Public_methods::cal_week();
+			$weekcount = PublicMethod::cal_week();
 				
 			// 1-周一  2-周二  ... 6-周六  7-周日
 			$weekday = date("w") == 0 ? 7 : date("w");
-			$weekday_desc = Public_methods::translate_weekday($weekday);
+			$weekday_desc = PublicMethod::translate_weekday($weekday);
 				
 			// 已完成值班助理人数
 			$d_count = 0;
@@ -62,8 +62,8 @@ Class Duty_review extends CI_Controller {
 					$d_wid_list[$d_count] = $d_tmp_wid;
 					$d_time_list[$d_count] = $d_attend_obj[$i]->timestamp;
 					$d_tmp_period = $d_attend_obj[$i]->dutyPeriod;
-					$d_tmp_duration = Public_methods::get_duty_duration($d_tmp_period);
-					$d_tmp_hours = Public_methods::get_working_hours($d_tmp_period);
+					$d_tmp_duration = PublicMethod::get_duty_duration($d_tmp_period);
+					$d_tmp_hours = PublicMethod::get_working_hours($d_tmp_period);
 					$d_duration_list[$d_count] = '<b>' . $d_tmp_duration . '</b> &nbsp;&nbsp;' . $d_tmp_hours . '小时';
 						
 					// 获取姓名
@@ -99,7 +99,7 @@ Class Duty_review extends CI_Controller {
 			$this->load->view('view_duty_review', $data);
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 	

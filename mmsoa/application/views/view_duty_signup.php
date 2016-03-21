@@ -63,7 +63,7 @@
                                 <h5>值班报名</h5>
                             </div>
                             <div class="ibox-content">
-                            	<form method="POST" action="<?php echo site_url('Duty_sign_up/dutySignUp'); ?>">
+                            	<form method="POST" action="<?php echo site_url('DutySignUp/signUp'); ?>">
                             		<div class="row form-group" id="radio_group" style="margin: 10px 35px 23px 0px;">
 	                                    <label class="col-sm-1 col-sm-offset-2 control-label" for="groupid">期望组别</label>
 										<div class="col-sm-8">
@@ -178,14 +178,13 @@
     <script src="<?=base_url().'assets/js/bootstrap.min.js?v=3.4.0' ?>"></script>
     <script src="<?=base_url().'assets/js/plugins/metisMenu/jquery.metisMenu.js' ?>"></script>
     <script src="<?=base_url().'assets/js/plugins/slimscroll/jquery.slimscroll.min.js' ?>"></script>
-   <!--  <script src="<?=base_url().'assets/js/duty-sign-up.js' ?>"></script> -->
     
     <!-- nav item active -->
 	<script>
 		$(document).ready(function () {
 			$("#active-scheduleManagement").addClass("active");
 			$("#active-dutySignUp").addClass("active");
-			$("#mini").attr("href", "dutySignUp#");
+			$("#mini").attr("href", "DutySignUp#");
 		});
 	</script>
 

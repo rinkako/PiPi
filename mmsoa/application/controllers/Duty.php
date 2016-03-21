@@ -1,13 +1,13 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-require_once('Public_methods.php');
+require_once('PublicMethod.php');
 
 /**
  * 值班登记控制类
  * @author 伟
  */
-Class Onduty extends CI_Controller {
+Class Duty extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('moa_user_model');
@@ -26,7 +26,7 @@ Class Onduty extends CI_Controller {
 			// 检查权限: 0-普通助理  6-超级管理员
 			if ($_SESSION['level'] != 0 && $_SESSION['level'] != 6) {
 				// 提示权限不够
-				Public_methods::permissionDenied();
+				PublicMethod::permissionDenied();
 			}
 				
 			// 取所有普通助理的wid与name, level: 0-普通助理  1-组长  2-负责人助理  3-助理负责人  4-管理员  5-办公室负责人
@@ -47,7 +47,7 @@ Class Onduty extends CI_Controller {
 			$this->load->view('view_duty', $data);
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 	
@@ -62,7 +62,7 @@ Class Onduty extends CI_Controller {
 			if (isset($_POST['time_from']) && isset($_POST['time_to'])) {
 				// 1-周一  2-周二  ... 6-周六  7-周日
 				$weekday = date("w") == 0 ? 7 : date("w");
-				$periods_list = Public_methods::get_duty_periods($weekday, $_POST['time_from'], $_POST['time_to']);
+				$periods_list = PublicMethod::get_duty_periods($weekday, $_POST['time_from'], $_POST['time_to']);
 				if ($periods_list == NULL) {
 					echo json_encode(array("status" => FALSE, "msg" => "请选取有效的值班时间段"));
 					return;
@@ -71,7 +71,7 @@ Class Onduty extends CI_Controller {
 				$attend_paras['wid'] = $wid;
 				$attend_paras['timestamp'] = date('Y-m-d H:i:s');
 				// 周次，周一为一周的第一天
-				$attend_paras['weekcount'] = Public_methods::cal_week();
+				$attend_paras['weekcount'] = PublicMethod::cal_week();
 				// 1-周一  2-周二  ... 6-周六  7-周日
 				$attend_paras['weekday'] = date("w") == 0 ? 7 : date("w");
 				// 签到type: 0-值班  1-早检 2-午检 3-晚检 4-周检
@@ -90,7 +90,7 @@ Class Onduty extends CI_Controller {
 							$attend_id = $this->moa_attend_model->add($attend_paras);
 							
 							// 更新工时
-							$contrib = Public_methods::get_working_hours($periods_list[$i]);
+							$contrib = PublicMethod::get_working_hours($periods_list[$i]);
 							$affected_rows = $this->moa_worker_model->update_worktime($wid, $contrib);
 							$affected_rows_u = $this->moa_user_model->update_contribution($uid, $contrib);
 							
@@ -115,7 +115,7 @@ Class Onduty extends CI_Controller {
 							$attend_id = $this->moa_attend_model->add($attend_paras);
 							
 							// 更新工时
-							$contrib = Public_methods::get_working_hours($periods_list[$i]);
+							$contrib = PublicMethod::get_working_hours($periods_list[$i]);
 							$affected_rows = $this->moa_worker_model->update_worktime($wid, $contrib);
 							$affected_rows_u = $this->moa_user_model->update_contribution($uid, $contrib);
 							

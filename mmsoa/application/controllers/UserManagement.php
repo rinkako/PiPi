@@ -1,13 +1,13 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-require_once('Public_methods.php');
+require_once('PublicMethod.php');
 
 /**
  * 添加新用户控制类
  * @author 伟
  */
-Class User_management extends CI_Controller {
+Class UserManagement extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('moa_user_model');
@@ -29,15 +29,15 @@ Class User_management extends CI_Controller {
 			// 检查权限: 3-助理负责人 4-管理员 5-办公室负责人 6-超级管理员
 			if ($_SESSION['level'] <= 2) {
 				// 提示权限不够
-				Public_methods::permissionDenied();
+				PublicMethod::permissionDenied();
 			}
 				
-			$data['daily_classrooms'] = Public_methods::get_daily_classrooms();
-			$data['weekly_classrooms'] = Public_methods::get_weekly_classrooms();
+			$data['daily_classrooms'] = PublicMethod::get_daily_classrooms();
+			$data['weekly_classrooms'] = PublicMethod::get_weekly_classrooms();
 			$this->load->view('view_add_user', $data);
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 	
@@ -63,7 +63,7 @@ Class User_management extends CI_Controller {
 			$this->load->view('view_search_user', $data);
 		} else {
 			// 未登录的用户请先登录
-			Public_methods::requireLogin();
+			PublicMethod::requireLogin();
 		}
 	}
 	
